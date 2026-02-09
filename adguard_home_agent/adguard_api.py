@@ -136,7 +136,7 @@ class Api:
         return self.request(
             "POST", "/oapi/v1/revoke_token", params={"refresh_token": refresh_token}
         )
-    
+
     # Server Info
     def get_version(self) -> Dict:
         """Get AdGuard Home version."""
@@ -147,12 +147,19 @@ class Api:
         """List current access list (allowed/disallowed clients, blocked hosts)."""
         return self.request("GET", "/oapi/v1/access/list")
 
-    def set_access_list(self, allowed_clients: List[str] = None, disallowed_clients: List[str] = None, blocked_hosts: List[str] = None) -> Dict:
+    def set_access_list(
+        self,
+        allowed_clients: List[str] = None,
+        disallowed_clients: List[str] = None,
+        blocked_hosts: List[str] = None,
+    ) -> Dict:
         """Set access list."""
         data = {
             "allowed_clients": allowed_clients if allowed_clients is not None else [],
-            "disallowed_clients": disallowed_clients if disallowed_clients is not None else [],
-            "blocked_hosts": blocked_hosts if blocked_hosts is not None else []
+            "disallowed_clients": (
+                disallowed_clients if disallowed_clients is not None else []
+            ),
+            "blocked_hosts": blocked_hosts if blocked_hosts is not None else [],
         }
         return self.request("POST", "/oapi/v1/access/set", data=data)
 
@@ -160,7 +167,7 @@ class Api:
     def get_blocked_services_list(self) -> List[Dict]:
         """List blocked services."""
         return self.request("GET", "/oapi/v1/blocked_services/list")
-    
+
     def get_all_blocked_services(self) -> Dict:
         """Get all available blocked services."""
         return self.request("GET", "/oapi/v1/blocked_services/all")
@@ -172,10 +179,10 @@ class Api:
     def get_blocked_services_schedule(self) -> Dict:
         """Get blocked services schedule."""
         return self.request("GET", "/oapi/v1/blocked_services/get")
-        
+
     def update_blocked_services_schedule(self, schedule: Dict) -> Dict:
-         """Update blocked services schedule."""
-         return self.request("PUT", "/oapi/v1/blocked_services/update", data=schedule)
+        """Update blocked services schedule."""
+        return self.request("PUT", "/oapi/v1/blocked_services/update", data=schedule)
 
     # Clients
     def list_clients(self) -> Dict:
@@ -186,18 +193,29 @@ class Api:
         """Find clients by IP."""
         return self.request("GET", "/oapi/v1/clients/find", params={"ip0": ip})
 
-    def add_client(self, name: str, ids: List[str], use_global_settings: bool = True, filtering_enabled: bool = True, parent_access: bool = False, safe_search_enabled: bool = False, safe_browsing_enabled: bool = False, tags: List[str] = None, upstreams: List[str] = None) -> Dict:
+    def add_client(
+        self,
+        name: str,
+        ids: List[str],
+        use_global_settings: bool = True,
+        filtering_enabled: bool = True,
+        parent_access: bool = False,
+        safe_search_enabled: bool = False,
+        safe_browsing_enabled: bool = False,
+        tags: List[str] = None,
+        upstreams: List[str] = None,
+    ) -> Dict:
         """Add a new client."""
         data = {
             "name": name,
             "ids": ids,
             "use_global_settings": use_global_settings,
             "filtering_enabled": filtering_enabled,
-            "parental_enabled": parent_access, # Note: field name in API implies parental_enabled? doc says parent_access usually maps to parental control
+            "parental_enabled": parent_access,  # Note: field name in API implies parental_enabled? doc says parent_access usually maps to parental control
             "safebrowsing_enabled": safe_browsing_enabled,
             "safesearch_enabled": safe_search_enabled,
             "tags": tags or [],
-            "upstreams": upstreams or []
+            "upstreams": upstreams or [],
         }
         # Correct field name mapping based on standard AGH API conventions if needed, stick to common ones
         # Re-checking typical payload:
@@ -218,13 +236,12 @@ class Api:
 
     def update_client(self, name: str, data: Dict) -> Dict:
         """Update a client."""
-        data["name"] = name # Ensure name is in body
+        data["name"] = name  # Ensure name is in body
         return self.request("POST", "/oapi/v1/clients/update", data=data)
 
     def delete_client(self, name: str) -> Dict:
         """Delete a client."""
         return self.request("POST", "/oapi/v1/clients/delete", data={"name": name})
-
 
     # DHCP
     def get_dhcp_status(self) -> Dict:
@@ -237,11 +254,19 @@ class Api:
 
     def add_dhcp_static_lease(self, mac: str, ip: str, hostname: str) -> Dict:
         """Add a static DHCP lease."""
-        return self.request("POST", "/oapi/v1/dhcp/add_static_lease", data={"mac": mac, "ip": ip, "hostname": hostname})
+        return self.request(
+            "POST",
+            "/oapi/v1/dhcp/add_static_lease",
+            data={"mac": mac, "ip": ip, "hostname": hostname},
+        )
 
     def remove_dhcp_static_lease(self, mac: str, ip: str, hostname: str) -> Dict:
         """Remove a static DHCP lease."""
-        return self.request("POST", "/oapi/v1/dhcp/remove_static_lease", data={"mac": mac, "ip": ip, "hostname": hostname})
+        return self.request(
+            "POST",
+            "/oapi/v1/dhcp/remove_static_lease",
+            data={"mac": mac, "ip": ip, "hostname": hostname},
+        )
 
     # Filtering
     def get_filtering_status(self) -> Dict:
@@ -250,33 +275,49 @@ class Api:
 
     def set_filtering_config(self, enabled: bool, interval: int) -> Dict:
         """Set filtering configuration."""
-        return self.request("POST", "/oapi/v1/filtering/config", data={"enabled": enabled, "interval": interval})
+        return self.request(
+            "POST",
+            "/oapi/v1/filtering/config",
+            data={"enabled": enabled, "interval": interval},
+        )
 
     def add_filter_url(self, name: str, url: str, whitelist: bool = False) -> Dict:
-         """Add a filter URL."""
-         return self.request("POST", "/oapi/v1/filtering/add_url", data={"name": name, "url": url, "whitelist": whitelist})
-    
+        """Add a filter URL."""
+        return self.request(
+            "POST",
+            "/oapi/v1/filtering/add_url",
+            data={"name": name, "url": url, "whitelist": whitelist},
+        )
+
     def remove_filter_url(self, url: str, whitelist: bool = False) -> Dict:
-         """Remove a filter URL."""
-         return self.request("POST", "/oapi/v1/filtering/remove_url", data={"url": url, "whitelist": whitelist})
+        """Remove a filter URL."""
+        return self.request(
+            "POST",
+            "/oapi/v1/filtering/remove_url",
+            data={"url": url, "whitelist": whitelist},
+        )
 
     def refresh_filters(self, whitelist: bool = False) -> Dict:
         """Refresh all filters."""
-        return self.request("POST", "/oapi/v1/filtering/refresh", data={"whitelist": whitelist})
+        return self.request(
+            "POST", "/oapi/v1/filtering/refresh", data={"whitelist": whitelist}
+        )
 
     def list_filter_lists(self) -> List[Dict]:
         """Gets filter lists. (Legacy endpoint, use filtering/status generally but this returns list objects directly)"""
         return self.request("GET", "/oapi/v1/filter_lists")
-        
+
     def set_filter_url(self, url: str, whitelist: bool, data: Dict) -> Dict:
         """Set filter URL parameters."""
-        data['url'] = url
-        data['whitelist'] = whitelist
+        data["url"] = url
+        data["whitelist"] = whitelist
         return self.request("POST", "/oapi/v1/filtering/set_url", data=data)
-    
+
     def check_host_filtering(self, name: str) -> Dict:
         """Check if a host is filtered."""
-        return self.request("GET", "/oapi/v1/filtering/check_host", params={"name": name})
+        return self.request(
+            "GET", "/oapi/v1/filtering/check_host", params={"name": name}
+        )
 
     # Global Settings - Parental Control
     def get_parental_status(self) -> Dict:
@@ -290,12 +331,12 @@ class Api:
     def disable_parental_control(self) -> Dict:
         """Disable parental control."""
         return self.request("POST", "/oapi/v1/parental/disable")
-        
+
     # Global Settings - Safe Browsing
     def get_safebrowsing_status(self) -> Dict:
         """Get safe browsing status."""
         return self.request("GET", "/oapi/v1/safebrowsing/status")
-        
+
     def enable_safebrowsing(self) -> Dict:
         """Enable safe browsing."""
         return self.request("POST", "/oapi/v1/safebrowsing/enable")
@@ -309,7 +350,16 @@ class Api:
         """Get safe search status."""
         return self.request("GET", "/oapi/v1/safesearch/status")
 
-    def update_safesearch_settings(self, enabled: bool, bing: bool = False, duckduckgo: bool = False, google: bool = False, pixabay: bool = False, yandex: bool = False, youtube: bool = False) -> Dict:
+    def update_safesearch_settings(
+        self,
+        enabled: bool,
+        bing: bool = False,
+        duckduckgo: bool = False,
+        google: bool = False,
+        pixabay: bool = False,
+        yandex: bool = False,
+        youtube: bool = False,
+    ) -> Dict:
         """Update safe search settings."""
         data = {
             "enabled": enabled,
@@ -318,7 +368,7 @@ class Api:
             "google": google,
             "pixabay": pixabay,
             "yandex": yandex,
-            "youtube": youtube
+            "youtube": youtube,
         }
         return self.request("PUT", "/oapi/v1/safesearch/settings", data=data)
 
@@ -367,13 +417,15 @@ class Api:
     def get_query_log_config(self) -> Dict:
         """Get query log configuration."""
         return self.request("GET", "/oapi/v1/query_log/config")
-        
-    def set_query_log_config(self, enabled: bool, interval: int, anonymize_client_ip: bool) -> Dict:
+
+    def set_query_log_config(
+        self, enabled: bool, interval: int, anonymize_client_ip: bool
+    ) -> Dict:
         """Set query log configuration."""
         data = {
             "enabled": enabled,
             "interval": interval,
-            "anonymize_client_ip": anonymize_client_ip
+            "anonymize_client_ip": anonymize_client_ip,
         }
         return self.request("PUT", "/oapi/v1/query_log/config", data=data)
 
@@ -384,32 +436,36 @@ class Api:
 
     def add_rewrite(self, domain: str, answer: str) -> Dict:
         """Add a DNS rewrite."""
-        return self.request("POST", "/oapi/v1/rewrite/add", data={"domain": domain, "answer": answer})
+        return self.request(
+            "POST", "/oapi/v1/rewrite/add", data={"domain": domain, "answer": answer}
+        )
 
     def delete_rewrite(self, domain: str, answer: str) -> Dict:
         """Delete a DNS rewrite."""
-        return self.request("POST", "/oapi/v1/rewrite/delete", data={"domain": domain, "answer": answer})
-        
+        return self.request(
+            "POST", "/oapi/v1/rewrite/delete", data={"domain": domain, "answer": answer}
+        )
+
     def update_rewrite(self, target: Dict, update: Dict) -> Dict:
         """Update a DNS rewrite."""
-        return self.request("POST", "/oapi/v1/rewrite/update", data={"target": target, "update": update})
+        return self.request(
+            "POST", "/oapi/v1/rewrite/update", data={"target": target, "update": update}
+        )
 
     # Stats
     def get_stats(self) -> Dict:
         """Get overall statistics."""
         return self.request("GET", "/oapi/v1/stats")
-        
+
     def get_stats_config(self) -> Dict:
         """Get statistics configuration."""
         return self.request("GET", "/oapi/v1/stats/config")
-        
-    def update_stats_config(self, enabled: bool, interval: int, ignored: List[str] = None) -> Dict:
+
+    def update_stats_config(
+        self, enabled: bool, interval: int, ignored: List[str] = None
+    ) -> Dict:
         """Update statistics configuration."""
-        data = {
-            "enabled": enabled,
-            "interval": interval,
-            "ignored": ignored or []
-        }
+        data = {"enabled": enabled, "interval": interval, "ignored": ignored or []}
         return self.request("PUT", "/oapi/v1/stats/config/update", data=data)
 
     def get_stats_categories(
@@ -540,10 +596,10 @@ class Api:
         if countries:
             params["countries"] = countries
         return self.request("GET", "/oapi/v1/stats/time", params=params)
-        
+
     def get_stats_top_queried_domains(self) -> Dict:
         """Get top queried domains (from stats)."""
-        # Note: This is usually part of get_stats response, but let's see if there's a specific endpoint. 
+        # Note: This is usually part of get_stats response, but let's see if there's a specific endpoint.
         # API spec usually has specific endpoints for top stats or it's just filtered versions.
         # Assuming we stick to what I added above. get_stats_domains with limit might be it or just get_stats() returns overview.
         pass
@@ -552,8 +608,17 @@ class Api:
     def get_tls_status(self) -> Dict:
         """Get TLS status."""
         return self.request("GET", "/oapi/v1/tls/status")
-        
-    def configure_tls(self, enabled: bool, server_name: str, certificate_chain: str, private_key: str, port_https: int = 443, port_dns_over_tls: int = 853, port_dns_over_quic: int = 784) -> Dict:
+
+    def configure_tls(
+        self,
+        enabled: bool,
+        server_name: str,
+        certificate_chain: str,
+        private_key: str,
+        port_https: int = 443,
+        port_dns_over_tls: int = 853,
+        port_dns_over_quic: int = 784,
+    ) -> Dict:
         """Configure TLS."""
         data = {
             "enabled": enabled,
@@ -562,16 +627,18 @@ class Api:
             "private_key": private_key,
             "port_https": port_https,
             "port_dns_over_tls": port_dns_over_tls,
-            "port_dns_over_quic": port_dns_over_quic
+            "port_dns_over_quic": port_dns_over_quic,
         }
         return self.request("POST", "/oapi/v1/tls/configure", data=data)
 
-    def validate_tls(self, server_name: str, certificate_chain: str, private_key: str) -> Dict:
+    def validate_tls(
+        self, server_name: str, certificate_chain: str, private_key: str
+    ) -> Dict:
         """Validate TLS configuration."""
         data = {
             "server_name": server_name,
             "certificate_chain": certificate_chain,
-            "private_key": private_key
+            "private_key": private_key,
         }
         return self.request("POST", "/oapi/v1/tls/validate", data=data)
 

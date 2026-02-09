@@ -12,7 +12,7 @@ from pydantic import Field
 from eunomia_mcp.middleware import EunomiaMcpMiddleware
 from starlette.requests import Request
 from starlette.responses import JSONResponse
-from fastmcp import FastMCP, Context
+from fastmcp import FastMCP
 from fastmcp.server.auth.oidc_proxy import OIDCProxy
 from fastmcp.server.auth import OAuthProxy, RemoteAuthProvider
 from fastmcp.server.auth.providers.jwt import JWTVerifier, StaticTokenVerifier
@@ -53,6 +53,7 @@ DEFAULT_TRANSPORT = os.getenv("TRANSPORT", "stdio")
 DEFAULT_HOST = os.getenv("HOST", "0.0.0.0")
 DEFAULT_PORT = to_integer(string=os.getenv("PORT", "8000"))
 
+
 def register_prompts(mcp: FastMCP):
     @mcp.prompt()
     def review_filtering_rules() -> str:
@@ -63,7 +64,7 @@ def register_prompts(mcp: FastMCP):
     def optimize_dns_settings() -> str:
         """Optimize DNS settings for performance and privacy."""
         return "Analyze the current DNS configuration and suggest optimizations for better performance and privacy."
-    
+
     @mcp.prompt()
     def analyze_query_log() -> str:
         """Analyze query logs for suspicious activity."""
@@ -94,11 +95,12 @@ def register_prompts(mcp: FastMCP):
         """Delete a DNS rewrite rule."""
         return "I want to remove a DNS rewrite rule that is no longer needed."
 
+
 def register_tools(mcp: FastMCP):
     @mcp.custom_route("/health", methods=["GET"])
     async def health_check(request: Request) -> JSONResponse:
         return JSONResponse({"status": "OK"})
-    
+
     # Account
     @mcp.tool(tags=["account"])
     async def get_account_limits(
@@ -161,9 +163,15 @@ def register_tools(mcp: FastMCP):
 
     @mcp.tool(tags=["access"])
     async def set_access_list(
-        allowed_clients: Optional[List[str]] = Field(None, description="List of allowed clients"),
-        disallowed_clients: Optional[List[str]] = Field(None, description="List of disallowed clients"),
-        blocked_hosts: Optional[List[str]] = Field(None, description="List of blocked hosts"),
+        allowed_clients: Optional[List[str]] = Field(
+            None, description="List of allowed clients"
+        ),
+        disallowed_clients: Optional[List[str]] = Field(
+            None, description="List of disallowed clients"
+        ),
+        blocked_hosts: Optional[List[str]] = Field(
+            None, description="List of blocked hosts"
+        ),
         base_url: str = Field(
             default=os.environ.get("ADGUARD_URL", "http://localhost:3000"),
             description="The base URL of the AdGuard Home instance",
@@ -182,7 +190,7 @@ def register_tools(mcp: FastMCP):
         return client.set_access_list(
             allowed_clients=allowed_clients,
             disallowed_clients=disallowed_clients,
-            blocked_hosts=blocked_hosts
+            blocked_hosts=blocked_hosts,
         )
 
     # Blocked Services
@@ -287,14 +295,18 @@ def register_tools(mcp: FastMCP):
     @mcp.tool(tags=["clients"])
     async def add_client(
         name: str = Field(..., description="Name of the client"),
-        ids: List[str] = Field(..., description="List of identifiers (IP, CIDR, MAC, ClientID)"),
+        ids: List[str] = Field(
+            ..., description="List of identifiers (IP, CIDR, MAC, ClientID)"
+        ),
         use_global_settings: bool = Field(True, description="Use global settings"),
         filtering_enabled: bool = Field(True, description="Enable filtering"),
         parent_access: bool = Field(False, description="Enable parental control"),
         safe_search_enabled: bool = Field(False, description="Enable safe search"),
         safe_browsing_enabled: bool = Field(False, description="Enable safe browsing"),
         tags: Optional[List[str]] = Field(None, description="Client tags"),
-        upstreams: Optional[List[str]] = Field(None, description="Upstream DNS servers"),
+        upstreams: Optional[List[str]] = Field(
+            None, description="Upstream DNS servers"
+        ),
         base_url: str = Field(
             default=os.environ.get("ADGUARD_URL", "http://localhost:3000"),
             description="The base URL of the AdGuard Home instance",
@@ -319,9 +331,9 @@ def register_tools(mcp: FastMCP):
             safe_search_enabled=safe_search_enabled,
             safe_browsing_enabled=safe_browsing_enabled,
             tags=tags,
-            upstreams=upstreams
+            upstreams=upstreams,
         )
-    
+
     @mcp.tool(tags=["clients"])
     async def update_client(
         name: str = Field(..., description="Name of the client"),
@@ -486,7 +498,7 @@ def register_tools(mcp: FastMCP):
         """Refresh all filters."""
         client = Api(base_url=base_url, username=username, password=password)
         return client.refresh_filters(whitelist=whitelist)
-    
+
     @mcp.tool(tags=["filtering"])
     async def check_host_filtering(
         name: str = Field(..., description="Host name to check"),
@@ -583,7 +595,7 @@ def register_tools(mcp: FastMCP):
         """Get safe browsing status."""
         client = Api(base_url=base_url, username=username, password=password)
         return client.get_safebrowsing_status()
-    
+
     @mcp.tool(tags=["settings"])
     async def enable_safebrowsing(
         base_url: str = Field(
@@ -663,7 +675,9 @@ def register_tools(mcp: FastMCP):
         """Get query log."""
         client = Api(base_url=base_url, username=username, password=password)
         return client.get_query_log(
-            time_from_millis=time_from_millis, time_to_millis=time_to_millis, limit=limit
+            time_from_millis=time_from_millis,
+            time_to_millis=time_to_millis,
+            limit=limit,
         )
 
     # Rewrites
@@ -747,7 +761,7 @@ def register_tools(mcp: FastMCP):
         """Get overall statistics."""
         client = Api(base_url=base_url, username=username, password=password)
         return client.get_stats()
-    
+
     @mcp.tool(tags=["devices"])
     async def list_devices(
         base_url: str = Field(
@@ -766,8 +780,7 @@ def register_tools(mcp: FastMCP):
         """List all devices."""
         client = Api(base_url=base_url, username=username, password=password)
         return client.list_devices()
-    
-    
+
     @mcp.tool(tags=["devices"])
     async def create_device(
         name: str = Field(..., description="Name of the device"),
@@ -791,8 +804,7 @@ def register_tools(mcp: FastMCP):
         return client.create_device(
             name=name, device_type=device_type, dns_server_id=dns_server_id
         )
-    
-    
+
     @mcp.tool(tags=["devices"])
     async def get_device(
         device_id: str = Field(..., description="ID of the device"),
@@ -812,8 +824,7 @@ def register_tools(mcp: FastMCP):
         """Get a device by ID."""
         client = Api(base_url=base_url, username=username, password=password)
         return client.get_device(device_id=device_id)
-    
-    
+
     @mcp.tool(tags=["devices"])
     async def update_device(
         device_id: str = Field(..., description="ID of the device"),
@@ -843,8 +854,7 @@ def register_tools(mcp: FastMCP):
             device_type=device_type,
             dns_server_id=dns_server_id,
         )
-    
-    
+
     @mcp.tool(tags=["devices"])
     async def delete_device(
         device_id: str = Field(..., description="ID of the device"),
@@ -864,8 +874,7 @@ def register_tools(mcp: FastMCP):
         """Delete a device."""
         client = Api(base_url=base_url, username=username, password=password)
         return client.delete_device(device_id=device_id)
-    
-    
+
     @mcp.tool(tags=["dns"])
     async def list_dns_servers(
         base_url: str = Field(
@@ -903,7 +912,7 @@ def register_tools(mcp: FastMCP):
         """List all filter lists."""
         client = Api(base_url=base_url, username=username, password=password)
         return client.list_filter_lists()
-    
+
     @mcp.tool(tags=["stats"])
     async def get_stats_categories(
         time_from_millis: int = Field(..., description="Start time in milliseconds"),
@@ -1138,7 +1147,7 @@ def adguard_home_mcp():
     config["oidc_config_url"] = args.oidc_config_url or config["oidc_config_url"]
     config["oidc_client_id"] = args.oidc_client_id or config["oidc_client_id"]
     config["oidc_client_secret"] = (
-            args.oidc_client_secret or config["oidc_client_secret"]
+        args.oidc_client_secret or config["oidc_client_secret"]
     )
 
     # Configure delegation if enabled
@@ -1150,11 +1159,11 @@ def adguard_home_mcp():
             logger.error("audience is required for delegation")
             sys.exit(1)
         if not all(
-                [
-                    config["oidc_config_url"],
-                    config["oidc_client_id"],
-                    config["oidc_client_secret"],
-                ]
+            [
+                config["oidc_config_url"],
+                config["oidc_client_id"],
+                config["oidc_client_secret"],
+            ]
         ):
             logger.error(
                 "Delegation requires complete OIDC configuration (oidc-config-url, oidc-client-id, oidc-client-secret)"
@@ -1292,14 +1301,14 @@ def adguard_home_mcp():
             sys.exit(1)
     elif args.auth_type == "oauth-proxy":
         if not (
-                args.oauth_upstream_auth_endpoint
-                and args.oauth_upstream_token_endpoint
-                and args.oauth_upstream_client_id
-                and args.oauth_upstream_client_secret
-                and args.oauth_base_url
-                and args.token_jwks_uri
-                and args.token_issuer
-                and args.token_audience
+            args.oauth_upstream_auth_endpoint
+            and args.oauth_upstream_token_endpoint
+            and args.oauth_upstream_client_id
+            and args.oauth_upstream_client_secret
+            and args.oauth_base_url
+            and args.token_jwks_uri
+            and args.token_issuer
+            and args.token_audience
         ):
             print(
                 "oauth-proxy requires oauth-upstream-auth-endpoint, oauth-upstream-token-endpoint, "
@@ -1337,10 +1346,10 @@ def adguard_home_mcp():
         )
     elif args.auth_type == "oidc-proxy":
         if not (
-                args.oidc_config_url
-                and args.oidc_client_id
-                and args.oidc_client_secret
-                and args.oidc_base_url
+            args.oidc_config_url
+            and args.oidc_client_id
+            and args.oidc_client_secret
+            and args.oidc_base_url
         ):
             logger.error(
                 "oidc-proxy requires oidc-config-url, oidc-client-id, oidc-client-secret, oidc-base-url",
@@ -1360,11 +1369,11 @@ def adguard_home_mcp():
         )
     elif args.auth_type == "remote-oauth":
         if not (
-                args.remote_auth_servers
-                and args.remote_base_url
-                and args.token_jwks_uri
-                and args.token_issuer
-                and args.token_audience
+            args.remote_auth_servers
+            and args.remote_base_url
+            and args.token_jwks_uri
+            and args.token_issuer
+            and args.token_audience
         ):
             logger.error(
                 "remote-oauth requires remote-auth-servers, remote-base-url, token-jwks-uri, token-issuer, token-audience",
@@ -1444,6 +1453,7 @@ def adguard_home_mcp():
 
     mcp.run(transport=args.transport, host=args.host, port=args.port)
 
+
 def usage():
     print("""
 Adguard Home MCP Server
@@ -1467,6 +1477,7 @@ Environment Variables:
   ADGUARD_USERNAME               Username for AdGuard Home
   ADGUARD_PASSWORD               Password for AdGuard Home
 """)
+
 
 if __name__ == "__main__":
     adguard_home_mcp()
