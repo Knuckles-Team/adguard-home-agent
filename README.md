@@ -199,7 +199,7 @@ The AdGuard Home MCP server can be deployed using Docker.
 #### Using Docker Run
 
 ```bash
-docker pull knucklessg1/adguard-home-mcp:latest
+docker pull knucklessg1/adguard-home-agent:latest
 
 docker run -d \
   --name adguard-home-mcp \
@@ -210,7 +210,7 @@ docker run -d \
   -e ADGUARD_URL=http://adguard-home:3000 \
   -e ADGUARD_USERNAME=your-username \
   -e ADGUARD_PASSWORD=your-password \
-  knucklessg1/adguard-home-mcp:latest
+  knucklessg1/adguard-home-agent:latest
 ```
 
 #### Using Docker Compose
@@ -220,7 +220,7 @@ Create a `compose.yml` file:
 ```yaml
 services:
   adguard-home-mcp:
-    image: knucklessg1/adguard-home-mcp:latest
+    image: knucklessg1/adguard-home-agent:latest
     environment:
       - HOST=0.0.0.0
       - PORT=8012
