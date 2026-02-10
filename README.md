@@ -22,7 +22,7 @@
 ![PyPI - Wheel](https://img.shields.io/pypi/wheel/adguard-home-agent)
 ![PyPI - Implementation](https://img.shields.io/pypi/implementation/adguard-home-agent)
 
-*Version: 0.1.2*
+*Version: 0.2.0*
 
 ## Overview
 
