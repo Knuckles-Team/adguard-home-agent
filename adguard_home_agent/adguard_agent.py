@@ -34,7 +34,7 @@ from pydantic import ValidationError
 from pydantic_ai.ui import SSE_CONTENT_TYPE
 from pydantic_ai.ui.ag_ui import AGUIAdapter
 
-__version__ = "0.2.0"
+__version__ = "0.2.1"
 
 logging.basicConfig(
     level=logging.INFO,
@@ -157,7 +157,6 @@ STATS_PROMPT = os.environ.get(
         "- Get: `get_stats_categories`, `get_stats_companies`, `get_stats_countries`, `get_stats_devices`, `get_stats_domains`, `get_stats_time`\n"
     ),
 )
-
 
 # -------------------------------------------------------------------------
 # 2. Agent Creation Logic
@@ -353,7 +352,11 @@ def create_agent_server(
 
     @asynccontextmanager
     async def lifespan(app: FastAPI):
-        yield
+        if hasattr(a2a_app, "router") and hasattr(a2a_app.router, "lifespan_context"):
+            async with a2a_app.router.lifespan_context(a2a_app):
+                yield
+        else:
+            yield
 
     app = FastAPI(
         title=f"{AGENT_NAME} - A2A + AG-UI Server",
