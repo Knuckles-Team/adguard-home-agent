@@ -28,7 +28,7 @@ from adguard_home_agent.middlewares import (
     JWTClaimsLoggingMiddleware,
 )
 
-__version__ = "0.2.2"
+__version__ = "0.2.3"
 
 logger = get_logger(name="TokenMiddleware")
 logger.setLevel(logging.DEBUG)
