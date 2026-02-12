@@ -28,7 +28,7 @@ from adguard_home_agent.middlewares import (
     JWTClaimsLoggingMiddleware,
 )
 
-__version__ = "0.2.4"
+__version__ = "0.2.5"
 
 logger = get_logger(name="TokenMiddleware")
 logger.setLevel(logging.DEBUG)
@@ -37,7 +37,7 @@ config = {
     "enable_delegation": to_boolean(os.environ.get("ENABLE_DELEGATION", "False")),
     "audience": os.environ.get("AUDIENCE", None),
     "delegated_scopes": os.environ.get("DELEGATED_SCOPES", "api"),
-    "token_endpoint": None,  # Will be fetched dynamically from OIDC config
+    "token_endpoint": None,
     "oidc_client_id": os.environ.get("OIDC_CLIENT_ID", None),
     "oidc_client_secret": os.environ.get("OIDC_CLIENT_SECRET", None),
     "oidc_config_url": os.environ.get("OIDC_CONFIG_URL", None),
@@ -101,7 +101,6 @@ def register_tools(mcp: FastMCP):
     async def health_check(request: Request) -> JSONResponse:
         return JSONResponse({"status": "OK"})
 
-    # Account
     @mcp.tool(tags=["account"])
     async def get_account_limits(
         base_url: str = Field(
@@ -121,7 +120,6 @@ def register_tools(mcp: FastMCP):
         client = Api(base_url=base_url, username=username, password=password)
         return client.get_account_limits()
 
-    # Version
     @mcp.tool(tags=["system"])
     async def get_version(
         base_url: str = Field(
@@ -141,7 +139,6 @@ def register_tools(mcp: FastMCP):
         client = Api(base_url=base_url, username=username, password=password)
         return client.get_version()
 
-    # Access Lists
     @mcp.tool(tags=["access"])
     async def get_access_list(
         base_url: str = Field(
@@ -193,7 +190,6 @@ def register_tools(mcp: FastMCP):
             blocked_hosts=blocked_hosts,
         )
 
-    # Blocked Services
     @mcp.tool(tags=["blocked_services"])
     async def get_blocked_services_list(
         base_url: str = Field(
@@ -252,7 +248,6 @@ def register_tools(mcp: FastMCP):
         client = Api(base_url=base_url, username=username, password=password)
         return client.set_blocked_services(services=services)
 
-    # Clients
     @mcp.tool(tags=["clients"])
     async def list_clients(
         base_url: str = Field(
@@ -375,7 +370,6 @@ def register_tools(mcp: FastMCP):
         client = Api(base_url=base_url, username=username, password=password)
         return client.delete_client(name=name)
 
-    # DHCP
     @mcp.tool(tags=["dhcp"])
     async def get_dhcp_status(
         base_url: str = Field(
@@ -395,7 +389,6 @@ def register_tools(mcp: FastMCP):
         client = Api(base_url=base_url, username=username, password=password)
         return client.get_dhcp_status()
 
-    # Filtering
     @mcp.tool(tags=["filtering"])
     async def get_filtering_status(
         base_url: str = Field(
@@ -519,7 +512,6 @@ def register_tools(mcp: FastMCP):
         client = Api(base_url=base_url, username=username, password=password)
         return client.check_host_filtering(name=name)
 
-    # Global Settings
     @mcp.tool(tags=["settings"])
     async def get_parental_status(
         base_url: str = Field(
@@ -653,7 +645,6 @@ def register_tools(mcp: FastMCP):
         client = Api(base_url=base_url, username=username, password=password)
         return client.get_safesearch_status()
 
-    # Query Log
     @mcp.tool(tags=["query_log"])
     async def get_query_log(
         time_from_millis: int = Field(..., description="Start time in milliseconds"),
@@ -680,7 +671,6 @@ def register_tools(mcp: FastMCP):
             limit=limit,
         )
 
-    # Rewrites
     @mcp.tool(tags=["rewrites"])
     async def list_rewrites(
         base_url: str = Field(
@@ -742,7 +732,6 @@ def register_tools(mcp: FastMCP):
         client = Api(base_url=base_url, username=username, password=password)
         return client.delete_rewrite(domain=domain, answer=answer)
 
-    # Stats
     @mcp.tool(tags=["stats"])
     async def get_stats(
         base_url: str = Field(
@@ -967,7 +956,6 @@ def adguard_home_mcp():
         choices=["none", "static", "jwt", "oauth-proxy", "oidc-proxy", "remote-oauth"],
         help="Authentication type for MCP server: 'none' (disabled), 'static' (internal), 'jwt' (external token verification), 'oauth-proxy', 'oidc-proxy', 'remote-oauth' (external) (default: none)",
     )
-    # JWT/Token params
     parser.add_argument(
         "--token-jwks-uri", default=None, help="JWKS URI for JWT verification"
     )
@@ -1008,7 +996,6 @@ def adguard_home_mcp():
         default=os.getenv("FASTMCP_SERVER_AUTH_JWT_REQUIRED_SCOPES"),
         help="Comma-separated list of required scopes (e.g., adguard.read,adguard.write).",
     )
-    # OAuth Proxy params
     parser.add_argument(
         "--oauth-upstream-auth-endpoint",
         default=None,
@@ -1032,14 +1019,12 @@ def adguard_home_mcp():
     parser.add_argument(
         "--oauth-base-url", default=None, help="Base URL for OAuth Proxy"
     )
-    # OIDC Proxy params
     parser.add_argument(
         "--oidc-config-url", default=None, help="OIDC configuration URL"
     )
     parser.add_argument("--oidc-client-id", default=None, help="OIDC client ID")
     parser.add_argument("--oidc-client-secret", default=None, help="OIDC client secret")
     parser.add_argument("--oidc-base-url", default=None, help="Base URL for OIDC Proxy")
-    # Remote OAuth params
     parser.add_argument(
         "--remote-auth-servers",
         default=None,
@@ -1048,13 +1033,11 @@ def adguard_home_mcp():
     parser.add_argument(
         "--remote-base-url", default=None, help="Base URL for Remote OAuth"
     )
-    # Common
     parser.add_argument(
         "--allowed-client-redirect-uris",
         default=None,
         help="Comma-separated list of allowed client redirect URIs",
     )
-    # Eunomia params
     parser.add_argument(
         "--eunomia-type",
         default="none",
@@ -1069,7 +1052,6 @@ def adguard_home_mcp():
     parser.add_argument(
         "--eunomia-remote-url", default=None, help="URL for remote Eunomia server"
     )
-    # Delegation params
     parser.add_argument(
         "--enable-delegation",
         action="store_true",
@@ -1140,7 +1122,6 @@ def adguard_home_mcp():
         print(f"Error: Port {args.port} is out of valid range (0-65535).")
         sys.exit(1)
 
-    # Update config with CLI arguments
     config["enable_delegation"] = args.enable_delegation
     config["audience"] = args.audience or config["audience"]
     config["delegated_scopes"] = args.delegated_scopes or config["delegated_scopes"]
@@ -1150,7 +1131,6 @@ def adguard_home_mcp():
         args.oidc_client_secret or config["oidc_client_secret"]
     )
 
-    # Configure delegation if enabled
     if config["enable_delegation"]:
         if args.auth_type != "oidc-proxy":
             logger.error("Token delegation requires auth-type=oidc-proxy")
@@ -1170,7 +1150,6 @@ def adguard_home_mcp():
             )
             sys.exit(1)
 
-        # Fetch OIDC configuration to get token_endpoint
         try:
             logger.info(
                 "Fetching OIDC configuration",
@@ -1195,7 +1174,6 @@ def adguard_home_mcp():
             )
             sys.exit(1)
 
-    # Set auth based on type
     auth = None
     allowed_uris = (
         args.allowed_client_redirect_uris.split(",")
@@ -1213,7 +1191,6 @@ def adguard_home_mcp():
             }
         )
     elif args.auth_type == "jwt":
-        # Fallback to env vars if not provided via CLI
         jwks_uri = args.token_jwks_uri or os.getenv("FASTMCP_SERVER_AUTH_JWT_JWKS_URI")
         issuer = args.token_issuer or os.getenv("FASTMCP_SERVER_AUTH_JWT_ISSUER")
         audience = args.token_audience or os.getenv("FASTMCP_SERVER_AUTH_JWT_AUDIENCE")
@@ -1230,7 +1207,6 @@ def adguard_home_mcp():
             logger.error("JWT requires --token-issuer and --token-audience")
             sys.exit(1)
 
-        # Load static public key from file if path is given
         if args.token_public_key and os.path.isfile(args.token_public_key):
             try:
                 with open(args.token_public_key, "r") as f:
@@ -1241,15 +1217,13 @@ def adguard_home_mcp():
                 logger.error(f"Failed to read public key file: {e}")
                 sys.exit(1)
         elif args.token_public_key:
-            public_key_pem = args.token_public_key  # Inline PEM
+            public_key_pem = args.token_public_key
 
-        # Validation: Conflicting options
         if jwks_uri and (algorithm or secret_or_key):
             logger.warning(
                 "JWKS mode ignores --token-algorithm and --token-secret/--token-public-key"
             )
 
-        # HMAC mode
         if algorithm and algorithm.startswith("HS"):
             if not secret_or_key:
                 logger.error(f"HMAC algorithm {algorithm} requires --token-secret")
@@ -1261,7 +1235,6 @@ def adguard_home_mcp():
         else:
             public_key = public_key_pem
 
-        # Required scopes
         required_scopes = None
         if args.required_scopes:
             required_scopes = [
@@ -1398,7 +1371,6 @@ def adguard_home_mcp():
             base_url=args.remote_base_url,
         )
 
-    # === 2. Build Middleware List ===
     middlewares: List[
         Union[
             UserTokenMiddleware,
