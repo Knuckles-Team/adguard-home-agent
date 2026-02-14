@@ -1,11 +1,15 @@
 ---
 services:
   adguard-home-mcp:
-    image: docker.io/knucklessg1/adguard-home-mcp:latest
-    # build: . # Debug
-    container_name: adguard-home-mcp
-    hostname: adguard-home-mcp
-    command: [ "adguard-home-mcp" ]
+    # image: docker.io/knucklessg1/adguard-home-mcp:latest
+    build:
+      context: .
+      dockerfile: debug.Dockerfile
+    container_name: adguard-mcp
+    hostname: adguard-mcp
+    command: [ "adguard-mcp" ]
+    dns:
+      - "${IP_DNS}"
     extra_hosts:
       - "host.docker.internal:host-gateway"
     logging:
@@ -31,11 +35,13 @@ services:
       start_period: 10s
 
   adguard-home-agent:
-    image: docker.io/knucklessg1/adguard-home-mcp:latest
-    # build: . # Debug
-    container_name: adguard-home-agent
-    hostname: adguard-home-agent
-    command: [ "adguard-home-agent" ]
+    # image: docker.io/knucklessg1/adguard-home-mcp:latest
+    build:
+      context: .
+      dockerfile: debug.Dockerfile
+    container_name: adguard-agent
+    hostname: adguard-agent
+    command: [ "adguard-agent" ]
     extra_hosts:
       - "host.docker.internal:host-gateway"
     depends_on:
@@ -51,7 +57,7 @@ services:
     environment:
       - "HOST=0.0.0.0"
       - "PORT=9012"
-      - "MCP_URL=http://adguard-home-mcp:8012/mcp"
+      - "MCP_URL=http://adguard-mcp:8012/mcp"
       - "PROVIDER=openai"
       - "LLM_BASE_URL=${LLM_BASE_URL:-http://host.docker.internal:1234/v1}"
       - "LLM_API_KEY=${LLM_API_KEY:-llama}"

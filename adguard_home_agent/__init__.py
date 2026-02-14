@@ -8,12 +8,12 @@ from typing import List
 __all__: List[str] = []
 
 CORE_MODULES = [
-    "ansible_tower_mcp.ansible_tower_api",
+    "adguard_home_agent.adguard_api",
 ]
 
 OPTIONAL_MODULES = {
-    "ansible_tower_mcp.ansible_tower_agent": "a2a",
-    "ansible_tower_mcp.ansible_tower_mcp": "mcp",
+    "adguard_home_agent.adguard_agent": "a2a",
+    "adguard_home_agent.adguard_mcp": "mcp",
 }
 
 
@@ -47,16 +47,16 @@ for module_name, extra_name in OPTIONAL_MODULES.items():
     else:
         globals()[f"_{extra_name.upper()}_AVAILABLE"] = False
 
-_MCP_AVAILABLE = OPTIONAL_MODULES.get("ansible_tower_mcp.ansible_tower_mcp") in [
+_MCP_AVAILABLE = OPTIONAL_MODULES.get("adguard_home_agent.adguard_mcp") in [
     m.__name__ for m in globals().values() if hasattr(m, "__name__")
 ]
-_A2A_AVAILABLE = "ansible_tower_mcp.ansible_tower_agent" in globals()
+_A2A_AVAILABLE = "adguard_home_agent.adguard_agent" in globals()
 
 __all__.extend(["_MCP_AVAILABLE", "_A2A_AVAILABLE"])
 
 
 """
-ansible-tower-mcp
+Adguard Home Agent
 
-Manage your Ansible Tower resources
+Manage your Adguard Home instance
 """

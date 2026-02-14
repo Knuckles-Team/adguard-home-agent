@@ -22,7 +22,7 @@
 ![PyPI - Wheel](https://img.shields.io/pypi/wheel/adguard-home-agent)
 ![PyPI - Implementation](https://img.shields.io/pypi/implementation/adguard-home-agent)
 
-*Version: 0.2.7*
+*Version: 0.2.8*
 
 ## Overview
 
@@ -43,27 +43,92 @@ The **AdGuard Home MCP Server** provides a Model Context Protocol (MCP) interfac
 
 The `adguard-home-agent` package exposes the following MCP tools, organized by category:
 
-### Account Management
+### Account & Profile
 - `get_account_limits()`: Get account limits.
+- `get_profile()`: Get current user profile info.
+- `update_profile(profile_data)`: Update current user profile info.
 
-### Device Management
-- `list_devices()`: List all devices.
-- `create_device(name, device_type, dns_server_id)`: Create a new device.
-- `get_device(device_id)`: Get details of a specific device.
-- `update_device(device_id, name, device_type, dns_server_id)`: Update an existing device.
-- `delete_device(device_id)`: Delete a device.
+### Blocked Services
+- `get_all_blocked_services()`: Get available services to block.
+- `get_blocked_services_list()`: Get blocked services list.
+- `update_blocked_services(services)`: Update blocked services list.
 
-### DNS Server Management
-- `list_dns_servers()`: List all DNS servers.
+### Clients
+- `list_clients()`: List all clients.
+- `search_clients(query)`: Search for clients.
+- `add_client(name, ids, ...)`: Add a new client.
+- `update_client(name, data)`: Update a client.
+- `delete_client(name)`: Delete a client.
+
+### DHCP
+- `get_dhcp_status()`: Get DHCP status.
+- `get_dhcp_interfaces()`: Get available interfaces.
+- `set_dhcp_config(config)`: Set DHCP configuration.
+- `find_active_dhcp(interface)`: Find active DHCP server.
+- `add_dhcp_static_lease(mac, ip, hostname)`: Add static lease.
+- `remove_dhcp_static_lease(mac, ip, hostname)`: Remove static lease.
+- `update_dhcp_static_lease(mac, ip, hostname)`: Update static lease.
+- `reset_dhcp()`: Reset DHCP config.
+- `reset_dhcp_leases()`: Reset DHCP leases.
+
+### DNS
+- `get_dns_info()`: Get DNS parameters.
+- `set_dns_config(config)`: Set DNS parameters.
+- `test_upstream_dns(upstreams)`: Test upstream configuration.
+- `set_protection(enabled, duration)`: Set protection state.
+- `clear_cache()`: Clear DNS cache.
 
 ### Filtering
-- `list_filter_lists()`: List all filter lists.
+- `get_filtering_status()`: Get filtering status.
+- `set_filtering_config(enabled, interval)`: Set filtering config.
+- `set_filtering_rules(rules)`: Set user-defined rules.
+- `check_host_filtering(name)`: Check if host is filtered.
+- `add_filter_url(name, url, whitelist)`: Add filter URL.
+- `remove_filter_url(url, whitelist)`: Remove filter URL.
+- `set_filter_url_params(url, name, whitelist)`: Set filter URL parameters.
+- `refresh_filters(whitelist)`: Refresh filters.
 
-### Statistics
-- `get_stats_categories(time_from_millis, time_to_millis)`: Get category statistics.
+### Mobile Config
+- `get_doh_mobile_config(host, client_id)`: Get DNS over HTTPS .mobileconfig.
+- `get_dot_mobile_config(host, client_id)`: Get DNS over TLS .mobileconfig.
 
 ### Query Log
-- `get_query_log(time_from_millis, time_to_millis, limit)`: Get query log.
+- `get_query_log(limit, ...)`: Get query log.
+- `get_query_log_config()`: Get query log config.
+- `set_query_log_config(enabled, ...)`: Set query log config.
+- `clear_query_log()`: Clear query log.
+
+### Rewrites
+- `list_rewrites()`: List DNS rewrites.
+- `add_rewrite(domain, answer)`: Add DNS rewrite.
+- `update_rewrite(target, update)`: Update DNS rewrite.
+- `delete_rewrite(domain, answer)`: Delete DNS rewrite.
+- `get_rewrite_settings()`: Get rewrite settings.
+- `update_rewrite_settings(enabled)`: Update rewrite settings.
+
+### Settings
+- `get_safebrowsing_status()`: Get SafeBrowsing status.
+- `enable_safebrowsing()`: Enable SafeBrowsing.
+- `disable_safebrowsing()`: Disable SafeBrowsing.
+- `get_safesearch_status()`: Get SafeSearch status.
+- `update_safesearch_settings(enabled, ...)`: Update SafeSearch settings.
+- `get_parental_status()`: Get parental control status.
+- `enable_parental_control()`: Enable parental control.
+- `disable_parental_control()`: Disable parental control.
+
+### Statistics
+- `get_stats()`: Get overall statistics.
+- `get_stats_config()`: Get stats config.
+- `set_stats_config(interval)`: Set stats config.
+- `reset_stats()`: Reset all statistics.
+
+### System
+- `get_version()`: Get AdGuard Home version/status.
+
+### TLS
+- `get_tls_status()`: Get TLS status.
+- `configure_tls(config)`: Configure TLS.
+- `validate_tls(config)`: Validate TLS config.
 
 ## A2A Agent
 
@@ -305,7 +370,3 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 ## Support
 
 For issues or feature requests, please open an issue on the [GitHub repository](https://github.com/Knuckles-Team/adguard-home-agent). For general inquiries, contact the maintainers via GitHub.
-
-### Documentation
-
-https://github.com/AdguardTeam/AdGuardHome/blob/master/openapi/openapi.yaml

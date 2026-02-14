@@ -38,7 +38,7 @@ from pydantic import ValidationError
 from pydantic_ai.ui import SSE_CONTENT_TYPE
 from pydantic_ai.ui.ag_ui import AGUIAdapter
 
-__version__ = "0.2.7"
+__version__ = "0.2.8"
 
 logging.basicConfig(
     level=logging.INFO,
@@ -120,10 +120,12 @@ DNS_PROMPT = os.environ.get(
     "DNS_PROMPT",
     default=(
         "You are the AdGuard Home DNS Agent.\n"
-        "Your goal is to manage DNS servers.\n"
+        "Your goal is to manage DNS servers and configuration.\n"
         "You can:\n"
-        "- CRUD: `create_dns_server`, `get_dns_server`, `update_dns_server`, `delete_dns_server`\n"
-        "- List: `list_dns_servers`\n"
+        "- Config: `get_dns_info`, `set_dns_config`\n"
+        "- Upstreams: `test_upstream_dns`\n"
+        "- Protection: `set_protection`\n"
+        "- Cache: `clear_cache`\n"
     ),
 )
 
@@ -131,9 +133,12 @@ FILTERING_PROMPT = os.environ.get(
     "FILTERING_PROMPT",
     default=(
         "You are the AdGuard Home Filtering Agent.\n"
-        "Your goal is to manage filter lists.\n"
+        "Your goal is to manage filtering rules and status.\n"
         "You can:\n"
-        "- List: `list_filter_lists`\n"
+        "- Status: `get_filtering_status`, `set_filtering_config`\n"
+        "- Rules: `set_filtering_rules`\n"
+        "- Filters: `add_filter_url`, `remove_filter_url`, `set_filter_url_params`, `refresh_filters`\n"
+        "- Check: `check_host_filtering`\n"
     ),
 )
 
@@ -141,9 +146,11 @@ QUERY_LOG_PROMPT = os.environ.get(
     "QUERY_LOG_PROMPT",
     default=(
         "You are the AdGuard Home Query Log Agent.\n"
-        "Your goal is to retrieve query logs.\n"
+        "Your goal is to manage and retrieve query logs.\n"
         "You can:\n"
         "- Get: `get_query_log`\n"
+        "- Config: `get_query_log_config`, `set_query_log_config`\n"
+        "- Clear: `clear_query_log`\n"
     ),
 )
 
@@ -151,9 +158,130 @@ STATS_PROMPT = os.environ.get(
     "STATS_PROMPT",
     default=(
         "You are the AdGuard Home Statistics Agent.\n"
-        "Your goal is to retrieve statistics.\n"
+        "Your goal is to retrieve and manage statistics.\n"
         "You can:\n"
-        "- Get: `get_stats_categories`, `get_stats_companies`, `get_stats_countries`, `get_stats_devices`, `get_stats_domains`, `get_stats_time`\n"
+        "- Get: `get_stats`\n"
+        "- Config: `get_stats_config`, `set_stats_config`\n"
+        "- Reset: `reset_stats`\n"
+    ),
+)
+
+
+ACCESS_PROMPT = os.environ.get(
+    "ACCESS_PROMPT",
+    default=(
+        "You are the AdGuard Home Access Agent.\n"
+        "Your goal is to manage access lists.\n"
+        "You can:\n"
+        "- Get: `access_list`\n"
+        "- Set: `set_access_list`\n"
+    ),
+)
+
+
+BLOCKED_SERVICES_PROMPT = os.environ.get(
+    "BLOCKED_SERVICES_PROMPT",
+    default=(
+        "You are the AdGuard Home Blocked Services Agent.\n"
+        "Your goal is to manage blocked services.\n"
+        "You can:\n"
+        "- List: `get_all_blocked_services`, `get_blocked_services_list`\n"
+        "- Update: `update_blocked_services`\n"
+    ),
+)
+
+
+CLIENTS_PROMPT = os.environ.get(
+    "CLIENTS_PROMPT",
+    default=(
+        "You are the AdGuard Home Clients Agent.\n"
+        "Your goal is to manage clients.\n"
+        "You can:\n"
+        "- List: `list_clients`\n"
+        "- Search: `search_clients`\n"
+        "- CRUD: `add_client`, `update_client`, `delete_client`\n"
+    ),
+)
+
+
+DHCP_PROMPT = os.environ.get(
+    "DHCP_PROMPT",
+    default=(
+        "You are the AdGuard Home DHCP Agent.\n"
+        "Your goal is to manage DHCP status and configuration.\n"
+        "You can:\n"
+        "- Gateway: `get_dhcp_status`, `set_dhcp_config`, `reset_dhcp`, `reset_dhcp_leases`\n"
+        "- Interfaces: `get_dhcp_interfaces`, `find_active_dhcp`\n"
+        "- Leases: `add_dhcp_static_lease`, `remove_dhcp_static_lease`, `update_dhcp_static_lease`\n"
+    ),
+)
+
+
+REWRITES_PROMPT = os.environ.get(
+    "REWRITES_PROMPT",
+    default=(
+        "You are the AdGuard Home Rewrites Agent.\n"
+        "Your goal is to manage DNS rewrites.\n"
+        "You can:\n"
+        "- List: `list_rewrites`\n"
+        "- Settings: `get_rewrite_settings`, `update_rewrite_settings`\n"
+        "- CRUD: `add_rewrite`, `update_rewrite`, `delete_rewrite`\n"
+    ),
+)
+
+
+SETTINGS_PROMPT = os.environ.get(
+    "SETTINGS_PROMPT",
+    default=(
+        "You are the AdGuard Home Settings Agent.\n"
+        "Your goal is to manage various settings (SafeBrowsing, SafeSearch, Parental Control).\n"
+        "You can:\n"
+        "- SafeBrowsing: `get_safebrowsing_status`, `enable_safebrowsing`, `disable_safebrowsing`\n"
+        "- SafeSearch: `get_safesearch_status`, `update_safesearch_settings`\n"
+        "- Parental: `get_parental_status`, `enable_parental_control`, `disable_parental_control`\n"
+    ),
+)
+
+
+SYSTEM_PROMPT = os.environ.get(
+    "SYSTEM_PROMPT",
+    default=(
+        "You are the AdGuard Home System Agent.\n"
+        "Your goal is to retrieve system information.\n"
+        "You can:\n"
+        "- Get: `get_version`\n"
+    ),
+)
+
+PROFILE_PROMPT = os.environ.get(
+    "PROFILE_PROMPT",
+    default=(
+        "You are the AdGuard Home Profile Agent.\n"
+        "Your goal is to manage the current user profile.\n"
+        "You can:\n"
+        "- Get: `get_profile`\n"
+        "- Update: `update_profile`\n"
+    ),
+)
+
+TLS_PROMPT = os.environ.get(
+    "TLS_PROMPT",
+    default=(
+        "You are the AdGuard Home TLS Agent.\n"
+        "Your goal is to manage TLS configuration.\n"
+        "You can:\n"
+        "- Status: `get_tls_status`\n"
+        "- Config: `configure_tls`, `validate_tls`\n"
+    ),
+)
+
+MOBILE_PROMPT = os.environ.get(
+    "MOBILE_PROMPT",
+    default=(
+        "You are the AdGuard Home Mobile Config Agent.\n"
+        "Your goal is to retrieve mobile configuration files.\n"
+        "You can:\n"
+        "- Get: `get_doh_mobile_config`, `get_dot_mobile_config`\n"
     ),
 )
 
@@ -228,12 +356,23 @@ def create_agent(
         agent_toolsets.append(SkillsToolset(directories=[str(skills_directory)]))
 
     agent_defs = {
+        "access": (ACCESS_PROMPT, "AdGuardHome_Access_Agent"),
         "account": (ACCOUNT_PROMPT, "AdGuardHome_Account_Agent"),
-        "devices": (DEVICES_PROMPT, "AdGuardHome_Devices_Agent"),
-        "dns": (DNS_PROMPT, "AdGuardHome_DNS_Agent"),
+        "blocked_services": (
+            BLOCKED_SERVICES_PROMPT,
+            "AdGuardHome_Blocked_Services_Agent",
+        ),
+        "clients": (CLIENTS_PROMPT, "AdGuardHome_Clients_Agent"),
+        "dhcp": (DHCP_PROMPT, "AdGuardHome_DHCP_Agent"),
         "filtering": (FILTERING_PROMPT, "AdGuardHome_Filtering_Agent"),
         "query_log": (QUERY_LOG_PROMPT, "AdGuardHome_Query_Log_Agent"),
+        "rewrites": (REWRITES_PROMPT, "AdGuardHome_Rewrites_Agent"),
+        "settings": (SETTINGS_PROMPT, "AdGuardHome_Settings_Agent"),
         "stats": (STATS_PROMPT, "AdGuardHome_Stats_Agent"),
+        "system": (SYSTEM_PROMPT, "AdGuardHome_System_Agent"),
+        "profile": (PROFILE_PROMPT, "AdGuardHome_Profile_Agent"),
+        "tls": (TLS_PROMPT, "AdGuardHome_TLS_Agent"),
+        "mobile": (MOBILE_PROMPT, "AdGuardHome_Mobile_Agent"),
     }
 
     child_agents = {}
@@ -241,16 +380,56 @@ def create_agent(
     for tag, (system_prompt, agent_name) in agent_defs.items():
         tag_toolsets = []
         for ts in agent_toolsets:
+            logger.info(f"Reviewing toolset: {ts}")
 
             def filter_func(ctx, tool_def, t=tag):
                 return tool_in_tag(tool_def, t)
 
             if hasattr(ts, "filtered"):
                 filtered_ts = ts.filtered(filter_func)
+                logger.info(f"Inspecting tool: {filtered_ts}")
                 tag_toolsets.append(filtered_ts)
             else:
                 pass
 
+        skill_dir_name = f"adguard-{tag.replace('_', '-')}"
+        specific_skill_path = None
+        if skills_directory:
+            specific_skill_path = os.path.join(skills_directory, skill_dir_name)
+
+        if specific_skill_path and os.path.exists(specific_skill_path):
+            skills = SkillsToolset(directories=[str(specific_skill_path)])
+            tag_toolsets.append(skills)
+            logger.info(
+                f"Loaded specialized skills for {tag} from {specific_skill_path}"
+            )
+
+        # Collect tool names for logging
+        all_tool_names = []
+        for ts in tag_toolsets:
+            try:
+                # Unwrap FilteredToolset
+                current_ts = ts
+                while hasattr(current_ts, "wrapped"):
+                    current_ts = current_ts.wrapped
+
+                # Check for .tools (e.g. SkillsToolset)
+                if hasattr(current_ts, "tools") and isinstance(current_ts.tools, dict):
+                    all_tool_names.extend(current_ts.tools.keys())
+                # Check for ._tools (some implementations might use private attr)
+                elif hasattr(current_ts, "_tools") and isinstance(
+                    current_ts._tools, dict
+                ):
+                    all_tool_names.extend(current_ts._tools.keys())
+                else:
+                    # Fallback for MCP or others where tools are not available sync
+                    all_tool_names.append(f"<{type(current_ts).__name__}>")
+            except Exception as e:
+                logger.info(f"Unable to retrieve toolset: {e}")
+                pass
+
+        tool_list_str = ", ".join(all_tool_names)
+        logger.info(f"Available tools for {agent_name} ({tag}): {tool_list_str}")
         agent = Agent(
             name=agent_name,
             system_prompt=system_prompt,
@@ -277,20 +456,6 @@ def create_agent(
         ).output
 
     @supervisor.tool
-    async def assign_task_to_devices_agent(ctx: RunContext[Any], task: str) -> str:
-        """Assign a task related to devices to the Devices Agent."""
-        return (
-            await child_agents["devices"].run(task, usage=ctx.usage, deps=ctx.deps)
-        ).output
-
-    @supervisor.tool
-    async def assign_task_to_dns_agent(ctx: RunContext[Any], task: str) -> str:
-        """Assign a task related to DNS servers to the DNS Agent."""
-        return (
-            await child_agents["dns"].run(task, usage=ctx.usage, deps=ctx.deps)
-        ).output
-
-    @supervisor.tool
     async def assign_task_to_filtering_agent(ctx: RunContext[Any], task: str) -> str:
         """Assign a task related to filter lists to the Filtering Agent."""
         return (
@@ -309,6 +474,80 @@ def create_agent(
         """Assign a task related to statistics to the Stats Agent."""
         return (
             await child_agents["stats"].run(task, usage=ctx.usage, deps=ctx.deps)
+        ).output
+
+    @supervisor.tool
+    async def assign_task_to_access_agent(ctx: RunContext[Any], task: str) -> str:
+        """Assign a task related to access lists to the Access Agent."""
+        return (
+            await child_agents["access"].run(task, usage=ctx.usage, deps=ctx.deps)
+        ).output
+
+    @supervisor.tool
+    async def assign_task_to_blocked_services_agent(
+        ctx: RunContext[Any], task: str
+    ) -> str:
+        """Assign a task related to blocked services to the Blocked Services Agent."""
+        return (
+            await child_agents["blocked_services"].run(
+                task, usage=ctx.usage, deps=ctx.deps
+            )
+        ).output
+
+    @supervisor.tool
+    async def assign_task_to_clients_agent(ctx: RunContext[Any], task: str) -> str:
+        """Assign a task related to clients to the Clients Agent."""
+        return (
+            await child_agents["clients"].run(task, usage=ctx.usage, deps=ctx.deps)
+        ).output
+
+    @supervisor.tool
+    async def assign_task_to_dhcp_agent(ctx: RunContext[Any], task: str) -> str:
+        """Assign a task related to DHCP to the DHCP Agent."""
+        return (
+            await child_agents["dhcp"].run(task, usage=ctx.usage, deps=ctx.deps)
+        ).output
+
+    @supervisor.tool
+    async def assign_task_to_rewrites_agent(ctx: RunContext[Any], task: str) -> str:
+        """Assign a task related to DNS rewrites to the Rewrites Agent."""
+        return (
+            await child_agents["rewrites"].run(task, usage=ctx.usage, deps=ctx.deps)
+        ).output
+
+    @supervisor.tool
+    async def assign_task_to_settings_agent(ctx: RunContext[Any], task: str) -> str:
+        """Assign a task related to settings (SafeBrowsing, SafeSearch, Parental) to the Settings Agent."""
+        return (
+            await child_agents["settings"].run(task, usage=ctx.usage, deps=ctx.deps)
+        ).output
+
+    @supervisor.tool
+    async def assign_task_to_system_agent(ctx: RunContext[Any], task: str) -> str:
+        """Assign a task related to system information to the System Agent."""
+        return (
+            await child_agents["system"].run(task, usage=ctx.usage, deps=ctx.deps)
+        ).output
+
+    @supervisor.tool
+    async def assign_task_to_profile_agent(ctx: RunContext[Any], task: str) -> str:
+        """Assign a task related to user profile to the Profile Agent."""
+        return (
+            await child_agents["profile"].run(task, usage=ctx.usage, deps=ctx.deps)
+        ).output
+
+    @supervisor.tool
+    async def assign_task_to_tls_agent(ctx: RunContext[Any], task: str) -> str:
+        """Assign a task related to TLS configuration to the TLS Agent."""
+        return (
+            await child_agents["tls"].run(task, usage=ctx.usage, deps=ctx.deps)
+        ).output
+
+    @supervisor.tool
+    async def assign_task_to_mobile_agent(ctx: RunContext[Any], task: str) -> str:
+        """Assign a task related to mobile configuration to the Mobile Agent."""
+        return (
+            await child_agents["mobile"].run(task, usage=ctx.usage, deps=ctx.deps)
         ).output
 
     return supervisor
@@ -345,7 +584,6 @@ def create_agent_server(
         mcp_config=mcp_config,
         skills_directory=skills_directory,
         ssl_verify=ssl_verify,
-        timeout=DEFAULT_TIMEOUT,
     )
 
     if skills_directory and os.path.exists(skills_directory):

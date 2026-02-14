@@ -28,7 +28,7 @@ from adguard_home_agent.middlewares import (
     JWTClaimsLoggingMiddleware,
 )
 
-__version__ = "0.2.7"
+__version__ = "0.2.8"
 
 logger = get_logger(name="TokenMiddleware")
 logger.setLevel(logging.DEBUG)
@@ -101,26 +101,7 @@ def register_tools(mcp: FastMCP):
     async def health_check(request: Request) -> JSONResponse:
         return JSONResponse({"status": "OK"})
 
-    @mcp.tool(tags=["account"])
-    async def get_account_limits(
-        base_url: str = Field(
-            default=os.environ.get("ADGUARD_URL", "http://localhost:3000"),
-            description="The base URL of the AdGuard Home instance",
-        ),
-        username: Optional[str] = Field(
-            default=os.environ.get("ADGUARD_USERNAME", None),
-            description="Username for authentication",
-        ),
-        password: Optional[str] = Field(
-            default=os.environ.get("ADGUARD_PASSWORD", None),
-            description="Password for authentication",
-        ),
-    ) -> Dict:
-        """Get account limits."""
-        client = Api(base_url=base_url, username=username, password=password)
-        return client.get_account_limits()
-
-    @mcp.tool(tags=["system"])
+    @mcp.tool(tags={"system"})
     async def get_version(
         base_url: str = Field(
             default=os.environ.get("ADGUARD_URL", "http://localhost:3000"),
@@ -139,7 +120,7 @@ def register_tools(mcp: FastMCP):
         client = Api(base_url=base_url, username=username, password=password)
         return client.get_version()
 
-    @mcp.tool(tags=["access"])
+    @mcp.tool(tags={"access"})
     async def get_access_list(
         base_url: str = Field(
             default=os.environ.get("ADGUARD_URL", "http://localhost:3000"),
@@ -158,7 +139,7 @@ def register_tools(mcp: FastMCP):
         client = Api(base_url=base_url, username=username, password=password)
         return client.get_access_list()
 
-    @mcp.tool(tags=["access"])
+    @mcp.tool(tags={"access"})
     async def set_access_list(
         allowed_clients: Optional[List[str]] = Field(
             None, description="List of allowed clients"
@@ -190,7 +171,7 @@ def register_tools(mcp: FastMCP):
             blocked_hosts=blocked_hosts,
         )
 
-    @mcp.tool(tags=["blocked_services"])
+    @mcp.tool(tags={"blocked_services"})
     async def get_blocked_services_list(
         base_url: str = Field(
             default=os.environ.get("ADGUARD_URL", "http://localhost:3000"),
@@ -209,7 +190,7 @@ def register_tools(mcp: FastMCP):
         client = Api(base_url=base_url, username=username, password=password)
         return client.get_blocked_services_list()
 
-    @mcp.tool(tags=["blocked_services"])
+    @mcp.tool(tags={"blocked_services"})
     async def get_all_blocked_services(
         base_url: str = Field(
             default=os.environ.get("ADGUARD_URL", "http://localhost:3000"),
@@ -228,8 +209,8 @@ def register_tools(mcp: FastMCP):
         client = Api(base_url=base_url, username=username, password=password)
         return client.get_all_blocked_services()
 
-    @mcp.tool(tags=["blocked_services"])
-    async def set_blocked_services(
+    @mcp.tool(tags={"blocked_services"})
+    async def update_blocked_services(
         services: List[str] = Field(..., description="List of services to block"),
         base_url: str = Field(
             default=os.environ.get("ADGUARD_URL", "http://localhost:3000"),
@@ -244,11 +225,73 @@ def register_tools(mcp: FastMCP):
             description="Password for authentication",
         ),
     ) -> Dict:
-        """Set blocked services."""
+        """Update blocked services list."""
         client = Api(base_url=base_url, username=username, password=password)
-        return client.set_blocked_services(services=services)
+        return client.update_blocked_services(services=services)
 
-    @mcp.tool(tags=["clients"])
+    @mcp.tool(tags={"filtering"})
+    async def set_filtering_rules(
+        rules: List[str] = Field(..., description="List of filtering rules"),
+        base_url: str = Field(
+            default=os.environ.get("ADGUARD_URL", "http://localhost:3000"),
+            description="The base URL of the AdGuard Home instance",
+        ),
+        username: Optional[str] = Field(
+            default=os.environ.get("ADGUARD_USERNAME", None),
+            description="Username for authentication",
+        ),
+        password: Optional[str] = Field(
+            default=os.environ.get("ADGUARD_PASSWORD", None),
+            description="Password for authentication",
+        ),
+    ) -> Dict:
+        """Set user-defined filtering rules."""
+        client = Api(base_url=base_url, username=username, password=password)
+        return client.set_filtering_rules(rules=rules)
+
+    @mcp.tool(tags={"filtering"})
+    async def check_host_filtering(
+        name: str = Field(..., description="Host name to check"),
+        base_url: str = Field(
+            default=os.environ.get("ADGUARD_URL", "http://localhost:3000"),
+            description="The base URL of the AdGuard Home instance",
+        ),
+        username: Optional[str] = Field(
+            default=os.environ.get("ADGUARD_USERNAME", None),
+            description="Username for authentication",
+        ),
+        password: Optional[str] = Field(
+            default=os.environ.get("ADGUARD_PASSWORD", None),
+            description="Password for authentication",
+        ),
+    ) -> Dict:
+        """Check if a host is filtered."""
+        client = Api(base_url=base_url, username=username, password=password)
+        return client.check_host_filtering(name=name)
+
+    @mcp.tool(tags={"filtering"})
+    async def set_filter_url_params(
+        url: str = Field(..., description="URL of the filter"),
+        name: str = Field(..., description="Name of the filter"),
+        whitelist: bool = Field(False, description="Is it a whitelist?"),
+        base_url: str = Field(
+            default=os.environ.get("ADGUARD_URL", "http://localhost:3000"),
+            description="The base URL of the AdGuard Home instance",
+        ),
+        username: Optional[str] = Field(
+            default=os.environ.get("ADGUARD_USERNAME", None),
+            description="Username for authentication",
+        ),
+        password: Optional[str] = Field(
+            default=os.environ.get("ADGUARD_PASSWORD", None),
+            description="Password for authentication",
+        ),
+    ) -> Dict:
+        """Set filter URL parameters."""
+        client = Api(base_url=base_url, username=username, password=password)
+        return client.set_filter_url_params(url=url, name=name, whitelist=whitelist)
+
+    @mcp.tool(tags={"clients"})
     async def list_clients(
         base_url: str = Field(
             default=os.environ.get("ADGUARD_URL", "http://localhost:3000"),
@@ -267,9 +310,9 @@ def register_tools(mcp: FastMCP):
         client = Api(base_url=base_url, username=username, password=password)
         return client.list_clients()
 
-    @mcp.tool(tags=["clients"])
-    async def find_clients(
-        ip: str = Field(..., description="IP address to search for"),
+    @mcp.tool(tags={"clients"})
+    async def search_clients(
+        query: str = Field(..., description="Query string (IP, name, or ClientID)"),
         base_url: str = Field(
             default=os.environ.get("ADGUARD_URL", "http://localhost:3000"),
             description="The base URL of the AdGuard Home instance",
@@ -283,11 +326,50 @@ def register_tools(mcp: FastMCP):
             description="Password for authentication",
         ),
     ) -> List[Dict]:
-        """Find clients by IP."""
+        """Search for clients."""
         client = Api(base_url=base_url, username=username, password=password)
-        return client.find_clients(ip=ip)
+        return client.search_clients(query=query)
 
-    @mcp.tool(tags=["clients"])
+    @mcp.tool(tags={"profile"})
+    async def get_profile(
+        base_url: str = Field(
+            default=os.environ.get("ADGUARD_URL", "http://localhost:3000"),
+            description="The base URL of the AdGuard Home instance",
+        ),
+        username: Optional[str] = Field(
+            default=os.environ.get("ADGUARD_USERNAME", None),
+            description="Username for authentication",
+        ),
+        password: Optional[str] = Field(
+            default=os.environ.get("ADGUARD_PASSWORD", None),
+            description="Password for authentication",
+        ),
+    ) -> Dict:
+        """Get current user profile info."""
+        client = Api(base_url=base_url, username=username, password=password)
+        return client.get_profile()
+
+    @mcp.tool(tags={"profile"})
+    async def update_profile(
+        profile_data: Dict = Field(..., description="Profile data to update"),
+        base_url: str = Field(
+            default=os.environ.get("ADGUARD_URL", "http://localhost:3000"),
+            description="The base URL of the AdGuard Home instance",
+        ),
+        username: Optional[str] = Field(
+            default=os.environ.get("ADGUARD_USERNAME", None),
+            description="Username for authentication",
+        ),
+        password: Optional[str] = Field(
+            default=os.environ.get("ADGUARD_PASSWORD", None),
+            description="Password for authentication",
+        ),
+    ) -> Dict:
+        """Update current user profile info."""
+        client = Api(base_url=base_url, username=username, password=password)
+        return client.update_profile(profile_data=profile_data)
+
+    @mcp.tool(tags={"clients"})
     async def add_client(
         name: str = Field(..., description="Name of the client"),
         ids: List[str] = Field(
@@ -329,7 +411,7 @@ def register_tools(mcp: FastMCP):
             upstreams=upstreams,
         )
 
-    @mcp.tool(tags=["clients"])
+    @mcp.tool(tags={"clients"})
     async def update_client(
         name: str = Field(..., description="Name of the client"),
         data: Dict = Field(..., description="Client data to update"),
@@ -350,7 +432,7 @@ def register_tools(mcp: FastMCP):
         client = Api(base_url=base_url, username=username, password=password)
         return client.update_client(name=name, data=data)
 
-    @mcp.tool(tags=["clients"])
+    @mcp.tool(tags={"clients"})
     async def delete_client(
         name: str = Field(..., description="Name of the client"),
         base_url: str = Field(
@@ -370,7 +452,7 @@ def register_tools(mcp: FastMCP):
         client = Api(base_url=base_url, username=username, password=password)
         return client.delete_client(name=name)
 
-    @mcp.tool(tags=["dhcp"])
+    @mcp.tool(tags={"dhcp"})
     async def get_dhcp_status(
         base_url: str = Field(
             default=os.environ.get("ADGUARD_URL", "http://localhost:3000"),
@@ -389,7 +471,170 @@ def register_tools(mcp: FastMCP):
         client = Api(base_url=base_url, username=username, password=password)
         return client.get_dhcp_status()
 
-    @mcp.tool(tags=["filtering"])
+    @mcp.tool(tags={"dhcp"})
+    async def get_dhcp_interfaces(
+        base_url: str = Field(
+            default=os.environ.get("ADGUARD_URL", "http://localhost:3000"),
+            description="The base URL of the AdGuard Home instance",
+        ),
+        username: Optional[str] = Field(
+            default=os.environ.get("ADGUARD_USERNAME", None),
+            description="Username for authentication",
+        ),
+        password: Optional[str] = Field(
+            default=os.environ.get("ADGUARD_PASSWORD", None),
+            description="Password for authentication",
+        ),
+    ) -> Dict:
+        """Get available network interfaces for DHCP."""
+        client = Api(base_url=base_url, username=username, password=password)
+        return client.get_dhcp_interfaces()
+
+    @mcp.tool(tags={"dhcp"})
+    async def set_dhcp_config(
+        config: Dict = Field(..., description="DHCP configuration"),
+        base_url: str = Field(
+            default=os.environ.get("ADGUARD_URL", "http://localhost:3000"),
+            description="The base URL of the AdGuard Home instance",
+        ),
+        username: Optional[str] = Field(
+            default=os.environ.get("ADGUARD_USERNAME", None),
+            description="Username for authentication",
+        ),
+        password: Optional[str] = Field(
+            default=os.environ.get("ADGUARD_PASSWORD", None),
+            description="Password for authentication",
+        ),
+    ) -> Dict:
+        """Set DHCP configuration."""
+        client = Api(base_url=base_url, username=username, password=password)
+        return client.set_dhcp_config(config=config)
+
+    @mcp.tool(tags={"dhcp"})
+    async def find_active_dhcp(
+        interface: str = Field(..., description="Network interface to check"),
+        base_url: str = Field(
+            default=os.environ.get("ADGUARD_URL", "http://localhost:3000"),
+            description="The base URL of the AdGuard Home instance",
+        ),
+        username: Optional[str] = Field(
+            default=os.environ.get("ADGUARD_USERNAME", None),
+            description="Username for authentication",
+        ),
+        password: Optional[str] = Field(
+            default=os.environ.get("ADGUARD_PASSWORD", None),
+            description="Password for authentication",
+        ),
+    ) -> Dict:
+        """Search for an active DHCP server on the network."""
+        client = Api(base_url=base_url, username=username, password=password)
+        return client.find_active_dhcp(interface=interface)
+
+    @mcp.tool(tags={"dhcp"})
+    async def add_dhcp_static_lease(
+        mac: str = Field(..., description="MAC address"),
+        ip: str = Field(..., description="IP address"),
+        hostname: str = Field(..., description="Hostname"),
+        base_url: str = Field(
+            default=os.environ.get("ADGUARD_URL", "http://localhost:3000"),
+            description="The base URL of the AdGuard Home instance",
+        ),
+        username: Optional[str] = Field(
+            default=os.environ.get("ADGUARD_USERNAME", None),
+            description="Username for authentication",
+        ),
+        password: Optional[str] = Field(
+            default=os.environ.get("ADGUARD_PASSWORD", None),
+            description="Password for authentication",
+        ),
+    ) -> Dict:
+        """Add a static DHCP lease."""
+        client = Api(base_url=base_url, username=username, password=password)
+        return client.add_dhcp_static_lease(mac=mac, ip=ip, hostname=hostname)
+
+    @mcp.tool(tags={"dhcp"})
+    async def remove_dhcp_static_lease(
+        mac: str = Field(..., description="MAC address"),
+        ip: str = Field(..., description="IP address"),
+        hostname: str = Field(..., description="Hostname"),
+        base_url: str = Field(
+            default=os.environ.get("ADGUARD_URL", "http://localhost:3000"),
+            description="The base URL of the AdGuard Home instance",
+        ),
+        username: Optional[str] = Field(
+            default=os.environ.get("ADGUARD_USERNAME", None),
+            description="Username for authentication",
+        ),
+        password: Optional[str] = Field(
+            default=os.environ.get("ADGUARD_PASSWORD", None),
+            description="Password for authentication",
+        ),
+    ) -> Dict:
+        """Remove a static DHCP lease."""
+        client = Api(base_url=base_url, username=username, password=password)
+        return client.remove_dhcp_static_lease(mac=mac, ip=ip, hostname=hostname)
+
+    @mcp.tool(tags={"dhcp"})
+    async def update_dhcp_static_lease(
+        mac: str = Field(..., description="MAC address"),
+        ip: str = Field(..., description="IP address"),
+        hostname: str = Field(..., description="Hostname"),
+        base_url: str = Field(
+            default=os.environ.get("ADGUARD_URL", "http://localhost:3000"),
+            description="The base URL of the AdGuard Home instance",
+        ),
+        username: Optional[str] = Field(
+            default=os.environ.get("ADGUARD_USERNAME", None),
+            description="Username for authentication",
+        ),
+        password: Optional[str] = Field(
+            default=os.environ.get("ADGUARD_PASSWORD", None),
+            description="Password for authentication",
+        ),
+    ) -> Dict:
+        """Update a static DHCP lease."""
+        client = Api(base_url=base_url, username=username, password=password)
+        return client.update_dhcp_static_lease(mac=mac, ip=ip, hostname=hostname)
+
+    @mcp.tool(tags={"dhcp"})
+    async def reset_dhcp(
+        base_url: str = Field(
+            default=os.environ.get("ADGUARD_URL", "http://localhost:3000"),
+            description="The base URL of the AdGuard Home instance",
+        ),
+        username: Optional[str] = Field(
+            default=os.environ.get("ADGUARD_USERNAME", None),
+            description="Username for authentication",
+        ),
+        password: Optional[str] = Field(
+            default=os.environ.get("ADGUARD_PASSWORD", None),
+            description="Password for authentication",
+        ),
+    ) -> Dict:
+        """Reset DHCP configuration."""
+        client = Api(base_url=base_url, username=username, password=password)
+        return client.reset_dhcp()
+
+    @mcp.tool(tags={"dhcp"})
+    async def reset_dhcp_leases(
+        base_url: str = Field(
+            default=os.environ.get("ADGUARD_URL", "http://localhost:3000"),
+            description="The base URL of the AdGuard Home instance",
+        ),
+        username: Optional[str] = Field(
+            default=os.environ.get("ADGUARD_USERNAME", None),
+            description="Username for authentication",
+        ),
+        password: Optional[str] = Field(
+            default=os.environ.get("ADGUARD_PASSWORD", None),
+            description="Password for authentication",
+        ),
+    ) -> Dict:
+        """Reset DHCP leases."""
+        client = Api(base_url=base_url, username=username, password=password)
+        return client.reset_dhcp_leases()
+
+    @mcp.tool(tags={"filtering"})
     async def get_filtering_status(
         base_url: str = Field(
             default=os.environ.get("ADGUARD_URL", "http://localhost:3000"),
@@ -408,7 +653,7 @@ def register_tools(mcp: FastMCP):
         client = Api(base_url=base_url, username=username, password=password)
         return client.get_filtering_status()
 
-    @mcp.tool(tags=["filtering"])
+    @mcp.tool(tags={"filtering"})
     async def set_filtering_config(
         enabled: bool = Field(..., description="Enable filtering"),
         interval: int = Field(..., description="Update interval in hours"),
@@ -429,7 +674,7 @@ def register_tools(mcp: FastMCP):
         client = Api(base_url=base_url, username=username, password=password)
         return client.set_filtering_config(enabled=enabled, interval=interval)
 
-    @mcp.tool(tags=["filtering"])
+    @mcp.tool(tags={"filtering"})
     async def add_filter_url(
         name: str = Field(..., description="Name of the filter"),
         url: str = Field(..., description="URL of the filter"),
@@ -451,7 +696,7 @@ def register_tools(mcp: FastMCP):
         client = Api(base_url=base_url, username=username, password=password)
         return client.add_filter_url(name=name, url=url, whitelist=whitelist)
 
-    @mcp.tool(tags=["filtering"])
+    @mcp.tool(tags={"filtering"})
     async def remove_filter_url(
         url: str = Field(..., description="URL of the filter to remove"),
         whitelist: bool = Field(False, description="Is it a whitelist?"),
@@ -472,7 +717,7 @@ def register_tools(mcp: FastMCP):
         client = Api(base_url=base_url, username=username, password=password)
         return client.remove_filter_url(url=url, whitelist=whitelist)
 
-    @mcp.tool(tags=["filtering"])
+    @mcp.tool(tags={"filtering"})
     async def refresh_filters(
         whitelist: bool = Field(False, description="Refresh whitelists?"),
         base_url: str = Field(
@@ -492,27 +737,7 @@ def register_tools(mcp: FastMCP):
         client = Api(base_url=base_url, username=username, password=password)
         return client.refresh_filters(whitelist=whitelist)
 
-    @mcp.tool(tags=["filtering"])
-    async def check_host_filtering(
-        name: str = Field(..., description="Host name to check"),
-        base_url: str = Field(
-            default=os.environ.get("ADGUARD_URL", "http://localhost:3000"),
-            description="The base URL of the AdGuard Home instance",
-        ),
-        username: Optional[str] = Field(
-            default=os.environ.get("ADGUARD_USERNAME", None),
-            description="Username for authentication",
-        ),
-        password: Optional[str] = Field(
-            default=os.environ.get("ADGUARD_PASSWORD", None),
-            description="Password for authentication",
-        ),
-    ) -> Dict:
-        """Check if a host is filtered."""
-        client = Api(base_url=base_url, username=username, password=password)
-        return client.check_host_filtering(name=name)
-
-    @mcp.tool(tags=["settings"])
+    @mcp.tool(tags={"settings"})
     async def get_parental_status(
         base_url: str = Field(
             default=os.environ.get("ADGUARD_URL", "http://localhost:3000"),
@@ -531,7 +756,7 @@ def register_tools(mcp: FastMCP):
         client = Api(base_url=base_url, username=username, password=password)
         return client.get_parental_status()
 
-    @mcp.tool(tags=["settings"])
+    @mcp.tool(tags={"settings"})
     async def enable_parental_control(
         base_url: str = Field(
             default=os.environ.get("ADGUARD_URL", "http://localhost:3000"),
@@ -550,7 +775,7 @@ def register_tools(mcp: FastMCP):
         client = Api(base_url=base_url, username=username, password=password)
         return client.enable_parental_control()
 
-    @mcp.tool(tags=["settings"])
+    @mcp.tool(tags={"settings"})
     async def disable_parental_control(
         base_url: str = Field(
             default=os.environ.get("ADGUARD_URL", "http://localhost:3000"),
@@ -569,7 +794,7 @@ def register_tools(mcp: FastMCP):
         client = Api(base_url=base_url, username=username, password=password)
         return client.disable_parental_control()
 
-    @mcp.tool(tags=["settings"])
+    @mcp.tool(tags={"settings"})
     async def get_safebrowsing_status(
         base_url: str = Field(
             default=os.environ.get("ADGUARD_URL", "http://localhost:3000"),
@@ -588,7 +813,7 @@ def register_tools(mcp: FastMCP):
         client = Api(base_url=base_url, username=username, password=password)
         return client.get_safebrowsing_status()
 
-    @mcp.tool(tags=["settings"])
+    @mcp.tool(tags={"settings"})
     async def enable_safebrowsing(
         base_url: str = Field(
             default=os.environ.get("ADGUARD_URL", "http://localhost:3000"),
@@ -607,7 +832,7 @@ def register_tools(mcp: FastMCP):
         client = Api(base_url=base_url, username=username, password=password)
         return client.enable_safebrowsing()
 
-    @mcp.tool(tags=["settings"])
+    @mcp.tool(tags={"settings"})
     async def disable_safebrowsing(
         base_url: str = Field(
             default=os.environ.get("ADGUARD_URL", "http://localhost:3000"),
@@ -626,7 +851,7 @@ def register_tools(mcp: FastMCP):
         client = Api(base_url=base_url, username=username, password=password)
         return client.disable_safebrowsing()
 
-    @mcp.tool(tags=["settings"])
+    @mcp.tool(tags={"settings"})
     async def get_safesearch_status(
         base_url: str = Field(
             default=os.environ.get("ADGUARD_URL", "http://localhost:3000"),
@@ -645,7 +870,7 @@ def register_tools(mcp: FastMCP):
         client = Api(base_url=base_url, username=username, password=password)
         return client.get_safesearch_status()
 
-    @mcp.tool(tags=["query_log"])
+    @mcp.tool(tags={"query_log"})
     async def get_query_log(
         time_from_millis: int = Field(..., description="Start time in milliseconds"),
         time_to_millis: int = Field(..., description="End time in milliseconds"),
@@ -671,7 +896,7 @@ def register_tools(mcp: FastMCP):
             limit=limit,
         )
 
-    @mcp.tool(tags=["rewrites"])
+    @mcp.tool(tags={"rewrites"})
     async def list_rewrites(
         base_url: str = Field(
             default=os.environ.get("ADGUARD_URL", "http://localhost:3000"),
@@ -690,7 +915,7 @@ def register_tools(mcp: FastMCP):
         client = Api(base_url=base_url, username=username, password=password)
         return client.list_rewrites()
 
-    @mcp.tool(tags=["rewrites"])
+    @mcp.tool(tags={"rewrites"})
     async def add_rewrite(
         domain: str = Field(..., description="Domain to rewrite"),
         answer: str = Field(..., description="Answer to rewrite to"),
@@ -711,7 +936,7 @@ def register_tools(mcp: FastMCP):
         client = Api(base_url=base_url, username=username, password=password)
         return client.add_rewrite(domain=domain, answer=answer)
 
-    @mcp.tool(tags=["rewrites"])
+    @mcp.tool(tags={"rewrites"})
     async def delete_rewrite(
         domain: str = Field(..., description="Domain to rewrite"),
         answer: str = Field(..., description="Answer to rewrite to"),
@@ -732,7 +957,168 @@ def register_tools(mcp: FastMCP):
         client = Api(base_url=base_url, username=username, password=password)
         return client.delete_rewrite(domain=domain, answer=answer)
 
-    @mcp.tool(tags=["stats"])
+    @mcp.tool(tags={"rewrites"})
+    async def update_rewrite(
+        target: Dict = Field(..., description="Target rewrite rule"),
+        update: Dict = Field(..., description="Updated rewrite rule"),
+        base_url: str = Field(
+            default=os.environ.get("ADGUARD_URL", "http://localhost:3000"),
+            description="The base URL of the AdGuard Home instance",
+        ),
+        username: Optional[str] = Field(
+            default=os.environ.get("ADGUARD_USERNAME", None),
+            description="Username for authentication",
+        ),
+        password: Optional[str] = Field(
+            default=os.environ.get("ADGUARD_PASSWORD", None),
+            description="Password for authentication",
+        ),
+    ) -> Dict:
+        """Update a DNS rewrite."""
+        client = Api(base_url=base_url, username=username, password=password)
+        return client.update_rewrite(target=target, update=update)
+
+    @mcp.tool(tags={"rewrites"})
+    async def get_rewrite_settings(
+        base_url: str = Field(
+            default=os.environ.get("ADGUARD_URL", "http://localhost:3000"),
+            description="The base URL of the AdGuard Home instance",
+        ),
+        username: Optional[str] = Field(
+            default=os.environ.get("ADGUARD_USERNAME", None),
+            description="Username for authentication",
+        ),
+        password: Optional[str] = Field(
+            default=os.environ.get("ADGUARD_PASSWORD", None),
+            description="Password for authentication",
+        ),
+    ) -> Dict:
+        """Get rewrite settings."""
+        client = Api(base_url=base_url, username=username, password=password)
+        return client.get_rewrite_settings()
+
+    @mcp.tool(tags={"rewrites"})
+    async def update_rewrite_settings(
+        enabled: bool = Field(..., description="Enable/disable rewrites"),
+        base_url: str = Field(
+            default=os.environ.get("ADGUARD_URL", "http://localhost:3000"),
+            description="The base URL of the AdGuard Home instance",
+        ),
+        username: Optional[str] = Field(
+            default=os.environ.get("ADGUARD_USERNAME", None),
+            description="Username for authentication",
+        ),
+        password: Optional[str] = Field(
+            default=os.environ.get("ADGUARD_PASSWORD", None),
+            description="Password for authentication",
+        ),
+    ) -> Dict:
+        """Update rewrite settings."""
+        client = Api(base_url=base_url, username=username, password=password)
+        return client.update_rewrite_settings(enabled=enabled)
+
+    @mcp.tool(tags={"tls"})
+    async def get_tls_status(
+        base_url: str = Field(
+            default=os.environ.get("ADGUARD_URL", "http://localhost:3000"),
+            description="The base URL of the AdGuard Home instance",
+        ),
+        username: Optional[str] = Field(
+            default=os.environ.get("ADGUARD_USERNAME", None),
+            description="Username for authentication",
+        ),
+        password: Optional[str] = Field(
+            default=os.environ.get("ADGUARD_PASSWORD", None),
+            description="Password for authentication",
+        ),
+    ) -> Dict:
+        """Get TLS status."""
+        client = Api(base_url=base_url, username=username, password=password)
+        return client.get_tls_status()
+
+    @mcp.tool(tags={"tls"})
+    async def configure_tls(
+        config: Dict = Field(..., description="TLS configuration"),
+        base_url: str = Field(
+            default=os.environ.get("ADGUARD_URL", "http://localhost:3000"),
+            description="The base URL of the AdGuard Home instance",
+        ),
+        username: Optional[str] = Field(
+            default=os.environ.get("ADGUARD_USERNAME", None),
+            description="Username for authentication",
+        ),
+        password: Optional[str] = Field(
+            default=os.environ.get("ADGUARD_PASSWORD", None),
+            description="Password for authentication",
+        ),
+    ) -> Dict:
+        """Configure TLS."""
+        client = Api(base_url=base_url, username=username, password=password)
+        return client.configure_tls(config=config)
+
+    @mcp.tool(tags={"tls"})
+    async def validate_tls(
+        config: Dict = Field(..., description="TLS configuration to validate"),
+        base_url: str = Field(
+            default=os.environ.get("ADGUARD_URL", "http://localhost:3000"),
+            description="The base URL of the AdGuard Home instance",
+        ),
+        username: Optional[str] = Field(
+            default=os.environ.get("ADGUARD_USERNAME", None),
+            description="Username for authentication",
+        ),
+        password: Optional[str] = Field(
+            default=os.environ.get("ADGUARD_PASSWORD", None),
+            description="Password for authentication",
+        ),
+    ) -> Dict:
+        """Validate TLS configuration."""
+        client = Api(base_url=base_url, username=username, password=password)
+        return client.validate_tls(config=config)
+
+    @mcp.tool(tags={"mobile"})
+    async def get_doh_mobile_config(
+        host: str = Field(..., description="Host name"),
+        client_id: str = Field(..., description="Client ID"),
+        base_url: str = Field(
+            default=os.environ.get("ADGUARD_URL", "http://localhost:3000"),
+            description="The base URL of the AdGuard Home instance",
+        ),
+        username: Optional[str] = Field(
+            default=os.environ.get("ADGUARD_USERNAME", None),
+            description="Username for authentication",
+        ),
+        password: Optional[str] = Field(
+            default=os.environ.get("ADGUARD_PASSWORD", None),
+            description="Password for authentication",
+        ),
+    ) -> str:
+        """Get DNS over HTTPS .mobileconfig."""
+        client = Api(base_url=base_url, username=username, password=password)
+        return client.get_doh_mobile_config(host=host, client_id=client_id)
+
+    @mcp.tool(tags={"mobile"})
+    async def get_dot_mobile_config(
+        host: str = Field(..., description="Host name"),
+        client_id: str = Field(..., description="Client ID"),
+        base_url: str = Field(
+            default=os.environ.get("ADGUARD_URL", "http://localhost:3000"),
+            description="The base URL of the AdGuard Home instance",
+        ),
+        username: Optional[str] = Field(
+            default=os.environ.get("ADGUARD_USERNAME", None),
+            description="Username for authentication",
+        ),
+        password: Optional[str] = Field(
+            default=os.environ.get("ADGUARD_PASSWORD", None),
+            description="Password for authentication",
+        ),
+    ) -> str:
+        """Get DNS over TLS .mobileconfig."""
+        client = Api(base_url=base_url, username=username, password=password)
+        return client.get_dot_mobile_config(host=host, client_id=client_id)
+
+    @mcp.tool(tags={"stats"})
     async def get_stats(
         base_url: str = Field(
             default=os.environ.get("ADGUARD_URL", "http://localhost:3000"),
@@ -751,30 +1137,8 @@ def register_tools(mcp: FastMCP):
         client = Api(base_url=base_url, username=username, password=password)
         return client.get_stats()
 
-    @mcp.tool(tags=["devices"])
-    async def list_devices(
-        base_url: str = Field(
-            default=os.environ.get("ADGUARD_URL", "http://localhost:3000"),
-            description="The base URL of the AdGuard Home instance",
-        ),
-        username: Optional[str] = Field(
-            default=os.environ.get("ADGUARD_USERNAME", None),
-            description="Username for authentication",
-        ),
-        password: Optional[str] = Field(
-            default=os.environ.get("ADGUARD_PASSWORD", None),
-            description="Password for authentication",
-        ),
-    ) -> List[Dict]:
-        """List all devices."""
-        client = Api(base_url=base_url, username=username, password=password)
-        return client.list_devices()
-
-    @mcp.tool(tags=["devices"])
-    async def create_device(
-        name: str = Field(..., description="Name of the device"),
-        device_type: str = Field(..., description="Type of the device"),
-        dns_server_id: str = Field(..., description="ID of the DNS server to assign"),
+    @mcp.tool(tags={"dns"})
+    async def get_dns_info(
         base_url: str = Field(
             default=os.environ.get("ADGUARD_URL", "http://localhost:3000"),
             description="The base URL of the AdGuard Home instance",
@@ -788,15 +1152,13 @@ def register_tools(mcp: FastMCP):
             description="Password for authentication",
         ),
     ) -> Dict:
-        """Create a new device."""
+        """Get general DNS parameters."""
         client = Api(base_url=base_url, username=username, password=password)
-        return client.create_device(
-            name=name, device_type=device_type, dns_server_id=dns_server_id
-        )
+        return client.get_dns_info()
 
-    @mcp.tool(tags=["devices"])
-    async def get_device(
-        device_id: str = Field(..., description="ID of the device"),
+    @mcp.tool(tags={"dns"})
+    async def set_dns_config(
+        config: Dict = Field(..., description="DNS configuration"),
         base_url: str = Field(
             default=os.environ.get("ADGUARD_URL", "http://localhost:3000"),
             description="The base URL of the AdGuard Home instance",
@@ -810,17 +1172,112 @@ def register_tools(mcp: FastMCP):
             description="Password for authentication",
         ),
     ) -> Dict:
-        """Get a device by ID."""
+        """Set general DNS parameters."""
         client = Api(base_url=base_url, username=username, password=password)
-        return client.get_device(device_id=device_id)
+        return client.set_dns_config(config=config)
 
-    @mcp.tool(tags=["devices"])
-    async def update_device(
-        device_id: str = Field(..., description="ID of the device"),
-        name: Optional[str] = Field(None, description="New name of the device"),
-        device_type: Optional[str] = Field(None, description="New type of the device"),
-        dns_server_id: Optional[str] = Field(
-            None, description="New DNS server ID to assign"
+    @mcp.tool(tags={"system"})
+    async def set_protection(
+        enabled: bool = Field(..., description="Enable/disable protection"),
+        duration: Optional[int] = Field(None, description="Duration in milliseconds"),
+        base_url: str = Field(
+            default=os.environ.get("ADGUARD_URL", "http://localhost:3000"),
+            description="The base URL of the AdGuard Home instance",
+        ),
+        username: Optional[str] = Field(
+            default=os.environ.get("ADGUARD_USERNAME", None),
+            description="Username for authentication",
+        ),
+        password: Optional[str] = Field(
+            default=os.environ.get("ADGUARD_PASSWORD", None),
+            description="Password for authentication",
+        ),
+    ) -> Dict:
+        """Set protection state."""
+        client = Api(base_url=base_url, username=username, password=password)
+        return client.set_protection(enabled=enabled, duration=duration)
+
+    @mcp.tool(tags={"system"})
+    async def clear_cache(
+        base_url: str = Field(
+            default=os.environ.get("ADGUARD_URL", "http://localhost:3000"),
+            description="The base URL of the AdGuard Home instance",
+        ),
+        username: Optional[str] = Field(
+            default=os.environ.get("ADGUARD_USERNAME", None),
+            description="Username for authentication",
+        ),
+        password: Optional[str] = Field(
+            default=os.environ.get("ADGUARD_PASSWORD", None),
+            description="Password for authentication",
+        ),
+    ) -> Dict:
+        """Clear DNS cache."""
+        client = Api(base_url=base_url, username=username, password=password)
+        return client.clear_cache()
+
+    @mcp.tool(tags={"dns"})
+    async def test_upstream_dns(
+        upstreams: List[str] = Field(..., description="List of upstreams to test"),
+        base_url: str = Field(
+            default=os.environ.get("ADGUARD_URL", "http://localhost:3000"),
+            description="The base URL of the AdGuard Home instance",
+        ),
+        username: Optional[str] = Field(
+            default=os.environ.get("ADGUARD_USERNAME", None),
+            description="Username for authentication",
+        ),
+        password: Optional[str] = Field(
+            default=os.environ.get("ADGUARD_PASSWORD", None),
+            description="Password for authentication",
+        ),
+    ) -> Dict:
+        """Test upstream configuration."""
+        client = Api(base_url=base_url, username=username, password=password)
+        return client.test_upstream_dns(upstreams=upstreams)
+
+    @mcp.tool(tags={"stats"})
+    async def reset_stats(
+        base_url: str = Field(
+            default=os.environ.get("ADGUARD_URL", "http://localhost:3000"),
+            description="The base URL of the AdGuard Home instance",
+        ),
+        username: Optional[str] = Field(
+            default=os.environ.get("ADGUARD_USERNAME", None),
+            description="Username for authentication",
+        ),
+        password: Optional[str] = Field(
+            default=os.environ.get("ADGUARD_PASSWORD", None),
+            description="Password for authentication",
+        ),
+    ) -> Dict:
+        """Reset statistics."""
+        client = Api(base_url=base_url, username=username, password=password)
+        return client.reset_stats()
+
+    @mcp.tool(tags={"stats"})
+    async def get_stats_config(
+        base_url: str = Field(
+            default=os.environ.get("ADGUARD_URL", "http://localhost:3000"),
+            description="The base URL of the AdGuard Home instance",
+        ),
+        username: Optional[str] = Field(
+            default=os.environ.get("ADGUARD_USERNAME", None),
+            description="Username for authentication",
+        ),
+        password: Optional[str] = Field(
+            default=os.environ.get("ADGUARD_PASSWORD", None),
+            description="Password for authentication",
+        ),
+    ) -> Dict:
+        """Get statistics configuration."""
+        client = Api(base_url=base_url, username=username, password=password)
+        return client.get_stats_config()
+
+    @mcp.tool(tags={"stats"})
+    async def set_stats_config(
+        interval: int = Field(
+            ..., description="Statistics retention interval in milliseconds"
         ),
         base_url: str = Field(
             default=os.environ.get("ADGUARD_URL", "http://localhost:3000"),
@@ -835,18 +1292,12 @@ def register_tools(mcp: FastMCP):
             description="Password for authentication",
         ),
     ) -> Dict:
-        """Update a device."""
+        """Set statistics configuration."""
         client = Api(base_url=base_url, username=username, password=password)
-        return client.update_device(
-            device_id=device_id,
-            name=name,
-            device_type=device_type,
-            dns_server_id=dns_server_id,
-        )
+        return client.set_stats_config(interval=interval)
 
-    @mcp.tool(tags=["devices"])
-    async def delete_device(
-        device_id: str = Field(..., description="ID of the device"),
+    @mcp.tool(tags={"query_log"})
+    async def clear_query_log(
         base_url: str = Field(
             default=os.environ.get("ADGUARD_URL", "http://localhost:3000"),
             description="The base URL of the AdGuard Home instance",
@@ -860,70 +1311,9 @@ def register_tools(mcp: FastMCP):
             description="Password for authentication",
         ),
     ) -> Dict:
-        """Delete a device."""
+        """Clear query log."""
         client = Api(base_url=base_url, username=username, password=password)
-        return client.delete_device(device_id=device_id)
-
-    @mcp.tool(tags=["dns"])
-    async def list_dns_servers(
-        base_url: str = Field(
-            default=os.environ.get("ADGUARD_URL", "http://localhost:3000"),
-            description="The base URL of the AdGuard Home instance",
-        ),
-        username: Optional[str] = Field(
-            default=os.environ.get("ADGUARD_USERNAME", None),
-            description="Username for authentication",
-        ),
-        password: Optional[str] = Field(
-            default=os.environ.get("ADGUARD_PASSWORD", None),
-            description="Password for authentication",
-        ),
-    ) -> List[Dict]:
-        """List all DNS servers."""
-        client = Api(base_url=base_url, username=username, password=password)
-        return client.list_dns_servers()
-
-    @mcp.tool(tags=["filtering"])
-    async def list_filter_lists(
-        base_url: str = Field(
-            default=os.environ.get("ADGUARD_URL", "http://localhost:3000"),
-            description="The base URL of the AdGuard Home instance",
-        ),
-        username: Optional[str] = Field(
-            default=os.environ.get("ADGUARD_USERNAME", None),
-            description="Username for authentication",
-        ),
-        password: Optional[str] = Field(
-            default=os.environ.get("ADGUARD_PASSWORD", None),
-            description="Password for authentication",
-        ),
-    ) -> List[Dict]:
-        """List all filter lists."""
-        client = Api(base_url=base_url, username=username, password=password)
-        return client.list_filter_lists()
-
-    @mcp.tool(tags=["stats"])
-    async def get_stats_categories(
-        time_from_millis: int = Field(..., description="Start time in milliseconds"),
-        time_to_millis: int = Field(..., description="End time in milliseconds"),
-        base_url: str = Field(
-            default=os.environ.get("ADGUARD_URL", "http://localhost:3000"),
-            description="The base URL of the AdGuard Home instance",
-        ),
-        username: Optional[str] = Field(
-            default=os.environ.get("ADGUARD_USERNAME", None),
-            description="Username for authentication",
-        ),
-        password: Optional[str] = Field(
-            default=os.environ.get("ADGUARD_PASSWORD", None),
-            description="Password for authentication",
-        ),
-    ) -> Dict:
-        """Get category statistics."""
-        client = Api(base_url=base_url, username=username, password=password)
-        return client.get_stats_categories(
-            time_from_millis=time_from_millis, time_to_millis=time_to_millis
-        )
+        return client.clear_query_log()
 
 
 def adguard_home_mcp():
