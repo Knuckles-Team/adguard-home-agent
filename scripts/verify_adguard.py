@@ -62,7 +62,7 @@ def test_custom_api_class():
         print(f"Filtering enabled: {filtering.get('enabled')}")
     except Exception as e:
         print(f"Failed to get filtering status via Api class: {e}")
-    
+
     return api
 
 def test_standard_endpoints(client):
@@ -121,11 +121,11 @@ def test_standard_endpoints(client):
     print("\n--- Testing Standard AdGuard Home Endpoints (/control/...) ---")
     # AdGuard Home usually uses /control/api or similar.
     # Common endpoints: /control/status, /control/version.json (sometimes)
-    
+
     session = requests.Session()
     # AdGuard Home often uses Basic Auth
     session.auth = (USERNAME, PASSWORD)
-    
+
     endpoints = [
         "/control/status",
         "/control/version.json",
@@ -134,7 +134,7 @@ def test_standard_endpoints(client):
         "/control/filtering/status",
         "/control/access/list"
     ]
-    
+
     for endpoint in endpoints:
         url = f"{BASE_URL}{endpoint}"
         try:
