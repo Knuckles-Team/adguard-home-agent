@@ -28,7 +28,7 @@ from adguard_home_agent.middlewares import (
     JWTClaimsLoggingMiddleware,
 )
 
-__version__ = "0.2.11"
+__version__ = "0.2.12"
 
 logger = get_logger(name="TokenMiddleware")
 logger.setLevel(logging.DEBUG)
@@ -1504,7 +1504,7 @@ def adguard_home_mcp():
 
     if hasattr(args, "help") and args.help:
 
-        usage()
+        parser.print_help()
 
         sys.exit(0)
 
@@ -1814,31 +1814,6 @@ def adguard_home_mcp():
     print(f"  Eunomia: {args.eunomia_type}")
 
     mcp.run(transport=args.transport, host=args.host, port=args.port)
-
-
-def usage():
-    print("""
-Adguard Home MCP Server
-
-Usage:
-  adguard-home-mcp [options]
-
-Options:
-  -t, --transport <method>       Transport method: 'stdio' (default), 'streamable-http', or 'sse'
-  -s, --host <host>              Host address for HTTP transport (default: 0.0.0.0)
-  -p, --port <port>              Port number for HTTP transport (default: 8000)
-  --auth-type <type>             Authentication type: 'none', 'static', 'jwt', 'oauth-proxy', 'oidc-proxy', 'remote-oauth'
-  --enable-delegation            Enable OIDC token delegation
-  --audience <audience>          Audience for delegated token
-  --delegated-scopes <scopes>    Scopes for delegated token
-  --eunomia-type <type>          Eunomia type: 'none', 'embedded', 'remote'
-  --help                         Show this help message
-
-Environment Variables:
-  ADGUARD_URL                    URL of AdGuard Home instance
-  ADGUARD_USERNAME               Username for AdGuard Home
-  ADGUARD_PASSWORD               Password for AdGuard Home
-""")
 
 
 if __name__ == "__main__":
