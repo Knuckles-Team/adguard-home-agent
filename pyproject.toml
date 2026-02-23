@@ -41,12 +41,14 @@ all = [
     "eunomia-mcp>=0.3.10",
     "pydantic-ai-slim[fastmcp,openai,groq,anthropic,mistral,google,huggingface,a2a,ag-ui,web]>=1.60.0",
     "pydantic-ai-skills>=v0.4.0",
-    "fastapi>=0.128.0"
+    "fastapi>=0.128.0",
+    "agent-utilities[all]>=0.1.0",
+    "universal-skills>=0.1.2",
 ]
 
 [project.scripts]
-adguard-mcp = "adguard_home_agent.adguard_mcp:adguard_home_mcp"
-adguard-agent = "adguard_home_agent.adguard_agent:agent_server"
+adguard-mcp = "adguard_home_agent.mcp:mcp_server"
+adguard-agent = "adguard_home_agent.agent:agent_server"
 
 [tool.setuptools.packages.find]
 where = ["."]

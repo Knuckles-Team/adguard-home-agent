@@ -58,7 +58,7 @@ def test_custom_api_class():
     try:
         print("Attempting get_filtering_status()...")
         filtering = api.get_filtering_status()
-        print(f"Success! Filtering status retrieved via Api class.")
+        print("Success! Filtering status retrieved via Api class.")
         print(f"Filtering enabled: {filtering.get('enabled')}")
     except Exception as e:
         print(f"Failed to get filtering status via Api class: {e}")
@@ -98,14 +98,14 @@ def test_standard_endpoints(client):
     try:
         print("Attempting get_rewrite_settings()...")
         rewrites = client.get_rewrite_settings()
-        print(f"Success! Rewrite settings retrieved.")
+        print("Success! Rewrite settings retrieved.")
     except Exception as e:
         print(f"Error in get_rewrite_settings: {e}")
 
     try:
         print("Attempting get_tls_status()...")
         tls_status = client.get_tls_status()
-        print(f"Success! TLS status retrieved.")
+        print("Success! TLS status retrieved.")
     except Exception as e:
         print(f"Error in get_tls_status: {e}")
 

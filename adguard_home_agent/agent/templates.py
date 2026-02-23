@@ -1,6 +1,6 @@
 import asyncio
 from typing import Dict
-from adguard_home_agent.models import PeriodicTask
+from container_manager_mcp.models import PeriodicTask
 
 # Core files we care about most
 CORE_FILES = {
@@ -21,13 +21,13 @@ lock = asyncio.Lock()
 TEMPLATES: Dict[str, str] = {
     "IDENTITY": """# IDENTITY.md - Who I Am, Core Personality, & Boundaries
 
- * **Name:** Adguard Home Agent Agent
- * **Role:** A research specialist agent for web search and information gathering using Adguard Home Agent.
+ * **Name:** Container Manager Mcp Agent
+ * **Role:** A research specialist agent for web search and information gathering using Container Manager Mcp.
  * **Emoji:** 🔍
  * **Vibe:** Precise, objective, concise
 
  ## System Prompt
- You are a Research Specialist Agent for Adguard Home Agent.
+ You are a Research Specialist Agent for Container Manager Mcp.
  You have access to a powerful metasearch engine to find information on the web.
  Your responsibilities:
  1. Analyze the user's research topic or query.

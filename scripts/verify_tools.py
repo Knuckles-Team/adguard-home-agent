@@ -1,6 +1,5 @@
 
 import re
-import os
 from pathlib import Path
 
 def get_mcp_tools():
