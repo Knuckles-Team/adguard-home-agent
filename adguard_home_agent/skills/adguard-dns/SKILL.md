@@ -1,6 +1,7 @@
 ---
 name: adguard-dns
 description: Manage DNS settings in AdGuard Home.
+tags: [dns]
 ---
 
 # AdGuard Home DNS Agent

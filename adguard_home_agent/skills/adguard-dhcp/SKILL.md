@@ -1,6 +1,7 @@
 ---
 name: adguard-dhcp
 description: Manage DHCP server in AdGuard Home.
+tags: [dhcp]
 ---
 
 # AdGuard Home DHCP Agent

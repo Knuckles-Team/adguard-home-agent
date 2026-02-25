@@ -1,6 +1,7 @@
 ---
 name: adguard-clients
 description: Manage clients in AdGuard Home.
+tags: [clients]
 ---
 
 # AdGuard Home Clients Agent

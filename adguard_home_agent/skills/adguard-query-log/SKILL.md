@@ -1,6 +1,7 @@
 ---
 name: adguard-query-log
 description: Manage and view query logs in AdGuard Home.
+tags: [query-log]
 ---
 
 # AdGuard Home Query Log Agent

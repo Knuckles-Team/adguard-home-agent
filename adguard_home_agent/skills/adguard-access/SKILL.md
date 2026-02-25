@@ -1,6 +1,7 @@
 ---
 name: adguard-access
 description: AdGuard Home Access capabilities for A2A Agent.
+tags: [access]
 ---
 ### Overview
 This skill provides access to access operations.

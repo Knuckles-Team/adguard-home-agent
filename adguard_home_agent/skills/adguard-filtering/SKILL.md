@@ -1,6 +1,7 @@
 ---
 name: adguard-filtering
 description: Manage filtering settings in AdGuard Home.
+tags: [filtering]
 ---
 
 # AdGuard Home Filtering Agent

@@ -1,6 +1,7 @@
 ---
-name: AdGuard Home TLS Agent
+name: adguard-tls
 description: Manage TLS configuration in AdGuard Home.
+tags: [tls]
 ---
 
 # AdGuard Home TLS Agent

@@ -1,6 +1,7 @@
 ---
-name: AdGuard Home Profile Agent
+name: adguard-profile
 description: Manage the current user profile in AdGuard Home.
+tags: [profile]
 ---
 
 # AdGuard Home Profile Agent

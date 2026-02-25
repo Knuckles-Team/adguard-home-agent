@@ -1,6 +1,7 @@
 ---
 name: adguard-stats
 description: Manage and view statistics in AdGuard Home.
+tags: [stats]
 ---
 
 # AdGuard Home Stats Agent

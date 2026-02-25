@@ -1,6 +1,7 @@
 ---
 name: adguard-blocked-services
 description: Manage blocked services in AdGuard Home.
+tags: [blocked-services]
 ---
 
 # AdGuard Home Blocked Services Agent

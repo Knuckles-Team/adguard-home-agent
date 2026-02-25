@@ -1,6 +1,7 @@
 ---
 name: adguard-settings
 description: AdGuard Home Settings capabilities for A2A Agent.
+tags: [settings]
 ---
 ### Overview
 This skill provides access to settings operations.

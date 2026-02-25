@@ -1,6 +1,7 @@
 ---
 name: adguard-account
 description: AdGuard Home Account capabilities for A2A Agent.
+tags: [account]
 ---
 ### Overview
 This skill provides access to account operations.

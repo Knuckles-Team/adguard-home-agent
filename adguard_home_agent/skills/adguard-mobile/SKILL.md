@@ -1,6 +1,7 @@
 ---
-name: AdGuard Home Mobile Config Agent
+name: adguard-mobile
 description: Retrieve mobile configuration files for AdGuard Home.
+tags: [mobile]
 ---
 
 # AdGuard Home Mobile Config Agent

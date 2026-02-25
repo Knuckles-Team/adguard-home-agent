@@ -20,38 +20,20 @@ from fastmcp.server.middleware.timing import TimingMiddleware
 from fastmcp.server.middleware.rate_limiting import RateLimitingMiddleware
 from fastmcp.server.middleware.error_handling import ErrorHandlingMiddleware
 from fastmcp.utilities.logging import get_logger
-from agent_utilities.mcp_utilities import create_mcp_parser
-from adguard_home_agent.adguard_api import Api
-from adguard_home_agent.utils import to_boolean, to_integer
-from adguard_home_agent.middlewares import (
+from agent_utilities.mcp_utilities import (
+    create_mcp_parser,
+    config,
+)
+from agent_utilities.middlewares import (
     UserTokenMiddleware,
     JWTClaimsLoggingMiddleware,
 )
+from adguard_home_agent.adguard_api import Api
 
-__version__ = "0.2.14"
+__version__ = "0.2.15"
 
 logger = get_logger(name="TokenMiddleware")
 logger.setLevel(logging.DEBUG)
-
-config = {
-    "enable_delegation": to_boolean(os.environ.get("ENABLE_DELEGATION", "False")),
-    "audience": os.environ.get("AUDIENCE", None),
-    "delegated_scopes": os.environ.get("DELEGATED_SCOPES", "api"),
-    "token_endpoint": None,
-    "oidc_client_id": os.environ.get("OIDC_CLIENT_ID", None),
-    "oidc_client_secret": os.environ.get("OIDC_CLIENT_SECRET", None),
-    "oidc_config_url": os.environ.get("OIDC_CONFIG_URL", None),
-    "jwt_jwks_uri": os.getenv("FASTMCP_SERVER_AUTH_JWT_JWKS_URI", None),
-    "jwt_issuer": os.getenv("FASTMCP_SERVER_AUTH_JWT_ISSUER", None),
-    "jwt_audience": os.getenv("FASTMCP_SERVER_AUTH_JWT_AUDIENCE", None),
-    "jwt_algorithm": os.getenv("FASTMCP_SERVER_AUTH_JWT_ALGORITHM", None),
-    "jwt_secret": os.getenv("FASTMCP_SERVER_AUTH_JWT_PUBLIC_KEY", None),
-    "jwt_required_scopes": os.getenv("FASTMCP_SERVER_AUTH_JWT_REQUIRED_SCOPES", None),
-}
-
-DEFAULT_TRANSPORT = os.getenv("TRANSPORT", "stdio")
-DEFAULT_HOST = os.getenv("HOST", "0.0.0.0")
-DEFAULT_PORT = to_integer(string=os.getenv("PORT", "8000"))
 
 
 def register_prompts(mcp: FastMCP):
@@ -1316,7 +1298,7 @@ def register_tools(mcp: FastMCP):
         return client.clear_query_log()
 
 
-def adguard_home_mcp():
+def mcp_server():
     print(f"Adguard Home MCP v{__version__}")
     parser = create_mcp_parser()
 
@@ -1637,4 +1619,4 @@ def adguard_home_mcp():
 
 
 if __name__ == "__main__":
-    adguard_home_mcp()
+    mcp_server()

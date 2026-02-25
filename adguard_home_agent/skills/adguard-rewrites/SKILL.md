@@ -1,6 +1,7 @@
 ---
 name: adguard-rewrites
 description: Manage DNS rewrites in AdGuard Home.
+tags: [rewrites]
 ---
 
 # AdGuard Home Rewrites Agent
