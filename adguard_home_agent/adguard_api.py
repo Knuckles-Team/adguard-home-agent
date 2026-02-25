@@ -7,7 +7,7 @@ from typing import Dict, List, Optional, Any
 from urllib.parse import urljoin
 import urllib3
 
-__version__ = "0.2.15"
+__version__ = "0.2.16"
 
 
 class Api:

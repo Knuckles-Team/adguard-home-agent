@@ -11,6 +11,7 @@ repos:
     rev: v6.0.0
     hooks:
     - id: check-added-large-files
+      exclude: 'adguard_home_agent/skills/.*-docs/'
     - id: check-ast
       exclude: ^(tests/|test/|scripts/|script/)
     - id: check-yaml
@@ -40,7 +41,7 @@ repos:
     hooks:
       - id: codespell
         args: ["-L", "ans,linar,nam,tread,ot,"]
-        exclude: ^(tests/|test/|scripts/|script/)
+        exclude: '^(tests/|test/|scripts/|script/|adguard_home_agent/skills/.*-docs/)'
   - repo: https://github.com/nbQA-dev/nbQA
     rev: 1.9.1
     hooks:
