@@ -30,7 +30,7 @@ from agent_utilities.middlewares import (
 )
 from adguard_home_agent.adguard_api import Api
 
-__version__ = "0.2.16"
+__version__ = "0.2.17"
 
 logger = get_logger(name="TokenMiddleware")
 logger.setLevel(logging.DEBUG)
@@ -153,7 +153,7 @@ def register_tools(mcp: FastMCP):
             blocked_hosts=blocked_hosts,
         )
 
-    @mcp.tool(tags={"blocked_services"})
+    @mcp.tool(tags={"blocked-services"})
     async def get_blocked_services_list(
         base_url: str = Field(
             default=os.environ.get("ADGUARD_URL", "http://localhost:3000"),
@@ -172,7 +172,7 @@ def register_tools(mcp: FastMCP):
         client = Api(base_url=base_url, username=username, password=password)
         return client.get_blocked_services_list()
 
-    @mcp.tool(tags={"blocked_services"})
+    @mcp.tool(tags={"blocked-services"})
     async def get_all_blocked_services(
         base_url: str = Field(
             default=os.environ.get("ADGUARD_URL", "http://localhost:3000"),
@@ -191,7 +191,7 @@ def register_tools(mcp: FastMCP):
         client = Api(base_url=base_url, username=username, password=password)
         return client.get_all_blocked_services()
 
-    @mcp.tool(tags={"blocked_services"})
+    @mcp.tool(tags={"blocked-services"})
     async def update_blocked_services(
         services: List[str] = Field(..., description="List of services to block"),
         base_url: str = Field(
@@ -852,7 +852,7 @@ def register_tools(mcp: FastMCP):
         client = Api(base_url=base_url, username=username, password=password)
         return client.get_safesearch_status()
 
-    @mcp.tool(tags={"query_log"})
+    @mcp.tool(tags={"query-log"})
     async def get_query_log(
         time_from_millis: int = Field(..., description="Start time in milliseconds"),
         time_to_millis: int = Field(..., description="End time in milliseconds"),
@@ -1278,7 +1278,7 @@ def register_tools(mcp: FastMCP):
         client = Api(base_url=base_url, username=username, password=password)
         return client.set_stats_config(interval=interval)
 
-    @mcp.tool(tags={"query_log"})
+    @mcp.tool(tags={"query-log"})
     async def clear_query_log(
         base_url: str = Field(
             default=os.environ.get("ADGUARD_URL", "http://localhost:3000"),

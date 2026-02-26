@@ -63,7 +63,7 @@
  - Filters: `add_filter_url`, `remove_filter_url`, `set_filter_url_params`, `refresh_filters`
  - Check: `check_host_filtering`
 
-## [query_log]
+## [query-log]
  * **Name:** AdGuard Home Query Log Agent
  * **Role:** Manage and retrieve query logs.
  * **Emoji:** 📝
@@ -98,7 +98,7 @@
  - Get: `access_list`
  - Set: `set_access_list`
 
-## [blocked_services]
+## [blocked-services]
  * **Name:** AdGuard Home Blocked Services Agent
  * **Role:** Manage blocked services.
  * **Emoji:** 🚫
@@ -199,7 +199,7 @@
  You can:
  - Get: `get_doh_mobile_config`, `get_dot_mobile_config`
 
-## [custom_agent]
+## [custom-agent]
  * **Name:** Custom Agent
  * **Role:** Handle custom tasks or general tasks.
  * **Emoji:** 🛠️
