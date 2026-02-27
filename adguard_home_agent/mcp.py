@@ -30,7 +30,7 @@ from agent_utilities.middlewares import (
 )
 from adguard_home_agent.adguard_api import Api
 
-__version__ = "0.2.20"
+__version__ = "0.2.21"
 
 logger = get_logger(name="TokenMiddleware")
 logger.setLevel(logging.DEBUG)
