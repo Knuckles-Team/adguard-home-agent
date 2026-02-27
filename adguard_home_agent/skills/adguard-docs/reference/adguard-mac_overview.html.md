@@ -118,7 +118,7 @@ EN
 ![](https://cdn.adguardcdn.com/website/adguard.com/svg/agnar-top-line.svg)
 **AdGuard for Windows**
 Blocks ads and trackers in browsers and apps. Protects from phishing and malware.
-20,002 20002 user reviews
+20,009 20009 user reviews
 Excellent!
 Download
 By downloading the program you accept the terms of the [License agreement](https://adguard.com/en/eula.html)
@@ -129,7 +129,7 @@ By downloading the program you accept the terms of the [License agreement](https
 ![](https://cdn.adguardcdn.com/website/adguard.com/svg/agnar-top-line.svg)
 **AdGuard for Mac**
 Designed with macOS specifics in mind. Blocks ads and trackers. Protects your privacy.
-20,002 20002 user reviews
+20,009 20009 user reviews
 Excellent!
 Download
 By downloading the program you accept the terms of the [License agreement](https://adguard.com/en/eula.html)
@@ -140,7 +140,7 @@ By downloading the program you accept the terms of the [License agreement](https
 ![](https://cdn.adguardcdn.com/website/adguard.com/svg/agnar-top-line.svg)
 **AdGuard for Android**
 Doesn’t need root access to block ads in browsers and apps. Fights trackers and phishing.
-20,002 20002 user reviews
+20,009 20009 user reviews
 Excellent!
 Download
 By downloading the program you accept the terms of the [License agreement](https://adguard.com/en/eula.html)
@@ -151,7 +151,7 @@ By downloading the program you accept the terms of the [License agreement](https
 ![](https://cdn.adguardcdn.com/website/adguard.com/svg/agnar-top-line.svg)
 **AdGuard for iOS**
 Blocks ads in browsers and supports DNS filtering. Blocks trackers and dangerous sites.
-20,002 20002 user reviews
+20,009 20009 user reviews
 Excellent!
 Download
 By downloading the program you accept the terms of the [License agreement](https://adguard.com/en/eula.html)
@@ -162,7 +162,7 @@ By downloading the program you accept the terms of the [License agreement](https
 ![](https://cdn.adguardcdn.com/website/adguard.com/svg/agnar-top-line.svg)
 **AdGuard for iOS Pro**
 Blocks ads in browsers and supports DNS filtering. Blocks trackers and dangerous sites.
-20,002 20002 user reviews
+20,009 20009 user reviews
 Excellent!
 Download
 By downloading the program you accept the terms of the [License agreement](https://adguard.com/en/eula.html)
@@ -173,7 +173,7 @@ By downloading the program you accept the terms of the [License agreement](https
 ![](https://cdn.adguardcdn.com/website/adguard.com/svg/agnar-top-line.svg)
 **Block ads in Chrome**
 Free the Web from ads and protect your privacy with AdGuard Browser Extension
-20,002 20002 user reviews
+20,009 20009 user reviews
 Excellent!
 Download
 By downloading the program you accept the terms of the [License agreement](https://adguard.com/en/eula.html)
@@ -184,7 +184,7 @@ By downloading the program you accept the terms of the [License agreement](https
 ![](https://cdn.adguardcdn.com/website/adguard.com/svg/agnar-top-line.svg)
 **Block ads in Firefox**
 Free the Web from ads and protect your privacy with AdGuard Browser Extension
-20,002 20002 user reviews
+20,009 20009 user reviews
 Excellent!
 Download
 By downloading the program you accept the terms of the [License agreement](https://adguard.com/en/eula.html)
@@ -195,7 +195,7 @@ By downloading the program you accept the terms of the [License agreement](https
 ![](https://cdn.adguardcdn.com/website/adguard.com/svg/agnar-top-line.svg)
 **Block ads in Safari**
 Free the Web from ads and protect your privacy with AdGuard Browser Extension
-20,002 20002 user reviews
+20,009 20009 user reviews
 Excellent!
 Download
 By downloading the program you accept the terms of the [License agreement](https://adguard.com/en/eula.html)
@@ -206,7 +206,7 @@ By downloading the program you accept the terms of the [License agreement](https
 ![](https://cdn.adguardcdn.com/website/adguard.com/svg/agnar-top-line.svg)
 **Block ads in Edge**
 Free the Web from ads and protect your privacy with AdGuard Browser Extension
-20,002 20002 user reviews
+20,009 20009 user reviews
 Excellent!
 Download
 By downloading the program you accept the terms of the [License agreement](https://adguard.com/en/eula.html)
@@ -217,7 +217,7 @@ By downloading the program you accept the terms of the [License agreement](https
 ![](https://cdn.adguardcdn.com/website/adguard.com/svg/agnar-top-line.svg)
 **Block ads in Opera**
 Free the Web from ads and protect your privacy with AdGuard Browser Extension
-20,002 20002 user reviews
+20,009 20009 user reviews
 Excellent!
 Download
 By downloading the program you accept the terms of the [License agreement](https://adguard.com/en/eula.html)
@@ -228,7 +228,7 @@ By downloading the program you accept the terms of the [License agreement](https
 ![](https://cdn.adguardcdn.com/website/adguard.com/svg/agnar-top-line.svg)
 **Block ads in Yandex.Browser**
 Free the Web from ads and protect your privacy with AdGuard Browser Extension
-20,002 20002 user reviews
+20,009 20009 user reviews
 Excellent!
 Download
 By downloading the program you accept the terms of the [License agreement](https://adguard.com/en/eula.html)
@@ -239,7 +239,7 @@ By downloading the program you accept the terms of the [License agreement](https
 ![](https://cdn.adguardcdn.com/website/adguard.com/svg/agnar-top-line.svg)
 **AdGuard for Linux**
 World’s first system-wide Linux ad blocker. Blocks ads and trackers.
-20,002 20002 user reviews
+20,009 20009 user reviews
 Excellent!
 [ How to install ](https://adguard.com/en/adguard-linux/overview.html#instructions)
 ![](https://cdn.adguardcdn.com/website/adguard.com/svg/agnar-top-line.svg)
@@ -251,26 +251,27 @@ AdGuard for WindowsAdGuard for MacAdGuard for AndroidAdGuard for iOSAdGuard Cont
 AdGuard Content Blocker  AdGuard Browser Extension  AdGuard Assistant  AdGuard Home  AdGuard Pro for iOS  AdGuard Mini for Mac  AdGuard for Android TV  AdGuard for Linux  AdGuard Temp Mail  AdGuard VPN  AdGuard DNS  AdGuard Mail
 Other products
 [ AdGuard Content Blocker ](https://adguard.com/en/adguard-content-blocker/overview.html)[ AdGuard Browser Extension ](https://adguard.com/en/adguard-browser-extension/overview.html)[ AdGuard Assistant ](https://adguard.com/en/adguard-assistant/overview.html)[ AdGuard Home ](https://adguard.com/en/adguard-home/overview.html)[ AdGuard Pro for iOS ](https://adguard.com/en/adguard-ios-pro/overview.html)[ AdGuard Mini for Mac ](https://adguard.com/en/adguard-mini-mac/overview.html)[ AdGuard for Android TV ](https://adguard.com/en/adguard-android-tv/overview.html)[ AdGuard for Linux ](https://adguard.com/en/adguard-linux/overview.html)[ AdGuard Temp Mail ](https://adguard.com/en/adguard-temp-mail/overview.html)[ AdGuard VPN ](https://adguard-vpn.com/welcome.html?_plc=en)[ AdGuard DNS ](https://adguard-dns.io/welcome.html?source=ag_products_page&_plc=en)[ AdGuard Mail ](https://adguard-mail.com/welcome.html?_plc=en)
-![](https://cdn.adguardcdn.com/website/adguard.com/products/screenshots/windows/windows_protection_enabled_light-v2.svg)
-![](https://cdn.adguardcdn.com/website/adguard.com/products/screenshots/windows/windows_protection_disabled_light-v3.svg)
-![](https://cdn.adguardcdn.com/website/adguard.com/products/screenshots/windows/windows_statistics_screen_light-v3.svg)
-![](https://cdn.adguardcdn.com/website/adguard.com/products/screenshots/windows/windows_protection_screen_light-v3.svg)
-20,002 20002 user reviews
+![](https://cdn.adguardcdn.com/website/adguard.com/products/screenshots/mac/mac_disabled_light-v3.svg)
+![](https://cdn.adguardcdn.com/website/adguard.com/products/screenshots/mac/mac_enabled_light-v2.svg)
+20,009 20009 user reviews
 Excellent!
-#  AdGuard for Windows
-AdGuard for Windows is more than an ad blocker. It is a multipurpose tool that blocks ads, controls access to dangerous sites, speeds up page loading, and protects children from inappropriate content.
+#  AdGuard for Mac
+AdGuard for Mac is a unique ad blocker designed with macOS in mind. In addition to protecting you from annoying ads in browsers and apps, it shields you from tracking, phishing, and fraud.
 Download
 By downloading the program you accept the terms of the [License agreement](https://adguard.com/en/eula.html)
-[](https://agrd.io/msstore)
-AdGuard for Windows v7.22, 14-day trial period
-  * **Ad blocking**
-AdGuard blocks all kinds of ads — popups, video ads, banners, and annoyances. Thanks to stealthy background filtering and cosmetic processing, you see clean pages with the content you want
-  * **Safe Web**
-AdGuard protects you from phishing and malware attacks. It checks every website you visit for malicious content against a constantly updated database and blocks requests from dangerous pages
+AdGuard for Mac v2.18, 14-day trial period
+  * **Effective ad blocking**
+How to remove ads on Mac? Use AdGuard to forget about popups, video ads, banners, and the like. Thanks to stealthy background filtering and cosmetic processing, you see clean pages with the content you want
+  * **Safe web surfing**
+Mac computers are less susceptible to malware, but it would be wrong to ignore potential threats. There are still many phishing and fraudulent websites on the Internet, and AdGuard will protect you from them
   * **Privacy protection**
-AdGuard fights all the trackers and analytics systems that spy on you. It blocks third-party cookies, hides your IP address, and offers a powerful suite of tools to protect your privacy
-  * **Parental control**
-AdGuard keeps your kids safe online. It blocks harmful content, hides inappropriate websites from search results, and lets you control your kids’ online activities with custom blocklists
+AdGuard fights all trackers and analytics systems that spy on you. Our special Tracking Protection filter accumulates rules against all known online analytics that try to steal your private data
+  * **In-app filtering**
+Is there an app that you like, but its ads annoy you? AdGuard lets you have your cake and eat it too by allowing you to filter traffic from any app installed on your Mac
+  * **System-wide protection**
+Have multiple browsers? No problem, AdGuard blocks ads in all of them, from Safari and Chrome to the most exotic ones
+  * **Multipurpose tool**
+With AdGuard Ad Blocker for Mac, you don’t need any additional apps or browser extensions to block ads and trackers and protect your privacy
 
 
 ## Try AdGuard — it will exceed your expectations
@@ -280,24 +281,24 @@ Download
 By downloading the program you accept the terms of the [License agreement](https://adguard.com/en/eula.html)
 [Microsoft Store](https://agrd.io/msstore)
 ##  Latest news
-  * ### [ AdGuard for Windows v8.0 beta 2: Improvements and fixes ](https://adguard.com/en/blog/adguard-for-windows-v8-0-beta-2.html)
-Dec 5, 2025
-This beta brings improved support for userscripts on single-page applications, important stability fixes, and smoother overall performance.
-  * ### [ AdGuard for Windows October incident report: Post Mortem ](https://adguard.com/en/blog/adguard-for-windows-post-mortem.html)
-Nov 13, 2025
-After releasing version 7.22, we found it caused occasional page loading issues in browsers. Here’s what happened and how we fixed it.
-  * ### [ Ready, set, test: Try the new AdGuard for Windows v8.0 beta ](https://adguard.com/en/blog/adguard-for-windows-v8-0-beta.html)
-Oct 28, 2025
-AdGuard for Windows v8.0 beta 1 is now available for everyone to try! With the new version, we gave the app better speed, stability, and simplicity.
-  * ### [ AdGuard for Windows v7.22: Smarter userscripts ](https://adguard.com/en/blog/adguard-for-windows-v7-22.html)
-Oct 3, 2025
-This release introduces improved userscript compatibility. We also have something worth celebrating: AdGuard is now available in the Microsoft Store!
+  * ### [ AdGuard for Mac v2.18 now supports 3 AI-powered browsers ](https://adguard.com/en/blog/adguard-for-mac-v2-18.html)
+Dec 18, 2025
+AdGuard for Mac v2.18 brings support for 3 AI-powered browsers, updated system requirements, and improved stability.
+  * ### [ Best ad blocker for Safari ](https://adguard.com/en/blog/best-ad-blocker-for-safari.html)
+Nov 22, 2025
+Find the best ad blocker for Safari to improve your browsing experience. Learn about top options, features, and benefits to keep your Safari ad-free.
+  * ### [ AdGuard for Mac v2.17: New ways to stay safe online ](https://adguard.com/en/blog/adguard-for-mac-v2-17.html)
+Jun 16, 2025
+The app now uses post-quantum encryption to keep you protected against future threats. There are other useful updates too — check out the post to learn more.
+  * ### [ How to take a screenshot on Mac ](https://adguard.com/en/blog/how-to-take-a-screenshot-on-mac.html)
+Mar 25, 2025
+Capture it like a pro: A step-by-step guide on how to take a screenshot on Mac
 
-[ Read more ](https://adguard.com/en/blog/tag/adguard-for-windows.html)
+[ Read more ](https://adguard.com/en/blog/tag/adguard-for-mac.html)
 ##  All done!  Something went wrong  Subscribe to our news
 You’ve successfully subscribed to AdGuard news. Emails will be sent to
 You can also subscribe using a different email address
-Please try again. If it doesn’t help, please [contact support](https://adguard.com/en/adguard-windows/%mailto%)
+Please try again. If it doesn’t help, please [contact support](https://adguard.com/en/adguard-mac/%mailto%)
 Be the first to get the latest news about online privacy and ad blocking, AdGuard product releases, upcoming sales, giveaways, and more
 Email
 Please enter a valid email address
@@ -311,14 +312,14 @@ Try again
 ![](https://cdn.adguardcdn.com/website/adguard.com/pictures/agnar_subscription.svg)
 Total app rating 4.7/5
 More than 20,000 app reviews! We love our users and they love us back
-20,002 20002 user reviews
+20,009 20009 user reviews
 Excellent!
-Angel Kitty [](https://chromewebstore.google.com/detail/adguard-adblocker/bgnkhhnnamicmpeenaelnjfhikgbkllg/reviews) this works really good on windows 10 and windows 11 systems I also founded the MV2 version of AdGuard as well for my windows 7 system and it works just like this one for windows 10 and windows 11 systems just a older version of this one for windows1
-Pit-Tim [](https://itunes.apple.com/DE/app/id1047223162) Missing Google's Cookies Window Blocking
-winstoon888  Работает и на Windows 11.
-Miguel  Parental control is only on windows
-MEdİA  Mükemmel windows 7 de bile çalısıyor
-Lauris  The best ads blocker for Windows.
+DKJTR [](https://itunes.apple.com/TW/app/id1047223162) As title, especially on Mac
+flukefamily@icloud.com  Your steam iphone ....mac mobie 16k
+Ted47  I live this App for Mac
+MisteRibi [](https://itunes.apple.com/CA/app/id1126386264) Would like compatibility for Mac M1.
+Dean Lin [](https://www.trustpilot.com/reviews/5bf77de29d378009543e9d33) I love this software for Mac.
+op_yeroc  Best abblocker of ios and mac
 ## Rate AdGuard
 BadPoorAverageGreatExcellent!
 Your name
@@ -333,12 +334,12 @@ Please try again or contact support
 Close
 ![AdGuard product video](https://cdn.adguardcdn.com/website/adguard.com/video/how-it-work/video-preview-en.png)
 ##  FAQ
-  * Visit our [Knowledge base](https://adguard.com/kb/adguard-for-windows/installation/) to learn how to install AdGuard Ad Blocker for PC.
+  * Visit our [Knowledge base](https://adguard.com/kb/adguard-for-mac/installation/) to learn how to install AdGuard Ad Blocker on your Mac.
   * Most ad blockers are browser extensions and don’t have the technical ability to remove all types of ads. AdGuard blocks ads in all browsers and even in apps. Plus, AdGuard gives you lots of extra tools.
 
 
-  * To learn more about the key features of AdGuard for Windows and how to get rid of ads on your PC, read [our Knowledge base article](https://adguard.com/kb/adguard-for-windows/overview/).
-  * If you have any questions, you can contact us 24/7 at support@adguard.com. It’s a good idea to check [our FAQ](https://adguard.com/en/support/adguard_for_windows.html) first: it contains answers to 90% of user questions.
+  * To learn more about the key features of AdGuard for Mac and how to get rid of ads on Mac, read [our Knowledge base article](https://adguard.com/kb/adguard-for-mac/features/main/).
+  * If you have any questions, you can contact us 24/7 at support@adguard.com. It’s a good idea to check [our FAQ](https://adguard.com/en/support/adguard_for_mac.html) first: it contains answers to 90% of user questions.
 
 
 AdGuard for WindowsAdGuard for MacAdGuard for AndroidAdGuard for iOSAdGuard Content BlockerAdGuard Browser ExtensionAdGuard AssistantAdGuard HomeAdGuard Pro for iOSAdGuard Mini for MacAdGuard for Android TVAdGuard for LinuxAdGuard Temp MailAdGuard VPNAdGuard DNSAdGuard Mail β
@@ -351,30 +352,29 @@ AdGuard Content Blocker  AdGuard Browser Extension  AdGuard Assistant  AdGuard H
 ![](https://cdn.adguardcdn.com/website/adguard.com/products/screenshots/windows/windows_protection_disabled_light-v3.svg)
 ![](https://cdn.adguardcdn.com/website/adguard.com/products/screenshots/windows/windows_statistics_screen_light-v3.svg)
 ![](https://cdn.adguardcdn.com/website/adguard.com/products/screenshots/windows/windows_protection_screen_light-v3.svg)
-20,002 20002 user reviews
+20,009 20009 user reviews
 Excellent!
 ##  AdGuard for Windows
 AdGuard for Windows is more than an ad blocker. It is a multipurpose tool that blocks ads, controls access to dangerous sites, speeds up page loading, and protects children from inappropriate content.
 Download
 By downloading the program you accept the terms of the [License agreement](https://adguard.com/en/eula.html)
-[](https://agrd.io/msstore)
+[ Read more ](https://adguard.com/en/adguard-windows/overview.html?source=ag_products_page)
 AdGuard for Windows v7.22, 14-day trial period
-![](https://cdn.adguardcdn.com/website/adguard.com/products/screenshots/mac/mac_enabled_light-v2.svg)
 ![](https://cdn.adguardcdn.com/website/adguard.com/products/screenshots/mac/mac_disabled_light-v3.svg)
-20,002 20002 user reviews
+![](https://cdn.adguardcdn.com/website/adguard.com/products/screenshots/mac/mac_enabled_light-v2.svg)
+20,009 20009 user reviews
 Excellent!
 ##  AdGuard for Mac
 AdGuard for Mac is a unique ad blocker designed with macOS in mind. In addition to protecting you from annoying ads in browsers and apps, it shields you from tracking, phishing, and fraud.
 Download
 By downloading the program you accept the terms of the [License agreement](https://adguard.com/en/eula.html)
-[ Read more ](https://adguard.com/en/adguard-mac/overview.html?source=ag_products_page)
 AdGuard for Mac v2.18, 14-day trial period
 ![](https://cdn.adguardcdn.com/website/adguard.com/products/screenshots/android/android_filters_light.svg)
 ![](https://cdn.adguardcdn.com/website/adguard.com/products/screenshots/android/android_protection_light.svg)
 ![](https://cdn.adguardcdn.com/website/adguard.com/products/screenshots/android/android_statistics_light.svg)
 ![](https://cdn.adguardcdn.com/website/adguard.com/products/screenshots/android/android_incognito_light.svg)
 ![](https://cdn.adguardcdn.com/website/adguard.com/products/screenshots/android/android_qr_light.svg)
-20,002 20002 user reviews
+20,009 20009 user reviews
 Excellent!
 ##  AdGuard for Android
 AdGuard for Android is a perfect solution for Android devices. Unlike most other ad blockers, AdGuard doesn't require root access and provides a wide range of app management options.
@@ -397,7 +397,7 @@ AdGuard for Android v4.12, 14-day trial period
 ![](https://cdn.adguardcdn.com/website/adguard.com/products/screenshots/ios/ios_enabled_light-v5.svg)
 ![](https://cdn.adguardcdn.com/website/adguard.com/products/screenshots/ios/ios_protection_light.svg)
 ![](https://cdn.adguardcdn.com/website/adguard.com/products/screenshots/ios/ios_qr_light.svg)
-20,002 20002 user reviews
+20,009 20009 user reviews
 Excellent!
 ##  AdGuard for iOS
 The best iOS ad blocker for iPhone and iPad. AdGuard eliminates all kinds of ads in Safari, protects your privacy, and speeds up page loading. AdGuard for iOS ad-blocking technology ensures the highest quality filtering and allows you to use multiple filters at the same time
@@ -414,7 +414,7 @@ AdGuard for iOS v4.5
 ![](https://cdn.adguardcdn.com/website/adguard.com/products/screenshots/content_blocker/adguard.svg)
 ![](https://cdn.adguardcdn.com/website/adguard.com/products/screenshots/content_blocker/settings.svg)
 ![](https://cdn.adguardcdn.com/website/adguard.com/products/screenshots/content_blocker/filters.svg)
-20,002 20002 user reviews
+20,009 20009 user reviews
 Excellent!
 ##  AdGuard Content Blocker
 AdGuard Content Blocker eliminates all kinds of ads in mobile browsers that support content-blocking technology — namely, Samsung Internet and Yandex Browser. Its features are limited compared to AdGuard for Android, but it is free, easy to install, and efficient
@@ -424,7 +424,7 @@ By downloading the program you accept the terms of the [License agreement](https
 AdGuard Content Blocker v2.8
 ![](https://cdn.adguardcdn.com/website/adguard.com/products/screenshots/browser_extension/blocked1.svg?nc=1)
 ![](https://cdn.adguardcdn.com/website/adguard.com/products/screenshots/browser_extension/disabled1.svg?nc=1)
-20,002 20002 user reviews
+20,009 20009 user reviews
 Excellent!
 ##  AdGuard Browser Extension
 AdGuard is the fastest and most lightweight ad blocking extension that effectively blocks all types of ads on all web pages! Choose AdGuard for the browser you use and get ad-free, fast and safe browsing.
@@ -438,7 +438,7 @@ Browser extension for Chrome Is it your current browser?
 AdGuard Browser Extension v5.3
 ![](https://cdn.adguardcdn.com/website/adguard.com/products/screenshots/assistant/enabled.svg)
 ![](https://cdn.adguardcdn.com/website/adguard.com/products/screenshots/assistant/filtering.svg)
-20,002 20002 user reviews
+20,009 20009 user reviews
 Excellent!
 ##  AdGuard Assistant
 A companion browser extension for [AdGuard desktop apps](https://adguard.com/products.html?_plc=en). It allows you to block custom items on websites, add websites to allowlist, and send reports directly from your browser
@@ -456,7 +456,7 @@ Included with [AdGuard for macOS](https://adguard.com/en/adguard-mac/overview.ht
 If you can't find your browser, try the old legacy Assistant version, which you can find in AdGuard extension settings.
 AdGuard Assistant v1.4
 ![](https://cdn.adguardcdn.com/website/adguard.com/products/screenshots/home/adguard_home.svg)
-20,002 20002 user reviews
+20,009 20009 user reviews
 Excellent!
 ##  AdGuard Home
 AdGuard Home is a network-based solution for blocking ads and trackers. Install it once on your router to cover all devices on your home network — no additional client software required. This is especially important for various IoT devices that often pose a threat to your privacy
@@ -465,7 +465,7 @@ AdGuard Home v0.107
 ![](https://cdn.adguardcdn.com/website/adguard.com/products/screenshots/ios/enabled.svg)
 ![](https://cdn.adguardcdn.com/website/adguard.com/products/screenshots/ios/filters.svg)
 ![](https://cdn.adguardcdn.com/website/adguard.com/products/screenshots/ios/adguard.svg)
-20,002 20002 user reviews
+20,009 20009 user reviews
 Excellent!
 ##  AdGuard Pro for iOS
 AdGuard Pro for iOS comes with all the advanced ad-blocking protection features enabled. It offers the same tools as the paid version of AdGuard for iOS. It excels at blocking ads in Safari and lets you customize DNS settings to tailor your protection. It blocks ads in browsers and apps, protects your kids from inappropriate content, and keeps your personal data safe
@@ -475,7 +475,7 @@ AdGuard Pro for iOS v4.5
 ![](https://cdn.adguardcdn.com/website/adguard.com/products/screenshots/safari/mini_protection_light.svg)
 ![](https://cdn.adguardcdn.com/website/adguard.com/products/screenshots/safari/mini_create_rule_light.svg?nc=true)
 ![](https://cdn.adguardcdn.com/website/adguard.com/products/screenshots/safari/mini_extension_light.svg?nc=true)
-20,002 20002 user reviews
+20,009 20009 user reviews
 Excellent!
 ##  AdGuard Mini for Mac — Safari ad blocker
 AdGuard Mini for Mac is a powerful Safari ad blocker. This lightweight app removes ads, blocks trackers, and speeds up page loading. It helps you browse the Web in Safari without distractions and keep your data private
@@ -488,30 +488,30 @@ AdGuard Mini for Mac v2.1
 ![](https://cdn.adguardcdn.com/website/adguard.com/products/screenshots/android_tv/ad_blocking.svg?nc=true)
 ![](https://cdn.adguardcdn.com/website/adguard.com/products/screenshots/android_tv/settings.svg?nc=true)
 ![](https://cdn.adguardcdn.com/website/adguard.com/products/screenshots/android_tv/app_managment.svg?nc=true)
-20,002 20002 user reviews
+20,009 20009 user reviews
 Excellent!
 ##  AdGuard for Android TV
 AdGuard for Android TV is the only app that blocks ads, guards your privacy, and acts as a firewall for your Smart TV. Get warnings about web threats, use secure DNS, and benefit from encrypted traffic. Relax and dive into your favorite shows with top-notch security and zero ads!
 [ Buy AdGuard ](https://adguard.com/en/license.html) How to install
 AdGuard for Android TV v4.12, 14-day trial period
 ![](https://cdn.adguardcdn.com/website/adguard.com/products/screenshots/linux/agnar-linux.svg?nc=1)
-20,002 20002 user reviews
+20,009 20009 user reviews
 Excellent!
 ##  AdGuard for Linux
 AdGuard for Linux is the world’s first system-wide Linux ad blocker. Block ads and trackers at the device level, select from pre-installed filters, or add your own — all through the command-line interface
 [ Buy AdGuard ](https://adguard.com/en/license.html) How to install
-AdGuard for Linux v1.2
+AdGuard for Linux v1.3
 ![](https://cdn.adguardcdn.com/website/adguard.com/products/screenshots/temp_mail/temp_mail.svg)
-20,002 20002 user reviews
+20,009 20009 user reviews
 Excellent!
 ##  AdGuard Temp Mail
 A free temporary email address generator that keeps you anonymous and protects your privacy. No spam in your main inbox!
 ![](https://cdn.adguardcdn.com/website/adguard.com/products/vpn/connected.png)
 ![](https://cdn.adguardcdn.com/website/adguard.com/products/vpn/exclusions.png)
-20,002 20002 user reviews
+20,009 20009 user reviews
 Excellent!
 ##  AdGuard VPN
-61 locations worldwide
+60 locations worldwide
 Access to any content
 Strong encryption
 No-logging policy
@@ -519,18 +519,18 @@ Fastest connection
 24/7 support
 ![](https://cdn.adguardcdn.com/website/adguard.com/products/dns/diana.svg)
 ![](https://cdn.adguardcdn.com/website/adguard.com/products/dns/dns.png)
-20,002 20002 user reviews
+20,009 20009 user reviews
 Excellent!
 ##  AdGuard DNS
 AdGuard DNS is a foolproof way to block Internet ads that does not require installing any applications. It is easy to use, absolutely free, easily set up on any device, and provides you with minimal necessary functions to block ads, counters, malicious websites, and adult content.
 ![](https://cdn.adguardcdn.com/website/adguard.com/products/screenshots/mail/aliases2.svg)
-20,002 20002 user reviews
+20,009 20009 user reviews
 Excellent!
 ##  AdGuard Mail β
 Protect your identity, avoid spam, and keep your inbox secure with our aliases and temporary email addresses. Enjoy our free email forwarding service and apps for all operating systems
-[GitHub repository](https://github.com/AdguardTeam/AdguardForWindows)
+[GitHub repository](https://github.com/AdguardTeam/AdguardForMac)
 [Discuss](https://adguard.com/en/discuss.html)
-[Recent versions](https://adguard.com/en/versions/windows/release.html)
+[Recent versions](https://adguard.com/en/versions/mac/release.html)
 [All products](https://adguard.com/en/products.html)
 How AdGuard works
 Desktop apps  Android  iOS

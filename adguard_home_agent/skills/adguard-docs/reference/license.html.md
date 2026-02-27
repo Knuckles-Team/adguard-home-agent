@@ -116,38 +116,51 @@ EN
 
 
 The promo code [Subscribe to our news](https://adguard.com/en/blog/index.html) to be notified of future sales!
-20,002 20002 user reviews
+20,009 20009 user reviews
 Excellent!
-#  Block more ads and trackers with AdGuard
-What you get
-  * Shield up to 3 devices: mobile, desktop, and TV
-  * Block ads in any browsers or apps
-  * Protect your personal data from trackers
-  * Block phishing and malicious websites
-
-
+Available platforms:
+Protect your device at the system level with AdGuard for Windows
+Block pop-up ads, video ads, and banners anywhere on your device with AdGuard for Mac
+Get a top-notch tool to block ads and trackers and manage all apps’ traffic with AdGuard for Android
+Enjoy an Internet free of ads and trackers with AdGuard for iOS
+Watch your favorite movies and TV shows ad-free with AdGuard for Android TV
+#  Purchase
+Protect all your devices and surf the Web safely!
+1 year  Lifetime
+Personal Up to 3 devices Up to 9 devices
 $2.49 /mo $29.88
+Best choice
 Billed annually
 Billed annually, VAT may apply
 One-time payment
 VAT may apply, one-time payment
-Devices
-3  9
-Duration
-1 year  Lifetime
-Proceed
+Choose
+Family Up to 3 devices Up to 9 devices
+$5.49 /mo $65.88 $7.47 /mo $89.64 27% discount
+27% discount Best choice
+Billed annually
+Billed annually, VAT may apply
+One-time payment
+VAT may apply, one-time payment
+Choose
+$2.49 /mo$29.88
+Billed annually
+Billed annually, VAT may apply
+One-time payment
+VAT may apply, one-time payment
+Choose
 We accept:
 ![](https://cdn.adguardcdn.com/website/adguard.com/svg/icons/money_license.svg)![](https://cdn.adguardcdn.com/website/adguard.com/svg/icons/safe_transaction_license.svg)![](https://cdn.adguardcdn.com/website/adguard.com/svg/icons/support_license.svg)
 Total app rating 4.7/5
 More than 20,000 app reviews! We love our users and they love us back
-20,002 20002 user reviews
+20,009 20009 user reviews
 Excellent!
+Flomyir [](https://itunes.apple.com/US/app/id1126386264) Great blocking solution all things considered
 Randy Duke [](https://chromewebstore.google.com/detail/adguard-adblocker/bgnkhhnnamicmpeenaelnjfhikgbkllg/reviews) By far, for me, I consider AdGuard THE best ad blocker out there. Great product!
 Mulindwa Christian [](https://chromewebstore.google.com/detail/adguard-adblocker/bgnkhhnnamicmpeenaelnjfhikgbkllg/reviews) best extension ever. i recommend it it even tells you want you want it to do all in one.
 necrobarista lover19 [](https://itunes.apple.com/US/app/id1126386264) I hate the million of ads while browsing hentai this is what the internet should be
 Rimon Dutta  AdGuard works great. It blocks ads well and doesn’t break websites. Browsing feels faster and cleaner. Easy to use and very reliable. Highly recommended.
 milly buxx [](https://play.google.com/store/apps/details?id=com.adguard.android.contentblocker) -To Adguard or not to Adguard? that is not even a question! (Anonymous) -It's an unmistakable sign of higher intelligence to Adguard an android-[de]based smartphone. (Anonymous) -Adguard makes cyberspace a better place. (Anonymous)
-Naveen Warrior [](https://chromewebstore.google.com/detail/adguard-adblocker/bgnkhhnnamicmpeenaelnjfhikgbkllg/reviews) i am impressed by this ad blocker , must use for ad free ,tension free , interuption free experience.
 ##  FAQ
   * You can choose how many devices you want to protect:
 Personal license covers 3 devices

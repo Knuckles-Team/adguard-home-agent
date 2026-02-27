@@ -118,7 +118,7 @@ EN
 ![](https://cdn.adguardcdn.com/website/adguard.com/svg/agnar-top-line.svg)
 **AdGuard for Windows**
 Blocks ads and trackers in browsers and apps. Protects from phishing and malware.
-20,002 20002 user reviews
+20,009 20009 user reviews
 Excellent!
 Download
 By downloading the program you accept the terms of the [License agreement](https://adguard.com/en/eula.html)
@@ -129,7 +129,7 @@ By downloading the program you accept the terms of the [License agreement](https
 ![](https://cdn.adguardcdn.com/website/adguard.com/svg/agnar-top-line.svg)
 **AdGuard for Mac**
 Designed with macOS specifics in mind. Blocks ads and trackers. Protects your privacy.
-20,002 20002 user reviews
+20,009 20009 user reviews
 Excellent!
 Download
 By downloading the program you accept the terms of the [License agreement](https://adguard.com/en/eula.html)
@@ -140,7 +140,7 @@ By downloading the program you accept the terms of the [License agreement](https
 ![](https://cdn.adguardcdn.com/website/adguard.com/svg/agnar-top-line.svg)
 **AdGuard for Android**
 Doesn’t need root access to block ads in browsers and apps. Fights trackers and phishing.
-20,002 20002 user reviews
+20,009 20009 user reviews
 Excellent!
 Download
 By downloading the program you accept the terms of the [License agreement](https://adguard.com/en/eula.html)
@@ -151,7 +151,7 @@ By downloading the program you accept the terms of the [License agreement](https
 ![](https://cdn.adguardcdn.com/website/adguard.com/svg/agnar-top-line.svg)
 **AdGuard for iOS**
 Blocks ads in browsers and supports DNS filtering. Blocks trackers and dangerous sites.
-20,002 20002 user reviews
+20,009 20009 user reviews
 Excellent!
 Download
 By downloading the program you accept the terms of the [License agreement](https://adguard.com/en/eula.html)
@@ -162,7 +162,7 @@ By downloading the program you accept the terms of the [License agreement](https
 ![](https://cdn.adguardcdn.com/website/adguard.com/svg/agnar-top-line.svg)
 **AdGuard for iOS Pro**
 Blocks ads in browsers and supports DNS filtering. Blocks trackers and dangerous sites.
-20,002 20002 user reviews
+20,009 20009 user reviews
 Excellent!
 Download
 By downloading the program you accept the terms of the [License agreement](https://adguard.com/en/eula.html)
@@ -173,7 +173,7 @@ By downloading the program you accept the terms of the [License agreement](https
 ![](https://cdn.adguardcdn.com/website/adguard.com/svg/agnar-top-line.svg)
 **Block ads in Chrome**
 Free the Web from ads and protect your privacy with AdGuard Browser Extension
-20,002 20002 user reviews
+20,009 20009 user reviews
 Excellent!
 Download
 By downloading the program you accept the terms of the [License agreement](https://adguard.com/en/eula.html)
@@ -184,7 +184,7 @@ By downloading the program you accept the terms of the [License agreement](https
 ![](https://cdn.adguardcdn.com/website/adguard.com/svg/agnar-top-line.svg)
 **Block ads in Firefox**
 Free the Web from ads and protect your privacy with AdGuard Browser Extension
-20,002 20002 user reviews
+20,009 20009 user reviews
 Excellent!
 Download
 By downloading the program you accept the terms of the [License agreement](https://adguard.com/en/eula.html)
@@ -195,7 +195,7 @@ By downloading the program you accept the terms of the [License agreement](https
 ![](https://cdn.adguardcdn.com/website/adguard.com/svg/agnar-top-line.svg)
 **Block ads in Safari**
 Free the Web from ads and protect your privacy with AdGuard Browser Extension
-20,002 20002 user reviews
+20,009 20009 user reviews
 Excellent!
 Download
 By downloading the program you accept the terms of the [License agreement](https://adguard.com/en/eula.html)
@@ -206,7 +206,7 @@ By downloading the program you accept the terms of the [License agreement](https
 ![](https://cdn.adguardcdn.com/website/adguard.com/svg/agnar-top-line.svg)
 **Block ads in Edge**
 Free the Web from ads and protect your privacy with AdGuard Browser Extension
-20,002 20002 user reviews
+20,009 20009 user reviews
 Excellent!
 Download
 By downloading the program you accept the terms of the [License agreement](https://adguard.com/en/eula.html)
@@ -217,7 +217,7 @@ By downloading the program you accept the terms of the [License agreement](https
 ![](https://cdn.adguardcdn.com/website/adguard.com/svg/agnar-top-line.svg)
 **Block ads in Opera**
 Free the Web from ads and protect your privacy with AdGuard Browser Extension
-20,002 20002 user reviews
+20,009 20009 user reviews
 Excellent!
 Download
 By downloading the program you accept the terms of the [License agreement](https://adguard.com/en/eula.html)
@@ -228,7 +228,7 @@ By downloading the program you accept the terms of the [License agreement](https
 ![](https://cdn.adguardcdn.com/website/adguard.com/svg/agnar-top-line.svg)
 **Block ads in Yandex.Browser**
 Free the Web from ads and protect your privacy with AdGuard Browser Extension
-20,002 20002 user reviews
+20,009 20009 user reviews
 Excellent!
 Download
 By downloading the program you accept the terms of the [License agreement](https://adguard.com/en/eula.html)
@@ -239,7 +239,7 @@ By downloading the program you accept the terms of the [License agreement](https
 ![](https://cdn.adguardcdn.com/website/adguard.com/svg/agnar-top-line.svg)
 **AdGuard for Linux**
 World’s first system-wide Linux ad blocker. Blocks ads and trackers.
-20,002 20002 user reviews
+20,009 20009 user reviews
 Excellent!
 [ How to install ](https://adguard.com/en/adguard-linux/overview.html#instructions)
 ![](https://cdn.adguardcdn.com/website/adguard.com/svg/agnar-top-line.svg)
@@ -249,6 +249,21 @@ Excellent!
 #  Blog
 [RSS](https://adguard.com/blog/rss-en.xml)
 Search
+  * [![AdGuard for Windows v7.22.4: Meet SockFilter, our new experimental network driver](https://cdn.adtidy.org/blog/new/0pt88agw-7224-sock.jpg?mw=976&mh=656)](https://adguard.com/en/blog/adguard-for-windows-v7-22-4.html)
+February 26, 2026  3 min read [ AdGuard for Windows ](https://adguard.com/en/blog/tag/adguard-for-windows.html)[ New version ](https://adguard.com/en/blog/tag/new-version-2.html)[ Release notes ](https://adguard.com/en/blog/tag/release-notes.html)
+### [AdGuard for Windows v7.22.4: Meet SockFilter, our new experimental network driver](https://adguard.com/en/blog/adguard-for-windows-v7-22-4.html)
+With AdGuard for Windows v7.22.4, we’re introducing SockFilter, our new network driver. While still experimental, it has the potential to make AdGuard better now and in the future.
+[![Pamela Puglieri](https://cdn.adtidy.org/blog/2022/09/WhatsApp-Image-2022-09-05-at-17.59.36-2.jpeg?mw=32&mh=32)Pamela Puglieri](https://adguard.com/en/blog/author/pamelapuglieri.html)
+  * [![AdGuard CLI v1.3: DNS filtering and ECH support](https://cdn.adtidy.org/blog/new/k9uwofcli.png?mw=976&mh=656)](https://adguard.com/en/blog/adguard-v1-3-cli.html)
+February 26, 2026  3 min read [ AdGuard for Linux ](https://adguard.com/en/blog/tag/adguard-for-linux.html)[ New version ](https://adguard.com/en/blog/tag/new-version-2.html)[ Release notes ](https://adguard.com/en/blog/tag/release-notes.html)
+### [AdGuard CLI v1.3: DNS filtering and ECH support](https://adguard.com/en/blog/adguard-v1-3-cli.html)
+This update adds DNS filtering and Encrypted ClientHello (ECH) support, along with userscripts, userstyles, and a more consistent update workflow.
+[![Darya Bugayova](https://cdn.adtidy.org/blog/2020/06/photo.jpg?mw=32&mh=32)Darya Bugayova](https://adguard.com/en/blog/author/darya.html)
+  * [![#KeepAndroidOpen: AdGuard urges Google to rethink policy that could restrict independent Android app distribution](https://cdn.adtidy.org/blog/new/lhvabno-entry-android-app.png?mw=976&mh=656)](https://adguard.com/en/blog/google-android-app-verification-requirement-petition.html)
+February 25, 2026  7 min read [ AdGuard for Android ](https://adguard.com/en/blog/tag/adguard-for-android.html)[ Industry news ](https://adguard.com/en/blog/tag/industry-news.html)
+### [#KeepAndroidOpen: AdGuard urges Google to rethink policy that could restrict independent Android app distribution](https://adguard.com/en/blog/google-android-app-verification-requirement-petition.html)
+AdGuard is proud to be among the signatories of a newly published open letter opposing Google’s upcoming developer verification policy. The campaign was spearheaded by F-Droid, which launched it last year and has been rallying support ever since
+[![Ekaterina Kachalova](https://cdn.adtidy.org/blog/2022/07/100kb.jpg?mw=32&mh=32)Ekaterina Kachalova](https://adguard.com/en/blog/author/ekaterina.html)
   * [![YouTube finds a brand new way to bother users of ad blockers](https://cdn.adtidy.org/blog/new/mooadyt-comments.jpg?mw=976&mh=656)](https://adguard.com/en/blog/youtube-missing-comments-descriptions.html)
 February 21, 2026  7 min read [ Ad Blocking ](https://adguard.com/en/blog/tag/ad-blocking.html)[ YouTube ](https://adguard.com/en/blog/tag/youtube.html)
 ### [YouTube finds a brand new way to bother users of ad blockers](https://adguard.com/en/blog/youtube-missing-comments-descriptions.html)
@@ -284,21 +299,6 @@ Upd: February 6, 2026  6 min read [ TechTok ](https://adguard.com/en/blog/tag/te
 ### [TechTok #12. Navigating privacy in a data-driven world: Simple steps for protecting your data and fine-tuning your VPN](https://adguard.com/en/blog/techtok-12-navigating-privacy-in-data-driven-world.html)
 In this new edition of TechTok, we’re tackling two very different questions. One is incredibly broad in scope, while the other is much narrower. But what ties them together is that the answers to both may seem more straightforward than they actually are.
 [![Ekaterina Kachalova](https://cdn.adtidy.org/blog/2022/07/100kb.jpg?mw=32&mh=32)Ekaterina Kachalova](https://adguard.com/en/blog/author/ekaterina.html)
-  * [![AdGuard Mini for Mac v2.1: Theme selection and dark app icon](https://cdn.adtidy.org/blog/new/z27t7IMG_7311.jpg?mw=976&mh=656)](https://adguard.com/en/blog/adguard-mini-for-mac-v2-1.html)
-February 5, 2026  1 min read [ AdGuard Mini for Mac ](https://adguard.com/en/blog/tag/adguard-mini-for-mac.html)[ New version ](https://adguard.com/en/blog/tag/new-version-2.html)[ Release notes ](https://adguard.com/en/blog/tag/release-notes.html)
-### [AdGuard Mini for Mac v2.1: Theme selection and dark app icon](https://adguard.com/en/blog/adguard-mini-for-mac-v2-1.html)
-Not long after AdGuard Mini’s debut, here comes its first improvement. Now, you can manually set the app’s theme to light, dark, or system. We also added a dark version of the app's Dock icon for a better appearance in dark mode.
-[![Valery Yanovsky](https://cdn.adtidy.org/blog/2022/07/IMG_5895-copy-2.JPG?mw=32&mh=32)Valery Yanovsky](https://adguard.com/en/blog/author/valery.html)
-  * [![Game changer for your Web: Discounts on all AdGuard products](https://cdn.adtidy.org/blog/new/egkwblwinter_mascots_blog.png?mw=976&mh=656)](https://adguard.com/en/blog/winter-promo.html)
-Upd: February 11, 2026  3 min read [ Promo ](https://adguard.com/en/blog/tag/promo.html)
-### [Game changer for your Web: Discounts on all AdGuard products](https://adguard.com/en/blog/winter-promo.html)
-This season of champions, protect your devices at a discount: get AdGuard Ad Blocker with up to 40% off, AdGuard VPN at 80% off, and AdGuard DNS at 55% off.
-[![Anna Koroleva](https://cdn.adtidy.org/blog/new/izky1k1de14529-ed86-47d4-a76d-2c071fe61905.jpg?mw=32&mh=32)Anna Koroleva](https://adguard.com/en/blog/author/anna-koroleva.html)
-  * [![Is Aliexpress safe?](https://cdn.adtidy.org/blog/new/dvsn3is-aliexpress-safe.jpg?mw=976&mh=656)](https://adguard.com/en/blog/is-aliexpress-safe.html)
-January 24, 2026  11 min read [ The more you know ](https://adguard.com/en/blog/tag/the-more-you-know.html)
-### [Is Aliexpress safe?](https://adguard.com/en/blog/is-aliexpress-safe.html)
-Is AliExpress safe and trustworthy for online shopping? Learn how secure AliExpress is, what to watch out for, and tips to shop safely.
-[![Alina Ivanova](https://cdn.adtidy.org/blog/new/cddupphoto_2024-03-05_18-42-59.jpg?mw=32&mh=32)Alina Ivanova](https://adguard.com/en/blog/author/alina.html)
 
 
 [1](https://adguard.com/en/blog/index.html)[2](https://adguard.com/en/blog/index.html?page=2)[3](https://adguard.com/en/blog/index.html?page=3)…[90](https://adguard.com/en/blog/index.html?page=90)[](https://adguard.com/en/blog/index.html?page=2)

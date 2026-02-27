@@ -118,7 +118,7 @@ EN
 ![](https://cdn.adguardcdn.com/website/adguard.com/svg/agnar-top-line.svg)
 **AdGuard for Windows**
 Blocks ads and trackers in browsers and apps. Protects from phishing and malware.
-20,002 20002 user reviews
+20,009 20009 user reviews
 Excellent!
 Download
 By downloading the program you accept the terms of the [License agreement](https://adguard.com/en/eula.html)
@@ -129,7 +129,7 @@ By downloading the program you accept the terms of the [License agreement](https
 ![](https://cdn.adguardcdn.com/website/adguard.com/svg/agnar-top-line.svg)
 **AdGuard for Mac**
 Designed with macOS specifics in mind. Blocks ads and trackers. Protects your privacy.
-20,002 20002 user reviews
+20,009 20009 user reviews
 Excellent!
 Download
 By downloading the program you accept the terms of the [License agreement](https://adguard.com/en/eula.html)
@@ -140,7 +140,7 @@ By downloading the program you accept the terms of the [License agreement](https
 ![](https://cdn.adguardcdn.com/website/adguard.com/svg/agnar-top-line.svg)
 **AdGuard for Android**
 Doesn’t need root access to block ads in browsers and apps. Fights trackers and phishing.
-20,002 20002 user reviews
+20,009 20009 user reviews
 Excellent!
 Download
 By downloading the program you accept the terms of the [License agreement](https://adguard.com/en/eula.html)
@@ -151,7 +151,7 @@ By downloading the program you accept the terms of the [License agreement](https
 ![](https://cdn.adguardcdn.com/website/adguard.com/svg/agnar-top-line.svg)
 **AdGuard for iOS**
 Blocks ads in browsers and supports DNS filtering. Blocks trackers and dangerous sites.
-20,002 20002 user reviews
+20,009 20009 user reviews
 Excellent!
 Download
 By downloading the program you accept the terms of the [License agreement](https://adguard.com/en/eula.html)
@@ -162,7 +162,7 @@ By downloading the program you accept the terms of the [License agreement](https
 ![](https://cdn.adguardcdn.com/website/adguard.com/svg/agnar-top-line.svg)
 **AdGuard for iOS Pro**
 Blocks ads in browsers and supports DNS filtering. Blocks trackers and dangerous sites.
-20,002 20002 user reviews
+20,009 20009 user reviews
 Excellent!
 Download
 By downloading the program you accept the terms of the [License agreement](https://adguard.com/en/eula.html)
@@ -173,7 +173,7 @@ By downloading the program you accept the terms of the [License agreement](https
 ![](https://cdn.adguardcdn.com/website/adguard.com/svg/agnar-top-line.svg)
 **Block ads in Chrome**
 Free the Web from ads and protect your privacy with AdGuard Browser Extension
-20,002 20002 user reviews
+20,009 20009 user reviews
 Excellent!
 Download
 By downloading the program you accept the terms of the [License agreement](https://adguard.com/en/eula.html)
@@ -184,7 +184,7 @@ By downloading the program you accept the terms of the [License agreement](https
 ![](https://cdn.adguardcdn.com/website/adguard.com/svg/agnar-top-line.svg)
 **Block ads in Firefox**
 Free the Web from ads and protect your privacy with AdGuard Browser Extension
-20,002 20002 user reviews
+20,009 20009 user reviews
 Excellent!
 Download
 By downloading the program you accept the terms of the [License agreement](https://adguard.com/en/eula.html)
@@ -195,7 +195,7 @@ By downloading the program you accept the terms of the [License agreement](https
 ![](https://cdn.adguardcdn.com/website/adguard.com/svg/agnar-top-line.svg)
 **Block ads in Safari**
 Free the Web from ads and protect your privacy with AdGuard Browser Extension
-20,002 20002 user reviews
+20,009 20009 user reviews
 Excellent!
 Download
 By downloading the program you accept the terms of the [License agreement](https://adguard.com/en/eula.html)
@@ -206,7 +206,7 @@ By downloading the program you accept the terms of the [License agreement](https
 ![](https://cdn.adguardcdn.com/website/adguard.com/svg/agnar-top-line.svg)
 **Block ads in Edge**
 Free the Web from ads and protect your privacy with AdGuard Browser Extension
-20,002 20002 user reviews
+20,009 20009 user reviews
 Excellent!
 Download
 By downloading the program you accept the terms of the [License agreement](https://adguard.com/en/eula.html)
@@ -217,7 +217,7 @@ By downloading the program you accept the terms of the [License agreement](https
 ![](https://cdn.adguardcdn.com/website/adguard.com/svg/agnar-top-line.svg)
 **Block ads in Opera**
 Free the Web from ads and protect your privacy with AdGuard Browser Extension
-20,002 20002 user reviews
+20,009 20009 user reviews
 Excellent!
 Download
 By downloading the program you accept the terms of the [License agreement](https://adguard.com/en/eula.html)
@@ -228,7 +228,7 @@ By downloading the program you accept the terms of the [License agreement](https
 ![](https://cdn.adguardcdn.com/website/adguard.com/svg/agnar-top-line.svg)
 **Block ads in Yandex.Browser**
 Free the Web from ads and protect your privacy with AdGuard Browser Extension
-20,002 20002 user reviews
+20,009 20009 user reviews
 Excellent!
 Download
 By downloading the program you accept the terms of the [License agreement](https://adguard.com/en/eula.html)
@@ -239,80 +239,25 @@ By downloading the program you accept the terms of the [License agreement](https
 ![](https://cdn.adguardcdn.com/website/adguard.com/svg/agnar-top-line.svg)
 **AdGuard for Linux**
 World’s first system-wide Linux ad blocker. Blocks ads and trackers.
-20,002 20002 user reviews
+20,009 20009 user reviews
 Excellent!
 [ How to install ](https://adguard.com/en/adguard-linux/overview.html#instructions)
 ![](https://cdn.adguardcdn.com/website/adguard.com/svg/agnar-top-line.svg)
 **AdGuard for Linux**
 [ How to install ](https://adguard.com/en/adguard-linux/overview.html#instructions)
-#  AdGuard diagnostics
-##  AdGuard Ad Blocker
-The best way to get rid of intrusive ads and online tracking and protect your computer from malware. [Learn more](https://adguard.com/en/welcome.html?utm_source=adblock_test_page)
-The best way to get rid of intrusive ads and online tracking and protect your computer from malware
-Not running
-AdGuard Extra
-An extension to solve complicated cases when regular ad-blocking rules aren’t enough
-App: running
-AdGuard Extra
-An extension to solve complicated cases when regular ad-blocking rules aren’t enough
-An extension to solve complicated cases when regular ad-blocking rules aren’t enough.  How to install
-Ad blocking
-Blocks ads on the websites you visit
-Tracking protection
-Blocks online counters and web analytics tools that can be used to track your online activities
-Annoyance blocking
-Blocks cookie consent forms, popups, online assistant tools, and mobile app banners
-Advanced protection
-Advanced protection module allows AdGuard to apply advanced filtering rules, such as CSS rules, CSS selectors, and scriptlets, and therefore to deal even with the complex ads, such as YouTube ads.
-Extension: running
-AdGuard Extra
-An extension to solve complicated cases when regular ad-blocking rules aren’t enough
-An extension to solve complicated cases when regular ad-blocking rules aren’t enough.  How to install
-Ad blocking
-Blocks ads on the websites you visit
-Tracking protection
-Blocks online counters and web analytics tools that can be used to track your online activities
-Annoyance blocking
-Blocks cookie consent forms, popups, online assistant tools, and mobile app banners
-Upgrade available
-A full-fledged AdGuard app blocks ads and trackers before the website loads, warns you about dangerous websites, and offers in-app support. [Compare](https://adguard.com/en/compare.html?utm_source=adblock_test_page)
-Try for free
-By downloading the program you accept the terms of the [License agreement](https://adguard.com/en/eula.html)
-Upgrade
-By downloading the program you accept the terms of the [License agreement](https://adguard.com/en/eula.html)
-How to install AdGuard Extra
-AdGuard Extra is pre-installed in AdGuard for Android, Mac, and Windows
-### Chrome or Chromium-based browser
-[Stable version](https://agrd.io/adguard_extra_chrome_release)
-[Beta](https://agrd.io/adguard_extra_chrome_beta)
-### Firefox
-[Stable version](https://agrd.io/adguard_extra_firefox_release)
-[Beta](https://agrd.io/adguard_extra_firefox_beta)
-### Userscript
-Install Tampermonkey.
-Open Settings and change the mode to Advanced.
-Scroll down to Inject Mode and change it to Instant.
-Install AdGuard Extra:
-[Stable version](https://userscripts.adtidy.org/release/adguard-extra/1.0/adguard-extra.user.js)
-[Beta](https://userscripts.adtidy.org/beta/adguard-extra/1.0/adguard-extra.user.js)
-Close
-##  AdGuard VPN
-The ultimate choice for staying anonymous and safe online while accessing the content you want. [Learn more](https://adguard-vpn.com/welcome.html?utm_source=adblock_test_page&_plc=en)
-Not running
-IP: 2a09:bac5:bed2:65a::a2:70
-Location: United States, Austin
-[ Try for free ](https://adguard-vpn.com/download.html?auto=1&utm_source=adblock_test_page&_plc=en)
-By downloading the program you accept the terms of the [License agreement](https://adguard-vpn.com/eula.html?_plc=en)
-##  AdGuard DNS
-An exceptional service that blocks ads and protects every device on your network. [Learn more](https://adguard-dns.io/welcome.html?utm_source=adblock_test_page&_plc=en)
-An exceptional service that blocks ads and protects every device on your network
-AdGuard DNS can’t recognize your device and apply device-specific rules. Please reconfigure it on your [dashboard](https://adguard-dns.io/dashboard/?_plc=en)
-Private server: running
-Public server: running
-Not running
-PQC: enabled
-[ View prices ](https://adguard-dns.io/license.html?utm_source=adblock_test_page&_plc=en)[ Try for free ](https://adguard-dns.io/welcome.html?utm_source=adblock_test_page&_plc=en)
-[ Check again ](https://adguard.com/en/test.html)
+#  How to uninstall AdGuard
+Thanks for giving AdGuard a try! We’re sorry you decided to leave.
+Below are the uninstall instructions for different platforms.
+  * [How to uninstall AdGuard for Windows](https://adguard.com/kb/adguard-for-windows/installation/#uninstall)
+  * [How to uninstall AdGuard for Mac](https://adguard.com/kb/adguard-for-mac/installation/#uninstall)
+  * [How to uninstall AdGuard for Android](https://adguard.com/kb/adguard-for-android/installation/#uninstallingreinstalling-adguard)
+
+![Agnar](https://cdn.adguardcdn.com/website/adguard.com/common/agnar-helmet.svg)
+##  Why are you leaving?
+It doesn’t block all adsThere are technical issues or bugsI switched to another ad blockerNot what I was looking for Send
+Contact support to resolve the issue — we're here to help
+### Thanks for your feedback!
+Send another answer
 Downloading AdGuard  To install AdGuard, click the file indicated by the arrow  Select "Open" and click "OK", then wait for the file to be downloaded. In the opened window, drag the AdGuard icon to the "Applications" folder. Thank you for choosing AdGuard!  Select "Open" and click "OK", then wait for the file to be downloaded. In the opened window, click "Install". Thank you for choosing AdGuard!
 Install AdGuard on your mobile device
 Installation
@@ -349,8 +294,6 @@ Download an older AdGuard version?
 This OS version isn’t supported. You can use an older version of AdGuard, but it won't receive updates
 Download  Download
 By downloading the program you accept the terms of the [License agreement](https://adguard.com/en/eula.html)
-System theme  Light theme  Dark theme
-System theme  Light theme  Dark theme
 © 2009–2026 Adguard Software Ltd.
 Site map
 Social Media

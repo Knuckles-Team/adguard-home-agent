@@ -118,7 +118,7 @@ EN
 ![](https://cdn.adguardcdn.com/website/adguard.com/svg/agnar-top-line.svg)
 **AdGuard for Windows**
 Blocks ads and trackers in browsers and apps. Protects from phishing and malware.
-20,002 20002 user reviews
+20,009 20009 user reviews
 Excellent!
 Download
 By downloading the program you accept the terms of the [License agreement](https://adguard.com/en/eula.html)
@@ -129,7 +129,7 @@ By downloading the program you accept the terms of the [License agreement](https
 ![](https://cdn.adguardcdn.com/website/adguard.com/svg/agnar-top-line.svg)
 **AdGuard for Mac**
 Designed with macOS specifics in mind. Blocks ads and trackers. Protects your privacy.
-20,002 20002 user reviews
+20,009 20009 user reviews
 Excellent!
 Download
 By downloading the program you accept the terms of the [License agreement](https://adguard.com/en/eula.html)
@@ -140,7 +140,7 @@ By downloading the program you accept the terms of the [License agreement](https
 ![](https://cdn.adguardcdn.com/website/adguard.com/svg/agnar-top-line.svg)
 **AdGuard for Android**
 Doesn’t need root access to block ads in browsers and apps. Fights trackers and phishing.
-20,002 20002 user reviews
+20,009 20009 user reviews
 Excellent!
 Download
 By downloading the program you accept the terms of the [License agreement](https://adguard.com/en/eula.html)
@@ -151,7 +151,7 @@ By downloading the program you accept the terms of the [License agreement](https
 ![](https://cdn.adguardcdn.com/website/adguard.com/svg/agnar-top-line.svg)
 **AdGuard for iOS**
 Blocks ads in browsers and supports DNS filtering. Blocks trackers and dangerous sites.
-20,002 20002 user reviews
+20,009 20009 user reviews
 Excellent!
 Download
 By downloading the program you accept the terms of the [License agreement](https://adguard.com/en/eula.html)
@@ -162,7 +162,7 @@ By downloading the program you accept the terms of the [License agreement](https
 ![](https://cdn.adguardcdn.com/website/adguard.com/svg/agnar-top-line.svg)
 **AdGuard for iOS Pro**
 Blocks ads in browsers and supports DNS filtering. Blocks trackers and dangerous sites.
-20,002 20002 user reviews
+20,009 20009 user reviews
 Excellent!
 Download
 By downloading the program you accept the terms of the [License agreement](https://adguard.com/en/eula.html)
@@ -173,7 +173,7 @@ By downloading the program you accept the terms of the [License agreement](https
 ![](https://cdn.adguardcdn.com/website/adguard.com/svg/agnar-top-line.svg)
 **Block ads in Chrome**
 Free the Web from ads and protect your privacy with AdGuard Browser Extension
-20,002 20002 user reviews
+20,009 20009 user reviews
 Excellent!
 Download
 By downloading the program you accept the terms of the [License agreement](https://adguard.com/en/eula.html)
@@ -184,7 +184,7 @@ By downloading the program you accept the terms of the [License agreement](https
 ![](https://cdn.adguardcdn.com/website/adguard.com/svg/agnar-top-line.svg)
 **Block ads in Firefox**
 Free the Web from ads and protect your privacy with AdGuard Browser Extension
-20,002 20002 user reviews
+20,009 20009 user reviews
 Excellent!
 Download
 By downloading the program you accept the terms of the [License agreement](https://adguard.com/en/eula.html)
@@ -195,7 +195,7 @@ By downloading the program you accept the terms of the [License agreement](https
 ![](https://cdn.adguardcdn.com/website/adguard.com/svg/agnar-top-line.svg)
 **Block ads in Safari**
 Free the Web from ads and protect your privacy with AdGuard Browser Extension
-20,002 20002 user reviews
+20,009 20009 user reviews
 Excellent!
 Download
 By downloading the program you accept the terms of the [License agreement](https://adguard.com/en/eula.html)
@@ -206,7 +206,7 @@ By downloading the program you accept the terms of the [License agreement](https
 ![](https://cdn.adguardcdn.com/website/adguard.com/svg/agnar-top-line.svg)
 **Block ads in Edge**
 Free the Web from ads and protect your privacy with AdGuard Browser Extension
-20,002 20002 user reviews
+20,009 20009 user reviews
 Excellent!
 Download
 By downloading the program you accept the terms of the [License agreement](https://adguard.com/en/eula.html)
@@ -217,7 +217,7 @@ By downloading the program you accept the terms of the [License agreement](https
 ![](https://cdn.adguardcdn.com/website/adguard.com/svg/agnar-top-line.svg)
 **Block ads in Opera**
 Free the Web from ads and protect your privacy with AdGuard Browser Extension
-20,002 20002 user reviews
+20,009 20009 user reviews
 Excellent!
 Download
 By downloading the program you accept the terms of the [License agreement](https://adguard.com/en/eula.html)
@@ -228,7 +228,7 @@ By downloading the program you accept the terms of the [License agreement](https
 ![](https://cdn.adguardcdn.com/website/adguard.com/svg/agnar-top-line.svg)
 **Block ads in Yandex.Browser**
 Free the Web from ads and protect your privacy with AdGuard Browser Extension
-20,002 20002 user reviews
+20,009 20009 user reviews
 Excellent!
 Download
 By downloading the program you accept the terms of the [License agreement](https://adguard.com/en/eula.html)
@@ -239,31 +239,35 @@ By downloading the program you accept the terms of the [License agreement](https
 ![](https://cdn.adguardcdn.com/website/adguard.com/svg/agnar-top-line.svg)
 **AdGuard for Linux**
 World’s first system-wide Linux ad blocker. Blocks ads and trackers.
-20,002 20002 user reviews
+20,009 20009 user reviews
 Excellent!
 [ How to install ](https://adguard.com/en/adguard-linux/overview.html#instructions)
 ![](https://cdn.adguardcdn.com/website/adguard.com/svg/agnar-top-line.svg)
 **AdGuard for Linux**
 [ How to install ](https://adguard.com/en/adguard-linux/overview.html#instructions)
-#  About
-## Who we are
-Adguard Software Limited is a company incorporated on June 1, 2009. It develops AdGuard Ad Blocker, AdGuard VPN, and AdGuard DNS — the products that protect users’ privacy and security. We are the team of experienced specialists, not just creators of AdGuard, but rather Jedi of the light side of the Internet.
-## What we do
-To date, we have made a real breakthrough in the field of internet advertising blocking. Our flagship product AdGuard enjoys wide popularity — we help millions of regular users worldwide. Considering the wishes of our customers, we are constantly engaged in improving our products, and therefore developed a whole range of software, which includes a multifunctional AdGuard ad blocking desktop programs, mobile apps and browser extensions. Our solutions are not just an ad blocker; they protect from online threats, prevent tracking, and filter obscene materials. This comprehensive approach provides high-quality filtering, making AdGuard an essential tool for every internet user. Our mission is to make our users' web surfing most comfortable and safe.
-Where we are
-AdGuard is in Limassol, Cyprus.
-AdGuard Software Limited legal address is Anexartesias and Athinon 79, Nora Court Flat/Office 203-205, 3040 Limassol, Cyprus.
-Awards
-[![](https://cdn.adguardcdn.com/website/adguard.com/awards/cnet.jpg)](https://adguard.com/en/awards.html)[![](https://cdn.adguardcdn.com/website/adguard.com/awards/softpedia.jpg)](https://adguard.com/en/awards.html)[![](https://cdn.adguardcdn.com/website/adguard.com/awards/mac.softpedia.jpg)](https://adguard.com/en/awards.html)[![](https://cdn.adguardcdn.com/website/adguard.com/awards/brothersoft.jpg)](https://adguard.com/en/awards.html)[![](https://cdn.adguardcdn.com/website/adguard.com/awards/findmysoft.jpg)](https://adguard.com/en/awards.html)[![](https://cdn.adguardcdn.com/website/adguard.com/awards/download3000.jpg)](https://adguard.com/en/awards.html)[![](https://cdn.adguardcdn.com/website/adguard.com/awards/filecluster.jpg)](https://adguard.com/en/awards.html)[![](https://cdn.adguardcdn.com/website/adguard.com/awards/rockybites.jpg)](https://adguard.com/en/awards.html)[![](https://cdn.adguardcdn.com/website/adguard.com/awards/topshareware.jpg)](https://adguard.com/en/awards.html)[![](https://cdn.adguardcdn.com/website/adguard.com/awards/instalki.jpg)](https://adguard.com/en/awards.html)[![](https://cdn.adguardcdn.com/website/adguard.com/awards/macinformer.jpg)](https://adguard.com/en/awards.html)[![](https://cdn.adguardcdn.com/website/adguard.com/awards/freeware.jpg)](https://adguard.com/en/awards.html)
-#### Technical support:
-support@adguard.com
-#### PR and marketing:
-pr@adguard.com
-#### Sales team
-sales@adguard.com
-#### Security inquiries
-security@adguard.com
-[ Responsible disclosure ](https://cdn.adguardcdn.com/website/documents/adguard_rdp.pdf)
+#  Get free AdGuard license key
+![](https://cdn.adguardcdn.com/website/adguard.com/svg/viking_settings.svg)
+“The more talents are getting involved, the better the result is” — sounds one of our mottos. So, let’s grow and develop together!
+## Contribute to AdGuard!
+There are a lot of things you can do, for example, translate AdGuard, test its nightly and beta versions, improve blocking filters or write articles. Choose something suitable exactly for you and get started!
+[Challenge accepted!](https://adguard.com/en/contribute.html)
+## Free licenses for developers
+Do you know about filters, extensions or userscripts firsthand? Have you already contributed to their development, for the sake of internet community? You are doing a good thing then, and we definitely want to express our respect.
+Find out more information about who can receive a free AdGuard license.
+[Do I qualify?](https://adguard.com/en/rewards.html)
+[ Contribute to AdGuard ](https://adguard.com/en/get-adguard-for-free.html#anchor-0)
+[ Licenses for developers ](https://adguard.com/en/get-adguard-for-free.html#anchor-1)
+[ Blog ](https://adguard.com/en/blog/index.html) [ Articles ](https://adguard.com/en/article/index.html)
+[ 5 AdGuard features to boost your Internet security on Windows ](https://adguard.com/en/article/boost-your-online-security-with-adguard.html)
+Aug 21, 2024
+In this guide, we've compiled the most common methods of identity theft today, along with AdGuard for Windows settings that will help you protect yourself.
+[ Read more >](https://adguard.com/en/article/boost-your-online-security-with-adguard.html)
+[ Refunds for paid subscriptions and software: how to get them, and how not to need them ](https://adguard.com/en/article/refund-options.html)
+Oct 1, 2020
+If you forgot to cancel a paid subscription, you can get a refund from the merchant even if they aren’t legally obliged to return the money. Besides, there are options to avoid this problem, one of them — virtual bank cards.
+[ Read more >](https://adguard.com/en/article/refund-options.html)
+Download AdGuard for Windows
+Scan to install AdGuard on your mobile device
 Downloading AdGuard  To install AdGuard, click the file indicated by the arrow  Select "Open" and click "OK", then wait for the file to be downloaded. In the opened window, drag the AdGuard icon to the "Applications" folder. Thank you for choosing AdGuard!  Select "Open" and click "OK", then wait for the file to be downloaded. In the opened window, click "Install". Thank you for choosing AdGuard!
 Install AdGuard on your mobile device
 Installation

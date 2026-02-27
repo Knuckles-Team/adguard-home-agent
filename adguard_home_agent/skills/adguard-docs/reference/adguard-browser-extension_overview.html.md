@@ -118,7 +118,7 @@ EN
 ![](https://cdn.adguardcdn.com/website/adguard.com/svg/agnar-top-line.svg)
 **AdGuard for Windows**
 Blocks ads and trackers in browsers and apps. Protects from phishing and malware.
-20,002 20002 user reviews
+20,009 20009 user reviews
 Excellent!
 Download
 By downloading the program you accept the terms of the [License agreement](https://adguard.com/en/eula.html)
@@ -129,7 +129,7 @@ By downloading the program you accept the terms of the [License agreement](https
 ![](https://cdn.adguardcdn.com/website/adguard.com/svg/agnar-top-line.svg)
 **AdGuard for Mac**
 Designed with macOS specifics in mind. Blocks ads and trackers. Protects your privacy.
-20,002 20002 user reviews
+20,009 20009 user reviews
 Excellent!
 Download
 By downloading the program you accept the terms of the [License agreement](https://adguard.com/en/eula.html)
@@ -140,7 +140,7 @@ By downloading the program you accept the terms of the [License agreement](https
 ![](https://cdn.adguardcdn.com/website/adguard.com/svg/agnar-top-line.svg)
 **AdGuard for Android**
 Doesn’t need root access to block ads in browsers and apps. Fights trackers and phishing.
-20,002 20002 user reviews
+20,009 20009 user reviews
 Excellent!
 Download
 By downloading the program you accept the terms of the [License agreement](https://adguard.com/en/eula.html)
@@ -151,7 +151,7 @@ By downloading the program you accept the terms of the [License agreement](https
 ![](https://cdn.adguardcdn.com/website/adguard.com/svg/agnar-top-line.svg)
 **AdGuard for iOS**
 Blocks ads in browsers and supports DNS filtering. Blocks trackers and dangerous sites.
-20,002 20002 user reviews
+20,009 20009 user reviews
 Excellent!
 Download
 By downloading the program you accept the terms of the [License agreement](https://adguard.com/en/eula.html)
@@ -162,7 +162,7 @@ By downloading the program you accept the terms of the [License agreement](https
 ![](https://cdn.adguardcdn.com/website/adguard.com/svg/agnar-top-line.svg)
 **AdGuard for iOS Pro**
 Blocks ads in browsers and supports DNS filtering. Blocks trackers and dangerous sites.
-20,002 20002 user reviews
+20,009 20009 user reviews
 Excellent!
 Download
 By downloading the program you accept the terms of the [License agreement](https://adguard.com/en/eula.html)
@@ -173,7 +173,7 @@ By downloading the program you accept the terms of the [License agreement](https
 ![](https://cdn.adguardcdn.com/website/adguard.com/svg/agnar-top-line.svg)
 **Block ads in Chrome**
 Free the Web from ads and protect your privacy with AdGuard Browser Extension
-20,002 20002 user reviews
+20,009 20009 user reviews
 Excellent!
 Download
 By downloading the program you accept the terms of the [License agreement](https://adguard.com/en/eula.html)
@@ -184,7 +184,7 @@ By downloading the program you accept the terms of the [License agreement](https
 ![](https://cdn.adguardcdn.com/website/adguard.com/svg/agnar-top-line.svg)
 **Block ads in Firefox**
 Free the Web from ads and protect your privacy with AdGuard Browser Extension
-20,002 20002 user reviews
+20,009 20009 user reviews
 Excellent!
 Download
 By downloading the program you accept the terms of the [License agreement](https://adguard.com/en/eula.html)
@@ -195,7 +195,7 @@ By downloading the program you accept the terms of the [License agreement](https
 ![](https://cdn.adguardcdn.com/website/adguard.com/svg/agnar-top-line.svg)
 **Block ads in Safari**
 Free the Web from ads and protect your privacy with AdGuard Browser Extension
-20,002 20002 user reviews
+20,009 20009 user reviews
 Excellent!
 Download
 By downloading the program you accept the terms of the [License agreement](https://adguard.com/en/eula.html)
@@ -206,7 +206,7 @@ By downloading the program you accept the terms of the [License agreement](https
 ![](https://cdn.adguardcdn.com/website/adguard.com/svg/agnar-top-line.svg)
 **Block ads in Edge**
 Free the Web from ads and protect your privacy with AdGuard Browser Extension
-20,002 20002 user reviews
+20,009 20009 user reviews
 Excellent!
 Download
 By downloading the program you accept the terms of the [License agreement](https://adguard.com/en/eula.html)
@@ -217,7 +217,7 @@ By downloading the program you accept the terms of the [License agreement](https
 ![](https://cdn.adguardcdn.com/website/adguard.com/svg/agnar-top-line.svg)
 **Block ads in Opera**
 Free the Web from ads and protect your privacy with AdGuard Browser Extension
-20,002 20002 user reviews
+20,009 20009 user reviews
 Excellent!
 Download
 By downloading the program you accept the terms of the [License agreement](https://adguard.com/en/eula.html)
@@ -228,7 +228,7 @@ By downloading the program you accept the terms of the [License agreement](https
 ![](https://cdn.adguardcdn.com/website/adguard.com/svg/agnar-top-line.svg)
 **Block ads in Yandex.Browser**
 Free the Web from ads and protect your privacy with AdGuard Browser Extension
-20,002 20002 user reviews
+20,009 20009 user reviews
 Excellent!
 Download
 By downloading the program you accept the terms of the [License agreement](https://adguard.com/en/eula.html)
@@ -239,7 +239,7 @@ By downloading the program you accept the terms of the [License agreement](https
 ![](https://cdn.adguardcdn.com/website/adguard.com/svg/agnar-top-line.svg)
 **AdGuard for Linux**
 World’s first system-wide Linux ad blocker. Blocks ads and trackers.
-20,002 20002 user reviews
+20,009 20009 user reviews
 Excellent!
 [ How to install ](https://adguard.com/en/adguard-linux/overview.html#instructions)
 ![](https://cdn.adguardcdn.com/website/adguard.com/svg/agnar-top-line.svg)
@@ -253,7 +253,7 @@ Other products
 [ AdGuard Content Blocker ](https://adguard.com/en/adguard-content-blocker/overview.html)[ AdGuard Browser Extension ](https://adguard.com/en/adguard-browser-extension/overview.html)[ AdGuard Assistant ](https://adguard.com/en/adguard-assistant/overview.html)[ AdGuard Home ](https://adguard.com/en/adguard-home/overview.html)[ AdGuard Pro for iOS ](https://adguard.com/en/adguard-ios-pro/overview.html)[ AdGuard Mini for Mac ](https://adguard.com/en/adguard-mini-mac/overview.html)[ AdGuard for Android TV ](https://adguard.com/en/adguard-android-tv/overview.html)[ AdGuard for Linux ](https://adguard.com/en/adguard-linux/overview.html)[ AdGuard Temp Mail ](https://adguard.com/en/adguard-temp-mail/overview.html)[ AdGuard VPN ](https://adguard-vpn.com/welcome.html?_plc=en)[ AdGuard DNS ](https://adguard-dns.io/welcome.html?source=ag_products_page&_plc=en)[ AdGuard Mail ](https://adguard-mail.com/welcome.html?_plc=en)
 ![](https://cdn.adguardcdn.com/website/adguard.com/products/screenshots/browser_extension/disabled1.svg?nc=1)
 ![](https://cdn.adguardcdn.com/website/adguard.com/products/screenshots/browser_extension/blocked1.svg?nc=1)
-20,002 20002 user reviews
+20,009 20009 user reviews
 Excellent!
 #  AdGuard Browser Extension
 The fastest and lightest adblocker extension that effectively blocks all types of ads and trackers on all websites! Install it for your browser and get an ad-free and safe web experience
@@ -310,7 +310,7 @@ Try again
 ![](https://cdn.adguardcdn.com/website/adguard.com/pictures/agnar_subscription.svg)
 Total app rating 4.7/5
 More than 20,000 app reviews! We love our users and they love us back
-20,002 20002 user reviews
+20,009 20009 user reviews
 Excellent!
 Claver M.  Uma das melhores extensões para Firefox, Google Chrome, Opera, e derivados.
 PedantMac  Funguje a blokuje opravdu skvěle, jen rozšíření do Opera a Edge kolabuje. Stále musím dávat "opravit". Na Safari OK.
@@ -367,7 +367,7 @@ Other products
 [ AdGuard Content Blocker ](https://adguard.com/en/adguard-content-blocker/overview.html)[ AdGuard Browser Extension ](https://adguard.com/en/adguard-browser-extension/overview.html)[ AdGuard Assistant ](https://adguard.com/en/adguard-assistant/overview.html)[ AdGuard Home ](https://adguard.com/en/adguard-home/overview.html)[ AdGuard Pro for iOS ](https://adguard.com/en/adguard-ios-pro/overview.html)[ AdGuard Mini for Mac ](https://adguard.com/en/adguard-mini-mac/overview.html)[ AdGuard for Android TV ](https://adguard.com/en/adguard-android-tv/overview.html)[ AdGuard for Linux ](https://adguard.com/en/adguard-linux/overview.html)[ AdGuard Temp Mail ](https://adguard.com/en/adguard-temp-mail/overview.html)[ AdGuard VPN ](https://adguard-vpn.com/welcome.html?_plc=en)[ AdGuard DNS ](https://adguard-dns.io/welcome.html?source=ag_products_page&_plc=en)[ AdGuard Mail ](https://adguard-mail.com/welcome.html?_plc=en)
 ![](https://cdn.adguardcdn.com/website/adguard.com/products/screenshots/browser_extension/disabled1.svg?nc=1)
 ![](https://cdn.adguardcdn.com/website/adguard.com/products/screenshots/browser_extension/blocked1.svg?nc=1)
-20,002 20002 user reviews
+20,009 20009 user reviews
 Excellent!
 ##  AdGuard Browser Extension
 Our state-of-the-art adblocker extension quickly and effectively blocks all types of ads and trackers in your browser! Get it for your browser and enjoy ad-free, fast, and safe surfing!

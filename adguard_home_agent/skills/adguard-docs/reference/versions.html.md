@@ -118,7 +118,7 @@ EN
 ![](https://cdn.adguardcdn.com/website/adguard.com/svg/agnar-top-line.svg)
 **AdGuard for Windows**
 Blocks ads and trackers in browsers and apps. Protects from phishing and malware.
-20,002 20002 user reviews
+20,009 20009 user reviews
 Excellent!
 Download
 By downloading the program you accept the terms of the [License agreement](https://adguard.com/en/eula.html)
@@ -129,7 +129,7 @@ By downloading the program you accept the terms of the [License agreement](https
 ![](https://cdn.adguardcdn.com/website/adguard.com/svg/agnar-top-line.svg)
 **AdGuard for Mac**
 Designed with macOS specifics in mind. Blocks ads and trackers. Protects your privacy.
-20,002 20002 user reviews
+20,009 20009 user reviews
 Excellent!
 Download
 By downloading the program you accept the terms of the [License agreement](https://adguard.com/en/eula.html)
@@ -140,7 +140,7 @@ By downloading the program you accept the terms of the [License agreement](https
 ![](https://cdn.adguardcdn.com/website/adguard.com/svg/agnar-top-line.svg)
 **AdGuard for Android**
 Doesn’t need root access to block ads in browsers and apps. Fights trackers and phishing.
-20,002 20002 user reviews
+20,009 20009 user reviews
 Excellent!
 Download
 By downloading the program you accept the terms of the [License agreement](https://adguard.com/en/eula.html)
@@ -151,7 +151,7 @@ By downloading the program you accept the terms of the [License agreement](https
 ![](https://cdn.adguardcdn.com/website/adguard.com/svg/agnar-top-line.svg)
 **AdGuard for iOS**
 Blocks ads in browsers and supports DNS filtering. Blocks trackers and dangerous sites.
-20,002 20002 user reviews
+20,009 20009 user reviews
 Excellent!
 Download
 By downloading the program you accept the terms of the [License agreement](https://adguard.com/en/eula.html)
@@ -162,7 +162,7 @@ By downloading the program you accept the terms of the [License agreement](https
 ![](https://cdn.adguardcdn.com/website/adguard.com/svg/agnar-top-line.svg)
 **AdGuard for iOS Pro**
 Blocks ads in browsers and supports DNS filtering. Blocks trackers and dangerous sites.
-20,002 20002 user reviews
+20,009 20009 user reviews
 Excellent!
 Download
 By downloading the program you accept the terms of the [License agreement](https://adguard.com/en/eula.html)
@@ -173,7 +173,7 @@ By downloading the program you accept the terms of the [License agreement](https
 ![](https://cdn.adguardcdn.com/website/adguard.com/svg/agnar-top-line.svg)
 **Block ads in Chrome**
 Free the Web from ads and protect your privacy with AdGuard Browser Extension
-20,002 20002 user reviews
+20,009 20009 user reviews
 Excellent!
 Download
 By downloading the program you accept the terms of the [License agreement](https://adguard.com/en/eula.html)
@@ -184,7 +184,7 @@ By downloading the program you accept the terms of the [License agreement](https
 ![](https://cdn.adguardcdn.com/website/adguard.com/svg/agnar-top-line.svg)
 **Block ads in Firefox**
 Free the Web from ads and protect your privacy with AdGuard Browser Extension
-20,002 20002 user reviews
+20,009 20009 user reviews
 Excellent!
 Download
 By downloading the program you accept the terms of the [License agreement](https://adguard.com/en/eula.html)
@@ -195,7 +195,7 @@ By downloading the program you accept the terms of the [License agreement](https
 ![](https://cdn.adguardcdn.com/website/adguard.com/svg/agnar-top-line.svg)
 **Block ads in Safari**
 Free the Web from ads and protect your privacy with AdGuard Browser Extension
-20,002 20002 user reviews
+20,009 20009 user reviews
 Excellent!
 Download
 By downloading the program you accept the terms of the [License agreement](https://adguard.com/en/eula.html)
@@ -206,7 +206,7 @@ By downloading the program you accept the terms of the [License agreement](https
 ![](https://cdn.adguardcdn.com/website/adguard.com/svg/agnar-top-line.svg)
 **Block ads in Edge**
 Free the Web from ads and protect your privacy with AdGuard Browser Extension
-20,002 20002 user reviews
+20,009 20009 user reviews
 Excellent!
 Download
 By downloading the program you accept the terms of the [License agreement](https://adguard.com/en/eula.html)
@@ -217,7 +217,7 @@ By downloading the program you accept the terms of the [License agreement](https
 ![](https://cdn.adguardcdn.com/website/adguard.com/svg/agnar-top-line.svg)
 **Block ads in Opera**
 Free the Web from ads and protect your privacy with AdGuard Browser Extension
-20,002 20002 user reviews
+20,009 20009 user reviews
 Excellent!
 Download
 By downloading the program you accept the terms of the [License agreement](https://adguard.com/en/eula.html)
@@ -228,7 +228,7 @@ By downloading the program you accept the terms of the [License agreement](https
 ![](https://cdn.adguardcdn.com/website/adguard.com/svg/agnar-top-line.svg)
 **Block ads in Yandex.Browser**
 Free the Web from ads and protect your privacy with AdGuard Browser Extension
-20,002 20002 user reviews
+20,009 20009 user reviews
 Excellent!
 Download
 By downloading the program you accept the terms of the [License agreement](https://adguard.com/en/eula.html)
@@ -239,23 +239,164 @@ By downloading the program you accept the terms of the [License agreement](https
 ![](https://cdn.adguardcdn.com/website/adguard.com/svg/agnar-top-line.svg)
 **AdGuard for Linux**
 World’s first system-wide Linux ad blocker. Blocks ads and trackers.
-20,002 20002 user reviews
+20,009 20009 user reviews
 Excellent!
 [ How to install ](https://adguard.com/en/adguard-linux/overview.html#instructions)
 ![](https://cdn.adguardcdn.com/website/adguard.com/svg/agnar-top-line.svg)
 **AdGuard for Linux**
 [ How to install ](https://adguard.com/en/adguard-linux/overview.html#instructions)
-#  Rate AdGuard
-We don’t participate in any “Acceptable Ads” programs, and don’t sell user data to third parties. What we do is we develop a nice product for Internet users protection. You can contribute by helping us develop the project or by purchasing our products. We appreciate your opinion. Leaving your feedback on our products will help us make AdGuard better.
-[ Rate AdGuard ](https://adguard.com/en/welcome.html?review=true)
-![](https://cdn.adguardcdn.com/website/adguard.com/agnar/agnar_thumbs_up.svg)
-![](https://cdn.adguardcdn.com/website/adguard.com/svg/shield.svg)
-#  Contribute to AdGuard
-We are blessed to have a community that does not only love AdGuard, but also gives back. A lot of people volunteer in various ways to make other users' experience with AdGuard better, and you can join them! We, on our part, can only be happy to reward the most active members of the community.
-[ So, what can you do? ](https://adguard.com/en/contribute.html)
-#  Support AdGuard
-Alternatively we earn on AdGuard premium versions. You can give them a try and check whether they work best for your needs.
-[ AdGuard products ](https://adguard.com/en/products.html)
+#  AdGuard for Linux – Release – AdGuard versions
+[ AdGuard for Linux 1.3 ![](https://cdn.adguardcdn.com/website/adguard.com/svg/anchor-link.svg) ](https://adguard.com/en/versions/linux/release.html#version-1335)
+Release date: February 26, 2026
+AdGuard CLI continues to expand its capabilities and move closer to our full-featured desktop apps. With v1.3, it becomes more powerful, more flexible, and easier to manage.
+This release introduces DNS filtering and Encrypted ClientHello (ECH) support, adds userscripts and userstyles, and refines the update workflow to make it clearer and more consistent.
+## Added DNS filtering support
+With DNS-level filtering enabled, unwanted domains, including ads, trackers, and malicious websites, are blocked before a connection is established. This adds an extra layer of protection and stops unwanted traffic at the earliest stage, preventing it from reaching your device.
+Please note: DNS filtering is disabled by default.
+To enable it, run the following command:
+`adguard-cli config set dns_filtering.enabled true`
+To disable it, run the following command:
+`adguard-cli config set dns_filtering.enabled false`
+Please note: By default, AdGuard CLI uses the system DNS server or AdGuard Non-filtering DNS server. You can manually choose a different server with the following command:
+`adguard-cli config set dns_filtering.upstream '[server address]'`
+To switch back to the default server, run the following command:
+`adguard-cli config set dns_filtering.upstream default`
+## Encrypted Client Hello
+Although HTTPS encrypts the content of your traffic, the name of the server you are communicating with is usually still visible. ECH encrypts this part of the connection as well, helping to prevent ISPs, DPI systems, and other intermediaries from seeing which domains you access.
+## Added userscript and userstyle support
+You can install and manage [userscripts](https://adguard.com/kb/general/extensions/#userscripts) and [userstyles](https://adguard.com/kb/general/extensions/#userstyles) directly from the command line. Management commands follow the same logic as filters, so enabling, disabling, and removing userscripts works in a familiar way.
+## Other improvements
+We’ve also made several minor fixes and unified the logic behind `adguard-cli filters update` and `adguard-cli check-update`. Both commands now use the same update-check mechanism and provide detailed, human-readable progress output.
+## Changelog
+### Improvements
+Added DNS filtering support [#90](https://github.com/AdguardTeam/AdGuardCLI/issues/90)
+Added full userscripts/userstyles support [#118](https://github.com/AdguardTeam/AdGuardCLI/issues/118)
+Added Encrypted Client Hello (ECH) support [#111](https://github.com/AdguardTeam/AdGuardCLI/issues/111)
+### CoreLibs (Filtering engine)
+Updated CoreLibs to v1.21.6
+#### Improvements
+Enabled HTTP/3 filtering by default [#2015](https://github.com/AdguardTeam/CoreLibs/issues/2015)
+#### Fixes
+Do Not Track feature sends both DNT and GPC even on browsers which does not support them [#1982](https://github.com/AdguardTeam/CoreLibs/issues/1982)
+Do not leak `local.adguard.org` resolution after enabling protection [#1854](https://github.com/AdguardTeam/CoreLibs/issues/1854)
+MWITools does not work in AdGuard [#2001](https://github.com/AdguardTeam/CoreLibs/issues/2001)
+### Scriptlets (JavaScript enhancement for filtering rules)
+Updated Scriptlets to v2.2.15
+#### Improvements
+`trusted-click-element` — added support for React elements that don’t respond to native clicks [#542](https://github.com/AdguardTeam/Scriptlets/issues/542)
+#### Fixes
+`prevent-addEventListener` scriptlet throws error when `null` is used as event type [#539](https://github.com/AdguardTeam/Scriptlets/issues/539)
+[ AdGuard for Linux 1.2.2 ![](https://cdn.adguardcdn.com/website/adguard.com/svg/anchor-link.svg) ](https://adguard.com/en/versions/linux/release.html#version-1232)
+Release date: December 29, 2025
+We fixed an [issue reported by users](https://github.com/AdguardTeam/AdguardForWindows/issues/5793) and updated our libraries while we were at it. Now, nothing will interfere with ad blocking.
+[ AdGuard for Linux 1.2.1 ![](https://cdn.adguardcdn.com/website/adguard.com/svg/anchor-link.svg) ](https://adguard.com/en/versions/linux/release.html#version-1227)
+Release date: December 22, 2025
+The app now runs more smoothly thanks to this minor update, which fixes a number of bugs.
+[ AdGuard for Linux 1.2 ![](https://cdn.adguardcdn.com/website/adguard.com/svg/anchor-link.svg) ](https://adguard.com/en/versions/linux/release.html#version-1217)
+Release date: December 8, 2025
+Protecting you from online dangers is a never-ending job — and we’re proud to be good at it. In this update, we’ve strengthened protection against malicious and phishing websites and added support for CRLite, a technology that speeds up and improves certificate validation. We’ve also enhanced the stability of AdGuard for Linux by refining the way requests are processed, ensuring smoother and more reliable performance.
+## Changelog
+### Improvements
+Updated FLM to v2.3 [#101](https://github.com/AdguardTeam/AdGuardCLI/issues/101)
+### Fixes
+Segfault when handling configuration [#97](https://github.com/AdguardTeam/AdGuardCLI/issues/97)
+Proxy server failed to start [#93](https://github.com/AdguardTeam/AdGuardCLI/issues/93)
+### CoreLibs (Filtering engine)
+Updated CoreLibs to v1.20.53
+#### Improvements
+Added an option to decode URL in `$urltransform`[#1915](https://github.com/AdguardTeam/CoreLibs/issues/1915)
+Enabled HTTP/3 filtering by default in AdGuard beta/nightly versions [#2014](https://github.com/AdguardTeam/CoreLibs/issues/2014)
+Added support for the new `$reason` modifier [#1986](https://github.com/AdguardTeam/CoreLibs/issues/1986)
+#### Fixes
+`@connect` does not work as expected [#1985](https://github.com/AdguardTeam/CoreLibs/issues/1985)
+HAR file is not fully compiled [#2002](https://github.com/AdguardTeam/CoreLibs/issues/2002)
+Destination address displays as 127.0.0.1 when AdGuard VPN Integration mode is enabled [#2021](https://github.com/AdguardTeam/CoreLibs/issues/2021)
+Incorrect handling of HTTP 10x status codes for HTTP/1.1 [#2013](https://github.com/AdguardTeam/CoreLibs/issues/2013)
+Userscript cannot be added to AdGuard for Android due to BOM (Byte Order Mark) [#2009](https://github.com/AdguardTeam/CoreLibs/issues/2009)
+Userscript runner adds a source map [#1984](https://github.com/AdguardTeam/CoreLibs/issues/1984)
+`GM.xmlHttpRequest` and `GM_xmlhttpRequest` are implemented incorrectly [#1983](https://github.com/AdguardTeam/CoreLibs/issues/1983)
+Cosmetic filtering, scriptlets, and Stealth Mode don’t work when FakeDNS is enabled in proxy settings [#2017](https://github.com/AdguardTeam/CoreLibs/issues/2017)
+Localhost is unreachable in manual proxy mode in version 1.19 [#2019](https://github.com/AdguardTeam/CoreLibs/issues/2019)
+CRLite is not used as an alternative to OCSP [#1997](https://github.com/AdguardTeam/CoreLibs/issues/1997)
+[ AdGuard for Linux 1.1 ![](https://cdn.adguardcdn.com/website/adguard.com/svg/anchor-link.svg) ](https://adguard.com/en/versions/linux/release.html#version-1145)
+Release date: October 6, 2025
+This update brings CoreLibs, our filtering engine, up to v1.19 and the Filter List Manager up to v2.0, so your filters are fully taken care of!
+As for what’s new, this version is mainly a system update to keep everything stable. Plus, we fixed bugs and made little improvements here and there to make ad blocking on Linux even more reliable.
+## Changelog
+### Improvements
+Added a more convenient way to configure `outbound_proxy`
+Added the ability to export and import settings
+Added the option to set a custom data directory
+Added support for `cli` platform filters
+Updated FLM to v2.0
+Added automatic activation of language-specific filters
+Added optional support for notifications
+Added UDP filtering support for Linux [#46](https://github.com/AdguardTeam/AdGuardCLI/issues/46)
+### Fixes
+AdGuard CLI with a beta license does not update when a different update channel is selected
+AdGuard cannot add CA certificate in Arch Linux
+The error page `Web page is not available` appears in Russian instead of the system language
+Default value for `filter_ev_certificates` is incorrect
+Running a parallel instance of Firefox triggers an HTTPS CA warning
+Scriptlets fail to work
+`/usr/local/bin/` directory is missing on Ubuntu
+`adguard-cli` fails to start if filter metadata is not updated
+Error occurs during certificate creation and update
+Installer does not support multiple browser profiles
+### CoreLibs (Filtering engine)
+CoreLibs updated to v1.19
+#### Improvements
+Added support for ABP’s CSS injection syntax [#1927](https://github.com/AdguardTeam/CoreLibs/issues/1927)
+Improved content script performance by using the browser cache more effectively [#1929](https://github.com/AdguardTeam/CoreLibs/issues/1929)
+Improved overall content-script loading performance [#1930](https://github.com/AdguardTeam/CoreLibs/issues/1930)
+Added the ability to remove content with an empty attribute [#1934](https://github.com/AdguardTeam/CoreLibs/issues/1934)
+Added wildcard and regular expression support for the `$app` modifier [#1906](https://github.com/AdguardTeam/CoreLibs/issues/1906)
+Removed complex heuristics from the `$domain` modifier [#1875](https://github.com/AdguardTeam/CoreLibs/issues/1875)
+Added support for “zstd” encoding [#1976](https://github.com/AdguardTeam/CoreLibs/issues/1976)
+Added support for the ALPS extension [#1987](https://github.com/AdguardTeam/CoreLibs/issues/1987)
+#### Fixes
+Content-type modifiers cannot be used with the `$urltransform` modifier [#1978](https://github.com/AdguardTeam/CoreLibs/issues/1978)
+Filtering is disabled because it may affect website performance [#1994](https://github.com/AdguardTeam/CoreLibs/issues/1994)
+Some React-based websites fail to load correctly due to `Minified React error`[#1953](https://github.com/AdguardTeam/CoreLibs/issues/1953)
+Some extensions stopped working with CoreLibs 1.18 [#1993](https://github.com/AdguardTeam/CoreLibs/issues/1993)
+XHR timeout occurs with the `immersivetranslate` userscript [#2000](https://github.com/AdguardTeam/CoreLibs/issues/2000)
+`$removeparam` does not work in combination with the `$domain` modifier [#1999](https://github.com/AdguardTeam/CoreLibs/issues/1999)
+`$urltransform` combined with `~3p` does not modify the request URL if opened directly in the address bar [#1931](https://github.com/AdguardTeam/CoreLibs/issues/1931)
+[ AdGuard for Linux 1.0 ![](https://cdn.adguardcdn.com/website/adguard.com/svg/anchor-link.svg) ](https://adguard.com/en/versions/linux/release.html#version-1016)
+Release date: April 29, 2025
+This release marks the beginning of something huge: AdGuard for Linux is here to give our Linux users the protection AdGuard is known and trusted for, now on their OS!
+For years, Linux users have been asking for their own version of AdGuard — that’s why we’ve poured our time and energy into making the Linux experience a powerful one. With AdGuard v1.0 for Linux, you now have access to a broad range of features and a complete, flexible way to stay protected on Linux.
+If you tested [AdGuard v1.0 for Linux nightly](https://adguard.com/en/blog/adguard-for-linux-nightly.html), you’ll love the stable version — it adds even more features to enhance performance and usability.
+### App exclusions
+This feature drastically improves the usability of AdGuard for Linux. If you’re not familiar with it yet — it lets you selectively route traffic from specific apps, skipping AdGuard’s filtering when you don’t need it. Whether you’re troubleshooting or just want to keep seeing the ads from a certain service, this can come in handy.
+And to make your life even easier, we’ve put together two pre-built lists of browsers and apps to be excluded from HTTPS filtering — so setting up exclusions is faster and way less manual.
+The list can be edited in the files `proxy.yaml` (for app exclusions) and `browsers.yaml` (for browser exclusions). You can edit them using the built-in terminal editor (or any other text editor) by entering `nano [path to the file]`, and then restart the protection. To see the location of the file, check the output of the `config` command.
+### Differential filter update
+In this version, we have replaced the filter update method with a differential one. To put it simply, instead of fetching the entire filter list, AdGuard for Linux will only download the changes that were made to the list since the last update. Less traffic will be spent on updating and filters will be updated faster. You will always have the most current versions of filters and a more accurate ad blocking.
+AdGuard for Windows
+[ Release ](https://adguard.com/en/versions/windows/release.html)[ Beta ](https://adguard.com/en/versions/windows/beta.html)[ Nightly ](https://adguard.com/en/versions/windows/nightly.html)
+AdGuard for Android
+[ Release ](https://adguard.com/en/versions/android/release.html)[ Beta ](https://adguard.com/en/versions/android/beta.html)[ Nightly ](https://adguard.com/en/versions/android/nightly.html)
+AdGuard for Android TV
+[ Release ](https://adguard.com/en/versions/android-tv/release.html)[ Beta ](https://adguard.com/en/versions/android-tv/beta.html)
+AdGuard for Mac
+[ Release ](https://adguard.com/en/versions/mac/release.html)[ Beta ](https://adguard.com/en/versions/mac/beta.html)[ Nightly ](https://adguard.com/en/versions/mac/nightly.html)
+AdGuard for iOS
+[ Release ](https://adguard.com/en/versions/ios/release.html)[ Beta ](https://adguard.com/en/versions/ios/beta.html)
+AdGuard Pro for iOS
+[ Release ](https://adguard.com/en/versions/ios-pro/release.html)
+AdGuard Browser Extension
+[ Release ](https://adguard.com/en/versions/browser-extension/release.html)
+AdGuard Mini for Mac
+[ Release ](https://adguard.com/en/versions/mini-mac/release.html)
+AdGuard for Linux
+[ Release ](https://adguard.com/en/versions/linux/release.html)[ Beta ](https://adguard.com/en/versions/linux/beta.html)[ Nightly ](https://adguard.com/en/versions/linux/nightly.html)
+AdGuard Assistant
+[ Release ](https://adguard.com/en/versions/assistant/release.html)
+AdGuard Content Blocker
+[ Release ](https://adguard.com/en/versions/content-blocker/release.html)
+AdGuard Home
+[ Release ](https://adguard.com/en/versions/home/release.html)
 Downloading AdGuard  To install AdGuard, click the file indicated by the arrow  Select "Open" and click "OK", then wait for the file to be downloaded. In the opened window, drag the AdGuard icon to the "Applications" folder. Thank you for choosing AdGuard!  Select "Open" and click "OK", then wait for the file to be downloaded. In the opened window, click "Install". Thank you for choosing AdGuard!
 Install AdGuard on your mobile device
 Installation
