@@ -5,16 +5,14 @@ import os
 import logging
 
 from agent_utilities import (
+    build_system_prompt_from_workspace,
+    create_agent_parser,
     create_agent_server,
     initialize_workspace,
     load_identities,
-    build_system_prompt_from_workspace,
 )
-from agent_utilities.agent_utilities import create_agent_parser
-from agent_utilities.base_utilities import to_integer, to_boolean
-from agent_utilities.agent_utilities import get_mcp_config_path
 
-__version__ = "0.2.24"
+__version__ = "0.2.25"
 
 logging.basicConfig(
     level=logging.INFO,
@@ -48,20 +46,6 @@ for tag, data in identities.items():
         continue
     CHILD_AGENT_DEFS[tag] = (data["content"], data["name"])
 
-DEFAULT_HOST = os.getenv("HOST", "0.0.0.0")
-DEFAULT_PORT = to_integer(os.getenv("PORT", "9000"))
-DEFAULT_DEBUG = to_boolean(os.getenv("DEBUG", "False"))
-DEFAULT_PROVIDER = os.getenv("PROVIDER", "openai")
-DEFAULT_MODEL_ID = os.getenv("MODEL_ID", "qwen/qwen3-coder-next")
-DEFAULT_LLM_BASE_URL = os.getenv("LLM_BASE_URL", "http://host.docker.internal:1234/v1")
-DEFAULT_LLM_API_KEY = os.getenv("LLM_API_KEY", "ollama")
-DEFAULT_MCP_URL = os.getenv("MCP_URL", None)
-DEFAULT_MCP_CONFIG = os.getenv("MCP_CONFIG", get_mcp_config_path())
-DEFAULT_CUSTOM_SKILLS_DIRECTORY = os.getenv("CUSTOM_SKILLS_DIRECTORY", None)
-DEFAULT_ENABLE_WEB_UI = to_boolean(os.getenv("ENABLE_WEB_UI", "False"))
-DEFAULT_ENABLE_OTEL = to_boolean(os.getenv("ENABLE_OTEL", "False"))
-DEFAULT_SSL_VERIFY = to_boolean(os.getenv("SSL_VERIFY", "True"))
-
 
 def agent_server():
     print(f"{DEFAULT_AGENT_NAME} v{__version__}")
@@ -89,6 +73,11 @@ def agent_server():
         name=DEFAULT_AGENT_NAME,
         system_prompt=DEFAULT_AGENT_SYSTEM_PROMPT,
         enable_otel=args.otel,
+        otel_endpoint=args.otel_endpoint,
+        otel_headers=args.otel_headers,
+        otel_public_key=args.otel_public_key,
+        otel_secret_key=args.otel_secret_key,
+        otel_protocol=args.otel_protocol,
         agent_definitions=CHILD_AGENT_DEFS if CHILD_AGENT_DEFS else None,
     )
 
