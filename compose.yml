@@ -1,39 +1,5 @@
 ---
 services:
-  adguard-home-mcp:
-    # image: docker.io/knucklessg1/adguard-home-mcp:latest
-    build:
-      context: .
-      dockerfile: debug.Dockerfile
-    container_name: adguard-mcp
-    hostname: adguard-mcp
-    command: [ "adguard-mcp" ]
-    dns:
-      - "${IP_DNS}"
-    extra_hosts:
-      - "host.docker.internal:host-gateway"
-    logging:
-      driver: json-file
-      options:
-        max-size: "10m"
-        max-file: "3"
-    restart: always
-    environment:
-      - "HOST=0.0.0.0"
-      - "PORT=8012"
-      - "TRANSPORT=streamable-http"
-      - "ADGUARD_URL=${ADGUARD_URL}"
-      - "ADGUARD_USERNAME=${ADGUARD_USERNAME}"
-      - "ADGUARD_PASSWORD=${ADGUARD_PASSWORD}"
-    ports:
-      - "8012:8012"
-    healthcheck:
-      test: [ "CMD", "python3", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8012/health')" ]
-      interval: 30s
-      timeout: 10s
-      retries: 3
-      start_period: 10s
-
   adguard-home-agent:
     # image: docker.io/knucklessg1/adguard-home-mcp:latest
     build:
@@ -44,8 +10,6 @@ services:
     command: [ "adguard-agent" ]
     extra_hosts:
       - "host.docker.internal:host-gateway"
-    depends_on:
-      - adguard-home-mcp
     logging:
       driver: json-file
       options:
@@ -56,8 +20,11 @@ services:
       - .env
     environment:
       - "HOST=0.0.0.0"
-      - "PORT=9012"
-      - "MCP_URL=http://adguard-mcp:8012/mcp"
+      - "PORT=9199"
+      - "TRANSPORT=stdio"
+      - "ADGUARD_URL=${ADGUARD_URL}"
+      - "ADGUARD_USERNAME=${ADGUARD_USERNAME}"
+      - "ADGUARD_PASSWORD=${ADGUARD_PASSWORD}"
       - "PROVIDER=openai"
       - "LLM_BASE_URL=${LLM_BASE_URL:-http://host.docker.internal:1234/v1}"
       - "LLM_API_KEY=${LLM_API_KEY:-llama}"
@@ -66,9 +33,9 @@ services:
       - "ENABLE_WEB_UI=True"
       - "ENABLE_OTEL=True"
     ports:
-      - "9012:9012"
+      - "9199:9199"
     healthcheck:
-      test: [ "CMD", "python3", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:9012/health')" ]
+      test: [ "CMD", "python3", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:9199/health')" ]
       interval: 30s
       timeout: 10s
       retries: 3
