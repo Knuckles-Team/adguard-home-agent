@@ -21,7 +21,7 @@ from agent_utilities.mcp_utilities import (
 )
 from adguard_home_agent.adguard_api import Api
 
-__version__ = "0.2.27"
+__version__ = "0.2.28"
 
 logger = get_logger(name="TokenMiddleware")
 logger.setLevel(logging.DEBUG)
