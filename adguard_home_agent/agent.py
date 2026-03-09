@@ -12,7 +12,7 @@ from agent_utilities import (
     load_identity,
 )
 
-__version__ = "0.2.35"
+__version__ = "0.2.36"
 
 logging.basicConfig(
     level=logging.INFO,
@@ -31,7 +31,7 @@ DEFAULT_AGENT_DESCRIPTION = os.getenv(
 )
 DEFAULT_AGENT_SYSTEM_PROMPT = os.getenv(
     "AGENT_SYSTEM_PROMPT",
-    meta.get("content") or build_system_prompt_from_workspace(),
+    build_system_prompt_from_workspace(),
 )
 
 
