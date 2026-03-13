@@ -22,7 +22,7 @@
 ![PyPI - Wheel](https://img.shields.io/pypi/wheel/adguard-home-agent)
 ![PyPI - Implementation](https://img.shields.io/pypi/implementation/adguard-home-agent)
 
-*Version: 0.2.40*
+*Version: 0.2.41*
 
 ## Overview
 
@@ -205,7 +205,7 @@ sequenceDiagram
 | --port           | Port to bind the server to                       | 9000                        |
 | --reload         | Enable auto-reload                               | False                       |
 | --provider       | LLM Provider (openai, anthropic, google, etc)    | openai                      |
-| --model-id       | LLM Model ID                                     | qwen/qwen3.5-35b-a3b               |
+| --model-id       | LLM Model ID                                     | nvidia/nemotron-3-super               |
 | --base-url       | LLM Base URL (for OpenAI compatible providers)   | http://host.docker.internal:1234/v1    |
 | --api-key        | LLM API Key                                      | ollama                      |
 | --mcp-url        | MCP Server URL to connect to                     | None                        |
