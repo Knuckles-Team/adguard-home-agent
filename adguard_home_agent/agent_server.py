@@ -5,13 +5,14 @@ import os
 import logging
 
 from agent_utilities import (
+    build_system_prompt_from_workspace,
     create_agent_parser,
     create_agent_server,
     initialize_workspace,
     load_identity,
 )
 
-__version__ = "0.2.42"
+__version__ = "0.2.43"
 
 logging.basicConfig(
     level=logging.INFO,
@@ -29,8 +30,7 @@ DEFAULT_AGENT_DESCRIPTION = os.getenv(
     meta.get("description", "AI agent for AdGuard Home management."),
 )
 DEFAULT_AGENT_SYSTEM_PROMPT = os.getenv(
-    "AGENT_SYSTEM_PROMPT",
-    None,
+    "AGENT_SYSTEM_PROMPT", meta.get("content") or build_system_prompt_from_workspace()
 )
 
 
