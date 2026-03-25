@@ -6,7 +6,7 @@ from agent_utilities.base_utilities import to_boolean
 import os
 import sys
 import logging
-from typing import Optional, List, Dict
+from typing import Any, Optional, List, Dict
 
 import requests
 from pydantic import Field
@@ -19,9 +19,9 @@ from agent_utilities.mcp_utilities import (
     create_mcp_parser,
     config,
 )
-from adguard_home_agent.adguard_api import Api
+from adguard_home_agent.api_wrapper import Api
 
-__version__ = "0.2.46"
+__version__ = "0.2.47"
 
 logger = get_logger(name="TokenMiddleware")
 logger.setLevel(logging.DEBUG)
@@ -1316,12 +1316,13 @@ def register_dns_tools(mcp: FastMCP):
         return client.test_upstream_dns(upstreams=upstreams)
 
 
-def mcp_server():
+def get_mcp_instance() -> tuple[Any, Any, Any, Any]:
+    """Initialize and return the MCP instance, args, and middlewares."""
     load_dotenv(find_dotenv())
-    print(f"Adguard Home MCP v{__version__}")
+    print(f"Adguard Home MCP v{__version__}", file=sys.stderr)
     parser = create_mcp_parser()
 
-    args = parser.parse_args()
+    args = parser.parse_known_args()[0]
 
     if hasattr(args, "help") and args.help:
 
@@ -1330,7 +1331,9 @@ def mcp_server():
         sys.exit(0)
 
     if args.port < 0 or args.port > 65535:
-        print(f"Error: Port {args.port} is out of valid range (0-65535).")
+        print(
+            f"Error: Port {args.port} is out of valid range (0-65535).", file=sys.stderr
+        )
         sys.exit(1)
 
     config["enable_delegation"] = args.enable_delegation
@@ -1378,7 +1381,7 @@ def mcp_server():
                 extra={"token_endpoint": config["token_endpoint"]},
             )
         except Exception as e:
-            print(f"Failed to fetch OIDC configuration: {e}")
+            print(f"Failed to fetch OIDC configuration: {e}", file=sys.stderr)
             logger.error(
                 "Failed to fetch OIDC configuration",
                 extra={"error_type": type(e).__name__, "error_message": str(e)},
@@ -1440,13 +1443,17 @@ def mcp_server():
 
     for mw in middlewares:
         mcp.add_middleware(mw)
+    registered_tags = []
+    return mcp, args, middlewares, registered_tags
 
-    print(f"Adguard Home MCP v{__version__}")
-    print("\nStarting Adguard Home MCP Server")
-    print(f"  Transport: {args.transport.upper()}")
-    print(f"  Auth: {args.auth_type}")
-    print(f"  Delegation: {'ON' if config['enable_delegation'] else 'OFF'}")
-    print(f"  Eunomia: {args.eunomia_type}")
+
+def mcp_server() -> None:
+    mcp, args, middlewares, registered_tags = get_mcp_instance()
+    print(f"{args.name or 'adguard-home-agent'} MCP v{__version__}", file=sys.stderr)
+    print("\nStarting MCP Server", file=sys.stderr)
+    print(f"  Transport: {args.transport.upper()}", file=sys.stderr)
+    print(f"  Auth: {args.auth_type}", file=sys.stderr)
+    print(f"  Dynamic Tags Loaded: {len(set(registered_tags))}", file=sys.stderr)
 
     if args.transport == "stdio":
         mcp.run(transport="stdio")

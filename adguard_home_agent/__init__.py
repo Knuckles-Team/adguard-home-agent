@@ -8,7 +8,7 @@ from typing import List
 __all__: List[str] = []
 
 CORE_MODULES = [
-    "adguard_home_agent.adguard_api",
+    "adguard_home_agent.api_wrapper",
 ]
 
 OPTIONAL_MODULES = {
@@ -31,8 +31,11 @@ def _expose_members(module):
         if (inspect.isclass(obj) or inspect.isfunction(obj)) and not name.startswith(
             "_"
         ):
-            globals()[name] = obj
-            __all__.append(name)
+            # Only expose if it's actually defined in that module (not imported)
+            if hasattr(obj, "__module__") and obj.__module__ == module.__name__:
+                if name not in globals():
+                    globals()[name] = obj
+                    __all__.append(name)
 
 
 for module_name in CORE_MODULES:
