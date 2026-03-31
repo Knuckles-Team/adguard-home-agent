@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-               
+
 
 import importlib
 import inspect
@@ -31,7 +31,7 @@ def _expose_members(module):
         if (inspect.isclass(obj) or inspect.isfunction(obj)) and not name.startswith(
             "_"
         ):
-                                                                                
+
             if hasattr(obj, "__module__") and obj.__module__ == module.__name__:
                 if name not in globals():
                     globals()[name] = obj

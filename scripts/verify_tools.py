@@ -7,17 +7,17 @@ def get_mcp_tools():
     mcp_file = Path("adguard_home_agent/adguard_mcp_server.py")
     content = mcp_file.read_text()
 
-                         
-                                 
-                                   
 
-                                                              
-                                   
+
+
+
+
+
 
     lines = content.split('\n')
     for i, line in enumerate(lines):
         if "@mcp.tool" in line:
-                                
+
             for j in range(i+1, len(lines)):
                 if "def " in lines[j]:
                     func_name = lines[j].split("def ")[1].split("(")[0].strip()
@@ -33,10 +33,10 @@ def get_skill_tools():
 
     for skill_file in skills_dir.rglob("SKILL.md"):
         content = skill_file.read_text()
-                                                        
-                                                      
 
-                                                               
+
+
+
         skill_name = skill_file.parent.name
         skill_tools[skill_name] = content
 
@@ -49,10 +49,10 @@ def verify():
     missing = []
 
     for tool, tag in mcp_tools:
-                                                       
-                                             
 
-                                                                   
+
+
+
         found = False
         for skill_name, content in skill_tools_map.items():
             if tool in content:
