@@ -4,7 +4,7 @@ import sys
 import requests
 from dotenv import load_dotenv
 
-# Add parent directory to path to import adguard_home_agent
+                                                           
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
 from adguard_home_agent.adguard_api import Api
@@ -22,10 +22,10 @@ print(f"Username: {USERNAME}")
 
 def test_custom_api_class():
     print("\n--- Testing adguard_api.Api class ---")
-    # New Api init signature: base_url, username, password, verify, proxies
+                                                                           
     api = Api(base_url=BASE_URL, username=USERNAME, password=PASSWORD)
     try:
-        # get_version now calls /control/status
+                                               
         version = api.get_version()
         print(f"Success! Version/Status: {version}")
     except Exception as e:
@@ -35,7 +35,7 @@ def test_custom_api_class():
         print("Attempting get_stats()...")
         stats = api.get_stats()
         print("Success! Stats retrieved.")
-        # print keys to verify
+                              
         print(f"Stats keys: {list(stats.keys())}")
     except Exception as e:
         print(f"Failed to get stats via Api class: {e}")
@@ -111,19 +111,19 @@ def test_standard_endpoints(client):
 
     try:
         print("Attempting search_clients()...")
-        # Search for something unlikely to exist or just empty query if allowed?
-        # Based on my code, query is required. I'll search for "127.0.0.1" which returned [] earlier.
+                                                                                
+                                                                                                     
         search_result = client.search_clients(query="127.0.0.1")
         print(f"Success! Search result type: {type(search_result)}")
     except Exception as e:
         print(f"Error in search_clients: {e}")
 
     print("\n--- Testing Standard AdGuard Home Endpoints (/control/...) ---")
-    # AdGuard Home usually uses /control/api or similar.
-    # Common endpoints: /control/status, /control/version.json (sometimes)
+                                                        
+                                                                          
 
     session = requests.Session()
-    # AdGuard Home often uses Basic Auth
+                                        
     session.auth = (USERNAME, PASSWORD)
 
     endpoints = [

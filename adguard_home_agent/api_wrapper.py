@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-# coding: utf-8
+
 
 import json
 import requests
@@ -7,7 +7,7 @@ from typing import Dict, List, Optional, Any
 from urllib.parse import urljoin
 import urllib3
 
-__version__ = "0.2.48"
+__version__ = "0.2.49"
 
 
 class Api:
@@ -48,7 +48,6 @@ class Api:
         else:
             url = urljoin(self.base_url, endpoint)
 
-        # AdGuard Home /control APIs often expect JSON body
         headers = {"Content-Type": "application/json"}
 
         response = self._session.request(
@@ -273,7 +272,7 @@ class Api:
         search: str = "",
     ) -> Dict:
         """Gets query log."""
-        # /control/querylog params are slightly different
+
         params = {
             "limit": limit,
         }
@@ -387,8 +386,7 @@ class Api:
 
     def search_clients(self, query: str) -> List[Dict]:
         """Search for clients."""
-        # Based on probing, it accepts a JSON object. 'name' or 'ip' likely.
-        # We will try 'name' based on previous success 200 OK.
+
         return self.request("POST", "/control/clients/search", data={"name": query})
 
     def get_profile(self) -> Dict:
@@ -459,11 +457,9 @@ class Api:
 
     def get_doh_mobile_config(self, host: str, client_id: str) -> str:
         """Get DNS over HTTPS .mobileconfig."""
-        # This endpoint returns a plist file (text/xml), not JSON.
-        # Api.request expects JSON response by default or handles it.
-        # We need to make sure Api.request can handle non-JSON response.
+
         params = {"host": host, "client_id": client_id}
-        # We might need to adjust Api.request to return text if json fails.
+
         return self.request("GET", "/control/apple/doh.mobileconfig", params=params)
 
     def get_dot_mobile_config(self, host: str, client_id: str) -> str:

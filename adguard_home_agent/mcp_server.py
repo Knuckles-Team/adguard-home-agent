@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-# coding: utf-8
+
 
 from dotenv import load_dotenv, find_dotenv
 from agent_utilities.base_utilities import to_boolean
@@ -21,7 +21,7 @@ from agent_utilities.mcp_utilities import (
 )
 from adguard_home_agent.api_wrapper import Api
 
-__version__ = "0.2.48"
+__version__ = "0.2.49"
 
 logger = get_logger(name="TokenMiddleware")
 logger.setLevel(logging.DEBUG)
