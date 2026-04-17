@@ -4,7 +4,12 @@ from pathlib import Path
 import inspect
 
 
-sys.path.append("/home/genius/Workspace/agent-packages/agent-utilities")
+SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+# agents/adguard-home-agent/scripts/
+WORKSPACE_ROOT = os.path.abspath(os.path.join(SCRIPT_DIR, "..", "..", ".."))
+# agent-packages/
+
+sys.path.append(os.path.join(WORKSPACE_ROOT, "agent-utilities"))
 
 import agent_utilities.base_utilities as bu
 

@@ -6,6 +6,7 @@ with warnings.catch_warnings():
     warnings.simplefilter("ignore")
     try:
         from requests.exceptions import RequestsDependencyWarning
+
         warnings.filterwarnings("ignore", category=RequestsDependencyWarning)
     except ImportError:
         pass
@@ -34,7 +35,7 @@ from agent_utilities.mcp_utilities import (
 )
 from adguard_home_agent.api_wrapper import Api
 
-__version__ = "0.2.54"
+__version__ = "0.2.55"
 
 logger = get_logger(name="TokenMiddleware")
 logger.setLevel(logging.DEBUG)
@@ -83,6 +84,9 @@ def register_prompts(mcp: FastMCP):
 
 
 def register_misc_tools(mcp: FastMCP):
+    pass
+    pass
+
     async def health_check(request: Request) -> JSONResponse:
         return JSONResponse({"status": "OK"})
 
