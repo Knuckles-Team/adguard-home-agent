@@ -1,27 +1,28 @@
 
 import os
 import sys
+from typing import cast
 import requests
 from dotenv import load_dotenv
 
 
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
-from adguard_home_agent.adguard_api import Api
-import adguard_home_agent.adguard_api
-print(f"DEBUG: adguard_api imported from {adguard_home_agent.adguard_api.__file__}")
+from adguard_home_agent.api_wrapper import Api
+import adguard_home_agent.api_wrapper
+print(f"DEBUG: api_wrapper imported from {adguard_home_agent.api_wrapper.__file__}")
 
 load_dotenv()
 
-BASE_URL = os.getenv("ADGUARD_URL")
-USERNAME = os.getenv("ADGUARD_USERNAME")
-PASSWORD = os.getenv("ADGUARD_PASSWORD")
+BASE_URL = os.getenv("ADGUARD_URL", "http://localhost:3000")
+USERNAME = os.getenv("ADGUARD_USERNAME", "admin")
+PASSWORD = os.getenv("ADGUARD_PASSWORD", "password")
 
 print(f"Testing connection to: {BASE_URL}")
 print(f"Username: {USERNAME}")
 
 def test_custom_api_class():
-    print("\n--- Testing adguard_api.Api class ---")
+    print("\n--- Testing api_wrapper.Api class ---")
 
     api = Api(base_url=BASE_URL, username=USERNAME, password=PASSWORD)
     try:
@@ -84,7 +85,7 @@ def test_standard_endpoints(client):
     try:
         print("Attempting get_all_blocked_services()...")
         blocked_services = client.get_all_blocked_services()
-        print(f"Success! Blocked services retrieved. Count: {len(blocked_services.get('blocked_services', []))}")
+        print(f"Success! Blocked services retrieved. Count: {len(blocked_services)}")
     except Exception as e:
         print(f"Error in get_all_blocked_services: {e}")
 
@@ -124,7 +125,7 @@ def test_standard_endpoints(client):
 
     session = requests.Session()
 
-    session.auth = (USERNAME, PASSWORD)
+    session.auth = (cast(str, USERNAME), cast(str, PASSWORD))
 
     endpoints = [
         "/control/status",

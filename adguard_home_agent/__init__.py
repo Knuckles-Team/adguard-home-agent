@@ -3,9 +3,8 @@
 
 import importlib
 import inspect
-from typing import List
 
-__all__: List[str] = []
+__all__: list[str] = []
 
 CORE_MODULES = [
     "adguard_home_agent.api_wrapper",
@@ -31,7 +30,6 @@ def _expose_members(module):
         if (inspect.isclass(obj) or inspect.isfunction(obj)) and not name.startswith(
             "_"
         ):
-
             if hasattr(obj, "__module__") and obj.__module__ == module.__name__:
                 if name not in globals():
                     globals()[name] = obj
