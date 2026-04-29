@@ -7,7 +7,7 @@ import inspect
 __all__: list[str] = []
 
 CORE_MODULES = [
-    "adguard_home_agent.api_wrapper",
+    "adguard_home_agent.api_client",
 ]
 
 OPTIONAL_MODULES = {

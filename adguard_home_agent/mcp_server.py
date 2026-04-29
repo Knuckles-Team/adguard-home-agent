@@ -26,15 +26,17 @@ from agent_utilities.mcp_utilities import (
     config,
     create_mcp_parser,
     create_mcp_server,
+    ctx_confirm_destructive,
+    ctx_progress,
 )
 from dotenv import find_dotenv, load_dotenv
-from fastmcp import FastMCP
+from fastmcp import Context, FastMCP
 from fastmcp.utilities.logging import get_logger
 from pydantic import Field
 from starlette.requests import Request
 from starlette.responses import JSONResponse
 
-from adguard_home_agent.api_wrapper import Api
+from adguard_home_agent.api_client import Api
 
 __version__ = "0.2.55"
 
@@ -125,6 +127,9 @@ def register_system_tools(mcp: FastMCP):
             default=os.environ.get("ADGUARD_PASSWORD", None),
             description="Password for authentication",
         ),
+        ctx: Context = Field(
+            description="MCP context for progress reporting", default=None
+        ),
     ) -> dict:
         """Get AdGuard Home version."""
         client = Api(base_url=base_url, username=username, password=password)
@@ -146,6 +151,9 @@ def register_system_tools(mcp: FastMCP):
             default=os.environ.get("ADGUARD_PASSWORD", None),
             description="Password for authentication",
         ),
+        ctx: Context = Field(
+            description="MCP context for progress reporting", default=None
+        ),
     ) -> dict:
         """Set protection state."""
         client = Api(base_url=base_url, username=username, password=password)
@@ -165,8 +173,14 @@ def register_system_tools(mcp: FastMCP):
             default=os.environ.get("ADGUARD_PASSWORD", None),
             description="Password for authentication",
         ),
+        ctx: Context = Field(
+            description="MCP context for progress reporting", default=None
+        ),
     ) -> dict:
         """Clear DNS cache."""
+        if not await ctx_confirm_destructive(ctx, "clear cache"):
+            return {"status": "cancelled", "message": "Operation cancelled by user"}
+        await ctx_progress(ctx, 0, 100)
         client = Api(base_url=base_url, username=username, password=password)
         return client.clear_cache()
 
@@ -185,6 +199,9 @@ def register_access_tools(mcp: FastMCP):
         password: str | None = Field(
             default=os.environ.get("ADGUARD_PASSWORD", None),
             description="Password for authentication",
+        ),
+        ctx: Context = Field(
+            description="MCP context for progress reporting", default=None
         ),
     ) -> dict[str, Any]:
         """List current access list (allowed/disallowed clients, blocked hosts)."""
@@ -214,6 +231,9 @@ def register_access_tools(mcp: FastMCP):
             default=os.environ.get("ADGUARD_PASSWORD", None),
             description="Password for authentication",
         ),
+        ctx: Context = Field(
+            description="MCP context for progress reporting", default=None
+        ),
     ) -> dict:
         """Set access list."""
         client = Api(base_url=base_url, username=username, password=password)
@@ -239,6 +259,9 @@ def register_blocked_services_tools(mcp: FastMCP):
             default=os.environ.get("ADGUARD_PASSWORD", None),
             description="Password for authentication",
         ),
+        ctx: Context = Field(
+            description="MCP context for progress reporting", default=None
+        ),
     ) -> list[str]:
         """List blocked services."""
         client = Api(base_url=base_url, username=username, password=password)
@@ -257,6 +280,9 @@ def register_blocked_services_tools(mcp: FastMCP):
         password: str | None = Field(
             default=os.environ.get("ADGUARD_PASSWORD", None),
             description="Password for authentication",
+        ),
+        ctx: Context = Field(
+            description="MCP context for progress reporting", default=None
         ),
     ) -> list[dict[str, Any]]:
         """Get all available blocked services."""
@@ -277,6 +303,9 @@ def register_blocked_services_tools(mcp: FastMCP):
         password: str | None = Field(
             default=os.environ.get("ADGUARD_PASSWORD", None),
             description="Password for authentication",
+        ),
+        ctx: Context = Field(
+            description="MCP context for progress reporting", default=None
         ),
     ) -> dict:
         """Update blocked services list."""
@@ -300,6 +329,9 @@ def register_filtering_tools(mcp: FastMCP):
             default=os.environ.get("ADGUARD_PASSWORD", None),
             description="Password for authentication",
         ),
+        ctx: Context = Field(
+            description="MCP context for progress reporting", default=None
+        ),
     ) -> dict:
         """Set user-defined filtering rules."""
         client = Api(base_url=base_url, username=username, password=password)
@@ -319,6 +351,9 @@ def register_filtering_tools(mcp: FastMCP):
         password: str | None = Field(
             default=os.environ.get("ADGUARD_PASSWORD", None),
             description="Password for authentication",
+        ),
+        ctx: Context = Field(
+            description="MCP context for progress reporting", default=None
         ),
     ) -> dict:
         """Check if a host is filtered."""
@@ -342,6 +377,9 @@ def register_filtering_tools(mcp: FastMCP):
             default=os.environ.get("ADGUARD_PASSWORD", None),
             description="Password for authentication",
         ),
+        ctx: Context = Field(
+            description="MCP context for progress reporting", default=None
+        ),
     ) -> dict:
         """Set filter URL parameters."""
         client = Api(base_url=base_url, username=username, password=password)
@@ -360,6 +398,9 @@ def register_filtering_tools(mcp: FastMCP):
         password: str | None = Field(
             default=os.environ.get("ADGUARD_PASSWORD", None),
             description="Password for authentication",
+        ),
+        ctx: Context = Field(
+            description="MCP context for progress reporting", default=None
         ),
     ) -> dict:
         """Get filtering status."""
@@ -381,6 +422,9 @@ def register_filtering_tools(mcp: FastMCP):
         password: str | None = Field(
             default=os.environ.get("ADGUARD_PASSWORD", None),
             description="Password for authentication",
+        ),
+        ctx: Context = Field(
+            description="MCP context for progress reporting", default=None
         ),
     ) -> dict:
         """Set filtering configuration."""
@@ -404,6 +448,9 @@ def register_filtering_tools(mcp: FastMCP):
             default=os.environ.get("ADGUARD_PASSWORD", None),
             description="Password for authentication",
         ),
+        ctx: Context = Field(
+            description="MCP context for progress reporting", default=None
+        ),
     ) -> dict:
         """Add a filter URL."""
         client = Api(base_url=base_url, username=username, password=password)
@@ -425,8 +472,14 @@ def register_filtering_tools(mcp: FastMCP):
             default=os.environ.get("ADGUARD_PASSWORD", None),
             description="Password for authentication",
         ),
+        ctx: Context = Field(
+            description="MCP context for progress reporting", default=None
+        ),
     ) -> dict:
         """Remove a filter URL."""
+        if not await ctx_confirm_destructive(ctx, "remove filter url"):
+            return {"status": "cancelled", "message": "Operation cancelled by user"}
+        await ctx_progress(ctx, 0, 100)
         client = Api(base_url=base_url, username=username, password=password)
         return client.remove_filter_url(url=url, whitelist=whitelist)
 
@@ -444,6 +497,9 @@ def register_filtering_tools(mcp: FastMCP):
         password: str | None = Field(
             default=os.environ.get("ADGUARD_PASSWORD", None),
             description="Password for authentication",
+        ),
+        ctx: Context = Field(
+            description="MCP context for progress reporting", default=None
         ),
     ) -> dict:
         """Refresh all filters."""
@@ -466,6 +522,9 @@ def register_clients_tools(mcp: FastMCP):
             default=os.environ.get("ADGUARD_PASSWORD", None),
             description="Password for authentication",
         ),
+        ctx: Context = Field(
+            description="MCP context for progress reporting", default=None
+        ),
     ) -> dict:
         """List clients."""
         client = Api(base_url=base_url, username=username, password=password)
@@ -485,6 +544,9 @@ def register_clients_tools(mcp: FastMCP):
         password: str | None = Field(
             default=os.environ.get("ADGUARD_PASSWORD", None),
             description="Password for authentication",
+        ),
+        ctx: Context = Field(
+            description="MCP context for progress reporting", default=None
         ),
     ) -> list[dict]:
         """Search for clients."""
@@ -515,6 +577,9 @@ def register_clients_tools(mcp: FastMCP):
         password: str | None = Field(
             default=os.environ.get("ADGUARD_PASSWORD", None),
             description="Password for authentication",
+        ),
+        ctx: Context = Field(
+            description="MCP context for progress reporting", default=None
         ),
     ) -> dict:
         """Add a new client."""
@@ -547,6 +612,9 @@ def register_clients_tools(mcp: FastMCP):
             default=os.environ.get("ADGUARD_PASSWORD", None),
             description="Password for authentication",
         ),
+        ctx: Context = Field(
+            description="MCP context for progress reporting", default=None
+        ),
     ) -> dict:
         """Update a client."""
         client = Api(base_url=base_url, username=username, password=password)
@@ -567,8 +635,14 @@ def register_clients_tools(mcp: FastMCP):
             default=os.environ.get("ADGUARD_PASSWORD", None),
             description="Password for authentication",
         ),
+        ctx: Context = Field(
+            description="MCP context for progress reporting", default=None
+        ),
     ) -> dict:
         """Delete a client."""
+        if not await ctx_confirm_destructive(ctx, "delete client"):
+            return {"status": "cancelled", "message": "Operation cancelled by user"}
+        await ctx_progress(ctx, 0, 100)
         client = Api(base_url=base_url, username=username, password=password)
         return client.delete_client(name=name)
 
@@ -587,6 +661,9 @@ def register_profile_tools(mcp: FastMCP):
         password: str | None = Field(
             default=os.environ.get("ADGUARD_PASSWORD", None),
             description="Password for authentication",
+        ),
+        ctx: Context = Field(
+            description="MCP context for progress reporting", default=None
         ),
     ) -> dict:
         """Get current user profile info."""
@@ -607,6 +684,9 @@ def register_profile_tools(mcp: FastMCP):
         password: str | None = Field(
             default=os.environ.get("ADGUARD_PASSWORD", None),
             description="Password for authentication",
+        ),
+        ctx: Context = Field(
+            description="MCP context for progress reporting", default=None
         ),
     ) -> dict:
         """Update current user profile info."""
@@ -629,6 +709,9 @@ def register_dhcp_tools(mcp: FastMCP):
             default=os.environ.get("ADGUARD_PASSWORD", None),
             description="Password for authentication",
         ),
+        ctx: Context = Field(
+            description="MCP context for progress reporting", default=None
+        ),
     ) -> dict:
         """Get DHCP status."""
         client = Api(base_url=base_url, username=username, password=password)
@@ -647,6 +730,9 @@ def register_dhcp_tools(mcp: FastMCP):
         password: str | None = Field(
             default=os.environ.get("ADGUARD_PASSWORD", None),
             description="Password for authentication",
+        ),
+        ctx: Context = Field(
+            description="MCP context for progress reporting", default=None
         ),
     ) -> dict:
         """Get available network interfaces for DHCP."""
@@ -668,6 +754,9 @@ def register_dhcp_tools(mcp: FastMCP):
             default=os.environ.get("ADGUARD_PASSWORD", None),
             description="Password for authentication",
         ),
+        ctx: Context = Field(
+            description="MCP context for progress reporting", default=None
+        ),
     ) -> dict:
         """Set DHCP configuration."""
         client = Api(base_url=base_url, username=username, password=password)
@@ -687,6 +776,9 @@ def register_dhcp_tools(mcp: FastMCP):
         password: str | None = Field(
             default=os.environ.get("ADGUARD_PASSWORD", None),
             description="Password for authentication",
+        ),
+        ctx: Context = Field(
+            description="MCP context for progress reporting", default=None
         ),
     ) -> dict:
         """Search for an active DHCP server on the network."""
@@ -710,6 +802,9 @@ def register_dhcp_tools(mcp: FastMCP):
             default=os.environ.get("ADGUARD_PASSWORD", None),
             description="Password for authentication",
         ),
+        ctx: Context = Field(
+            description="MCP context for progress reporting", default=None
+        ),
     ) -> dict:
         """Add a static DHCP lease."""
         client = Api(base_url=base_url, username=username, password=password)
@@ -732,8 +827,14 @@ def register_dhcp_tools(mcp: FastMCP):
             default=os.environ.get("ADGUARD_PASSWORD", None),
             description="Password for authentication",
         ),
+        ctx: Context = Field(
+            description="MCP context for progress reporting", default=None
+        ),
     ) -> dict:
         """Remove a static DHCP lease."""
+        if not await ctx_confirm_destructive(ctx, "remove dhcp static lease"):
+            return {"status": "cancelled", "message": "Operation cancelled by user"}
+        await ctx_progress(ctx, 0, 100)
         client = Api(base_url=base_url, username=username, password=password)
         return client.remove_dhcp_static_lease(mac=mac, ip=ip, hostname=hostname)
 
@@ -754,6 +855,9 @@ def register_dhcp_tools(mcp: FastMCP):
             default=os.environ.get("ADGUARD_PASSWORD", None),
             description="Password for authentication",
         ),
+        ctx: Context = Field(
+            description="MCP context for progress reporting", default=None
+        ),
     ) -> dict:
         """Update a static DHCP lease."""
         client = Api(base_url=base_url, username=username, password=password)
@@ -773,8 +877,14 @@ def register_dhcp_tools(mcp: FastMCP):
             default=os.environ.get("ADGUARD_PASSWORD", None),
             description="Password for authentication",
         ),
+        ctx: Context = Field(
+            description="MCP context for progress reporting", default=None
+        ),
     ) -> dict:
         """Reset DHCP configuration."""
+        if not await ctx_confirm_destructive(ctx, "reset dhcp"):
+            return {"status": "cancelled", "message": "Operation cancelled by user"}
+        await ctx_progress(ctx, 0, 100)
         client = Api(base_url=base_url, username=username, password=password)
         return client.reset_dhcp()
 
@@ -792,8 +902,14 @@ def register_dhcp_tools(mcp: FastMCP):
             default=os.environ.get("ADGUARD_PASSWORD", None),
             description="Password for authentication",
         ),
+        ctx: Context = Field(
+            description="MCP context for progress reporting", default=None
+        ),
     ) -> dict:
         """Reset DHCP leases."""
+        if not await ctx_confirm_destructive(ctx, "reset dhcp leases"):
+            return {"status": "cancelled", "message": "Operation cancelled by user"}
+        await ctx_progress(ctx, 0, 100)
         client = Api(base_url=base_url, username=username, password=password)
         return client.reset_dhcp_leases()
 
@@ -812,6 +928,9 @@ def register_settings_tools(mcp: FastMCP):
         password: str | None = Field(
             default=os.environ.get("ADGUARD_PASSWORD", None),
             description="Password for authentication",
+        ),
+        ctx: Context = Field(
+            description="MCP context for progress reporting", default=None
         ),
     ) -> dict:
         """Get parental control status."""
@@ -832,6 +951,9 @@ def register_settings_tools(mcp: FastMCP):
             default=os.environ.get("ADGUARD_PASSWORD", None),
             description="Password for authentication",
         ),
+        ctx: Context = Field(
+            description="MCP context for progress reporting", default=None
+        ),
     ) -> dict:
         """Enable parental control."""
         client = Api(base_url=base_url, username=username, password=password)
@@ -851,8 +973,14 @@ def register_settings_tools(mcp: FastMCP):
             default=os.environ.get("ADGUARD_PASSWORD", None),
             description="Password for authentication",
         ),
+        ctx: Context = Field(
+            description="MCP context for progress reporting", default=None
+        ),
     ) -> dict:
         """Disable parental control."""
+        if not await ctx_confirm_destructive(ctx, "disable parental control"):
+            return {"status": "cancelled", "message": "Operation cancelled by user"}
+        await ctx_progress(ctx, 0, 100)
         client = Api(base_url=base_url, username=username, password=password)
         return client.disable_parental_control()
 
@@ -869,6 +997,9 @@ def register_settings_tools(mcp: FastMCP):
         password: str | None = Field(
             default=os.environ.get("ADGUARD_PASSWORD", None),
             description="Password for authentication",
+        ),
+        ctx: Context = Field(
+            description="MCP context for progress reporting", default=None
         ),
     ) -> dict:
         """Get safe browsing status."""
@@ -889,6 +1020,9 @@ def register_settings_tools(mcp: FastMCP):
             default=os.environ.get("ADGUARD_PASSWORD", None),
             description="Password for authentication",
         ),
+        ctx: Context = Field(
+            description="MCP context for progress reporting", default=None
+        ),
     ) -> dict:
         """Enable safe browsing."""
         client = Api(base_url=base_url, username=username, password=password)
@@ -908,8 +1042,14 @@ def register_settings_tools(mcp: FastMCP):
             default=os.environ.get("ADGUARD_PASSWORD", None),
             description="Password for authentication",
         ),
+        ctx: Context = Field(
+            description="MCP context for progress reporting", default=None
+        ),
     ) -> dict:
         """Disable safe browsing."""
+        if not await ctx_confirm_destructive(ctx, "disable safebrowsing"):
+            return {"status": "cancelled", "message": "Operation cancelled by user"}
+        await ctx_progress(ctx, 0, 100)
         client = Api(base_url=base_url, username=username, password=password)
         return client.disable_safebrowsing()
 
@@ -926,6 +1066,9 @@ def register_settings_tools(mcp: FastMCP):
         password: str | None = Field(
             default=os.environ.get("ADGUARD_PASSWORD", None),
             description="Password for authentication",
+        ),
+        ctx: Context = Field(
+            description="MCP context for progress reporting", default=None
         ),
     ) -> dict:
         """Get safe search status."""
@@ -951,6 +1094,9 @@ def register_query_log_tools(mcp: FastMCP):
             default=os.environ.get("ADGUARD_PASSWORD", None),
             description="Password for authentication",
         ),
+        ctx: Context = Field(
+            description="MCP context for progress reporting", default=None
+        ),
     ) -> dict:
         """Get query log."""
         client = Api(base_url=base_url, username=username, password=password)
@@ -974,8 +1120,14 @@ def register_query_log_tools(mcp: FastMCP):
             default=os.environ.get("ADGUARD_PASSWORD", None),
             description="Password for authentication",
         ),
+        ctx: Context = Field(
+            description="MCP context for progress reporting", default=None
+        ),
     ) -> dict:
         """Clear query log."""
+        if not await ctx_confirm_destructive(ctx, "clear query log"):
+            return {"status": "cancelled", "message": "Operation cancelled by user"}
+        await ctx_progress(ctx, 0, 100)
         client = Api(base_url=base_url, username=username, password=password)
         return client.clear_query_log()
 
@@ -994,6 +1146,9 @@ def register_rewrites_tools(mcp: FastMCP):
         password: str | None = Field(
             default=os.environ.get("ADGUARD_PASSWORD", None),
             description="Password for authentication",
+        ),
+        ctx: Context = Field(
+            description="MCP context for progress reporting", default=None
         ),
     ) -> list[dict]:
         """List DNS rewrites."""
@@ -1016,6 +1171,9 @@ def register_rewrites_tools(mcp: FastMCP):
             default=os.environ.get("ADGUARD_PASSWORD", None),
             description="Password for authentication",
         ),
+        ctx: Context = Field(
+            description="MCP context for progress reporting", default=None
+        ),
     ) -> dict:
         """Add a DNS rewrite."""
         client = Api(base_url=base_url, username=username, password=password)
@@ -1037,8 +1195,14 @@ def register_rewrites_tools(mcp: FastMCP):
             default=os.environ.get("ADGUARD_PASSWORD", None),
             description="Password for authentication",
         ),
+        ctx: Context = Field(
+            description="MCP context for progress reporting", default=None
+        ),
     ) -> dict:
         """Delete a DNS rewrite."""
+        if not await ctx_confirm_destructive(ctx, "delete rewrite"):
+            return {"status": "cancelled", "message": "Operation cancelled by user"}
+        await ctx_progress(ctx, 0, 100)
         client = Api(base_url=base_url, username=username, password=password)
         return client.delete_rewrite(domain=domain, answer=answer)
 
@@ -1057,6 +1221,9 @@ def register_rewrites_tools(mcp: FastMCP):
         password: str | None = Field(
             default=os.environ.get("ADGUARD_PASSWORD", None),
             description="Password for authentication",
+        ),
+        ctx: Context = Field(
+            description="MCP context for progress reporting", default=None
         ),
     ) -> dict:
         """Update a DNS rewrite."""
@@ -1077,6 +1244,9 @@ def register_rewrites_tools(mcp: FastMCP):
             default=os.environ.get("ADGUARD_PASSWORD", None),
             description="Password for authentication",
         ),
+        ctx: Context = Field(
+            description="MCP context for progress reporting", default=None
+        ),
     ) -> dict:
         """Get rewrite settings."""
         client = Api(base_url=base_url, username=username, password=password)
@@ -1096,6 +1266,9 @@ def register_rewrites_tools(mcp: FastMCP):
         password: str | None = Field(
             default=os.environ.get("ADGUARD_PASSWORD", None),
             description="Password for authentication",
+        ),
+        ctx: Context = Field(
+            description="MCP context for progress reporting", default=None
         ),
     ) -> dict:
         """Update rewrite settings."""
@@ -1118,6 +1291,9 @@ def register_tls_tools(mcp: FastMCP):
             default=os.environ.get("ADGUARD_PASSWORD", None),
             description="Password for authentication",
         ),
+        ctx: Context = Field(
+            description="MCP context for progress reporting", default=None
+        ),
     ) -> dict:
         """Get TLS status."""
         client = Api(base_url=base_url, username=username, password=password)
@@ -1138,6 +1314,9 @@ def register_tls_tools(mcp: FastMCP):
             default=os.environ.get("ADGUARD_PASSWORD", None),
             description="Password for authentication",
         ),
+        ctx: Context = Field(
+            description="MCP context for progress reporting", default=None
+        ),
     ) -> dict:
         """Configure TLS."""
         client = Api(base_url=base_url, username=username, password=password)
@@ -1157,6 +1336,9 @@ def register_tls_tools(mcp: FastMCP):
         password: str | None = Field(
             default=os.environ.get("ADGUARD_PASSWORD", None),
             description="Password for authentication",
+        ),
+        ctx: Context = Field(
+            description="MCP context for progress reporting", default=None
         ),
     ) -> dict:
         """Validate TLS configuration."""
@@ -1181,6 +1363,9 @@ def register_mobile_tools(mcp: FastMCP):
             default=os.environ.get("ADGUARD_PASSWORD", None),
             description="Password for authentication",
         ),
+        ctx: Context = Field(
+            description="MCP context for progress reporting", default=None
+        ),
     ) -> str:
         """Get DNS over HTTPS .mobileconfig."""
         client = Api(base_url=base_url, username=username, password=password)
@@ -1201,6 +1386,9 @@ def register_mobile_tools(mcp: FastMCP):
         password: str | None = Field(
             default=os.environ.get("ADGUARD_PASSWORD", None),
             description="Password for authentication",
+        ),
+        ctx: Context = Field(
+            description="MCP context for progress reporting", default=None
         ),
     ) -> str:
         """Get DNS over TLS .mobileconfig."""
@@ -1223,6 +1411,9 @@ def register_stats_tools(mcp: FastMCP):
             default=os.environ.get("ADGUARD_PASSWORD", None),
             description="Password for authentication",
         ),
+        ctx: Context = Field(
+            description="MCP context for progress reporting", default=None
+        ),
     ) -> dict:
         """Get overall statistics."""
         client = Api(base_url=base_url, username=username, password=password)
@@ -1242,8 +1433,14 @@ def register_stats_tools(mcp: FastMCP):
             default=os.environ.get("ADGUARD_PASSWORD", None),
             description="Password for authentication",
         ),
+        ctx: Context = Field(
+            description="MCP context for progress reporting", default=None
+        ),
     ) -> dict:
         """Reset statistics."""
+        if not await ctx_confirm_destructive(ctx, "reset stats"):
+            return {"status": "cancelled", "message": "Operation cancelled by user"}
+        await ctx_progress(ctx, 0, 100)
         client = Api(base_url=base_url, username=username, password=password)
         return client.reset_stats()
 
@@ -1260,6 +1457,9 @@ def register_stats_tools(mcp: FastMCP):
         password: str | None = Field(
             default=os.environ.get("ADGUARD_PASSWORD", None),
             description="Password for authentication",
+        ),
+        ctx: Context = Field(
+            description="MCP context for progress reporting", default=None
         ),
     ) -> dict:
         """Get statistics configuration."""
@@ -1283,6 +1483,9 @@ def register_stats_tools(mcp: FastMCP):
             default=os.environ.get("ADGUARD_PASSWORD", None),
             description="Password for authentication",
         ),
+        ctx: Context = Field(
+            description="MCP context for progress reporting", default=None
+        ),
     ) -> dict:
         """Set statistics configuration."""
         client = Api(base_url=base_url, username=username, password=password)
@@ -1304,6 +1507,9 @@ def register_dns_tools(mcp: FastMCP):
             default=os.environ.get("ADGUARD_PASSWORD", None),
             description="Password for authentication",
         ),
+        ctx: Context = Field(
+            description="MCP context for progress reporting", default=None
+        ),
     ) -> dict:
         """Get general DNS parameters."""
         client = Api(base_url=base_url, username=username, password=password)
@@ -1324,6 +1530,9 @@ def register_dns_tools(mcp: FastMCP):
             default=os.environ.get("ADGUARD_PASSWORD", None),
             description="Password for authentication",
         ),
+        ctx: Context = Field(
+            description="MCP context for progress reporting", default=None
+        ),
     ) -> dict:
         """Set general DNS parameters."""
         client = Api(base_url=base_url, username=username, password=password)
@@ -1343,6 +1552,9 @@ def register_dns_tools(mcp: FastMCP):
         password: str | None = Field(
             default=os.environ.get("ADGUARD_PASSWORD", None),
             description="Password for authentication",
+        ),
+        ctx: Context = Field(
+            description="MCP context for progress reporting", default=None
         ),
     ) -> dict:
         """Test upstream configuration."""
@@ -1403,7 +1615,7 @@ def get_mcp_instance() -> tuple[Any, Any, Any, Any]:
                 "Fetching OIDC configuration",
                 extra={"oidc_config_url": config["oidc_config_url"]},
             )
-            oidc_config_resp = requests.get(config["oidc_config_url"])
+            oidc_config_resp = requests.get(config["oidc_config_url"], timeout=30)
             oidc_config_resp.raise_for_status()
             oidc_config = oidc_config_resp.json()
             config["token_endpoint"] = oidc_config.get("token_endpoint")
