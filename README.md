@@ -22,7 +22,7 @@
 ![PyPI - Wheel](https://img.shields.io/pypi/wheel/adguard-home-agent)
 ![PyPI - Implementation](https://img.shields.io/pypi/implementation/adguard-home-agent)
 
-*Version: 0.5.0*
+*Version: 0.6.0*
 
 ## Overview
 
@@ -389,3 +389,90 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 ## Support
 
 For issues or feature requests, please open an issue on the [GitHub repository](https://github.com/Knuckles-Team/adguard-home-agent). For general inquiries, contact the maintainers via GitHub.
+
+
+## MCP Configuration Examples
+
+### 1. Standard IO (stdio) Deployment
+
+```json
+{
+  "mcpServers": {
+    "adguard-home-agent": {
+      "command": "uv",
+      "args": [
+        "run",
+        "adguard-mcp"
+      ],
+      "env": {
+        "ACCESSTOOL": "True",
+        "ADGUARD_PASSWORD": "<YOUR_ADGUARD_PASSWORD>",
+        "ADGUARD_URL": "<YOUR_ADGUARD_URL>",
+        "ADGUARD_USERNAME": "<YOUR_ADGUARD_USERNAME>",
+        "AGENT_DESCRIPTION": "<YOUR_AGENT_DESCRIPTION>",
+        "AGENT_SYSTEM_PROMPT": "<YOUR_AGENT_SYSTEM_PROMPT>",
+        "BLOCKED_SERVICESTOOL": "True",
+        "CLIENTSTOOL": "True",
+        "DEFAULT_AGENT_NAME": "<YOUR_DEFAULT_AGENT_NAME>",
+        "DHCPTOOL": "True",
+        "DNSTOOL": "True",
+        "FILTERINGTOOL": "True",
+        "MISCTOOL": "True",
+        "MOBILETOOL": "True",
+        "PROFILETOOL": "True",
+        "QUERY_LOGTOOL": "True",
+        "REWRITESTOOL": "True",
+        "SETTINGSTOOL": "True",
+        "STATSTOOL": "True",
+        "SYSTEMTOOL": "True",
+        "TLSTOOL": "True"
+      }
+    }
+  }
+}
+```
+
+### 2. Streamable HTTP (SSE) Deployment
+
+```json
+{
+  "mcpServers": {
+    "adguard-home-agent": {
+      "command": "uv",
+      "args": [
+        "run",
+        "adguard-mcp",
+        "--transport",
+        "http",
+        "--host",
+        "0.0.0.0",
+        "--port",
+        "8000"
+      ],
+      "env": {
+        "ACCESSTOOL": "True",
+        "ADGUARD_PASSWORD": "<YOUR_ADGUARD_PASSWORD>",
+        "ADGUARD_URL": "<YOUR_ADGUARD_URL>",
+        "ADGUARD_USERNAME": "<YOUR_ADGUARD_USERNAME>",
+        "AGENT_DESCRIPTION": "<YOUR_AGENT_DESCRIPTION>",
+        "AGENT_SYSTEM_PROMPT": "<YOUR_AGENT_SYSTEM_PROMPT>",
+        "BLOCKED_SERVICESTOOL": "True",
+        "CLIENTSTOOL": "True",
+        "DEFAULT_AGENT_NAME": "<YOUR_DEFAULT_AGENT_NAME>",
+        "DHCPTOOL": "True",
+        "DNSTOOL": "True",
+        "FILTERINGTOOL": "True",
+        "MISCTOOL": "True",
+        "MOBILETOOL": "True",
+        "PROFILETOOL": "True",
+        "QUERY_LOGTOOL": "True",
+        "REWRITESTOOL": "True",
+        "SETTINGSTOOL": "True",
+        "STATSTOOL": "True",
+        "SYSTEMTOOL": "True",
+        "TLSTOOL": "True"
+      }
+    }
+  }
+}
+```
