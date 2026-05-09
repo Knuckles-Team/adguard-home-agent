@@ -38,7 +38,7 @@ from starlette.responses import JSONResponse
 
 from adguard_home_agent.api_client import Api
 
-__version__ = "0.9.0"
+__version__ = "0.10.0"
 
 logger = get_logger(name="TokenMiddleware")
 logger.setLevel(logging.DEBUG)
