@@ -22,7 +22,7 @@
 ![PyPI - Wheel](https://img.shields.io/pypi/wheel/adguard-home-agent)
 ![PyPI - Implementation](https://img.shields.io/pypi/implementation/adguard-home-agent)
 
-*Version: 0.11.0*
+*Version: 0.12.0*
 
 ## Overview
 
@@ -39,96 +39,26 @@ The **AdGuard Home MCP Server** provides a Model Context Protocol (MCP) interfac
 
 ## MCP
 
-### MCP Tools
+### Available MCP Tools
 
-The `adguard-home-agent` package exposes the following MCP tools, organized by category:
+This server utilizes dynamic Action-Routed tools to optimize token overhead and maximize IDE compatibility.
 
-### Account & Profile
-- `get_account_limits()`: Get account limits.
-- `get_profile()`: Get current user profile info.
-- `update_profile(profile_data)`: Update current user profile info.
-
-### Blocked Services
-- `get_all_blocked_services()`: Get available services to block.
-- `get_blocked_services_list()`: Get blocked services list.
-- `update_blocked_services(services)`: Update blocked services list.
-
-### Clients
-- `list_clients()`: List all clients.
-- `search_clients(query)`: Search for clients.
-- `add_client(name, ids, ...)`: Add a new client.
-- `update_client(name, data)`: Update a client.
-- `delete_client(name)`: Delete a client.
-
-### DHCP
-- `get_dhcp_status()`: Get DHCP status.
-- `get_dhcp_interfaces()`: Get available interfaces.
-- `set_dhcp_config(config)`: Set DHCP configuration.
-- `find_active_dhcp(interface)`: Find active DHCP server.
-- `add_dhcp_static_lease(mac, ip, hostname)`: Add static lease.
-- `remove_dhcp_static_lease(mac, ip, hostname)`: Remove static lease.
-- `update_dhcp_static_lease(mac, ip, hostname)`: Update static lease.
-- `reset_dhcp()`: Reset DHCP config.
-- `reset_dhcp_leases()`: Reset DHCP leases.
-
-### DNS
-- `get_dns_info()`: Get DNS parameters.
-- `set_dns_config(config)`: Set DNS parameters.
-- `test_upstream_dns(upstreams)`: Test upstream configuration.
-- `set_protection(enabled, duration)`: Set protection state.
-- `clear_cache()`: Clear DNS cache.
-
-### Filtering
-- `get_filtering_status()`: Get filtering status.
-- `set_filtering_config(enabled, interval)`: Set filtering config.
-- `set_filtering_rules(rules)`: Set user-defined rules.
-- `check_host_filtering(name)`: Check if host is filtered.
-- `add_filter_url(name, url, whitelist)`: Add filter URL.
-- `remove_filter_url(url, whitelist)`: Remove filter URL.
-- `set_filter_url_params(url, name, whitelist)`: Set filter URL parameters.
-- `refresh_filters(whitelist)`: Refresh filters.
-
-### Mobile Config
-- `get_doh_mobile_config(host, client_id)`: Get DNS over HTTPS .mobileconfig.
-- `get_dot_mobile_config(host, client_id)`: Get DNS over TLS .mobileconfig.
-
-### Query Log
-- `get_query_log(limit, ...)`: Get query log.
-- `get_query_log_config()`: Get query log config.
-- `set_query_log_config(enabled, ...)`: Set query log config.
-- `clear_query_log()`: Clear query log.
-
-### Rewrites
-- `list_rewrites()`: List DNS rewrites.
-- `add_rewrite(domain, answer)`: Add DNS rewrite.
-- `update_rewrite(target, update)`: Update DNS rewrite.
-- `delete_rewrite(domain, answer)`: Delete DNS rewrite.
-- `get_rewrite_settings()`: Get rewrite settings.
-- `update_rewrite_settings(enabled)`: Update rewrite settings.
-
-### Settings
-- `get_safebrowsing_status()`: Get SafeBrowsing status.
-- `enable_safebrowsing()`: Enable SafeBrowsing.
-- `disable_safebrowsing()`: Disable SafeBrowsing.
-- `get_safesearch_status()`: Get SafeSearch status.
-- `update_safesearch_settings(enabled, ...)`: Update SafeSearch settings.
-- `get_parental_status()`: Get parental control status.
-- `enable_parental_control()`: Enable parental control.
-- `disable_parental_control()`: Disable parental control.
-
-### Statistics
-- `get_stats()`: Get overall statistics.
-- `get_stats_config()`: Get stats config.
-- `set_stats_config(interval)`: Set stats config.
-- `reset_stats()`: Reset all statistics.
-
-### System
-- `get_version()`: Get AdGuard Home version/status.
-
-### TLS
-- `get_tls_status()`: Get TLS status.
-- `configure_tls(config)`: Configure TLS.
-- `validate_tls(config)`: Validate TLS config.
+| Tool Name | Description |
+|-----------|-------------|
+| `adguard_access` | Consolidated Action-Routed tool for access. Methods: get_access_list, set_access_list |
+| `adguard_blocked_services` | Consolidated Action-Routed tool for blocked-services. Methods: get_blocked_services_list, get_all_blocked_services, update_blocked_services |
+| `adguard_clients` | Consolidated Action-Routed tool for clients. Methods: list_clients, search_clients, add_client, update_client, delete_client |
+| `adguard_dhcp` | Consolidated Action-Routed tool for dhcp. Methods: get_dhcp_status, get_dhcp_interfaces, set_dhcp_config, find_active_dhcp, add_dhcp_static_lease, remove_dhcp_static_lease, update_dhcp_static_lease, reset_dhcp, reset_dhcp_leases |
+| `adguard_dns` | Consolidated Action-Routed tool for dns. Methods: get_dns_info, set_dns_config, test_upstream_dns |
+| `adguard_filtering` | Consolidated Action-Routed tool for filtering. Methods: set_filtering_rules, check_host_filtering, set_filter_url_params, get_filtering_status, set_filtering_config, add_filter_url, remove_filter_url, refresh_filters |
+| `adguard_mobile` | Consolidated Action-Routed tool for mobile. Methods: get_doh_mobile_config, get_dot_mobile_config |
+| `adguard_profile` | Consolidated Action-Routed tool for profile. Methods: get_profile, update_profile |
+| `adguard_query_log` | Consolidated Action-Routed tool for query-log. Methods: get_query_log, clear_query_log |
+| `adguard_rewrites` | Consolidated Action-Routed tool for rewrites. Methods: list_rewrites, add_rewrite, delete_rewrite, update_rewrite, get_rewrite_settings, update_rewrite_settings |
+| `adguard_settings` | Consolidated Action-Routed tool for settings. Methods: get_parental_status, enable_parental_control, disable_parental_control, get_safebrowsing_status, enable_safebrowsing, disable_safebrowsing, get_safesearch_status |
+| `adguard_stats` | Consolidated Action-Routed tool for stats. Methods: get_stats, reset_stats, get_stats_config, set_stats_config |
+| `adguard_system` | Consolidated Action-Routed tool for system. Methods: get_version, set_protection, clear_cache |
+| `adguard_tls` | Consolidated Action-Routed tool for tls. Methods: get_tls_status, configure_tls, validate_tls |
 
 ## A2A Agent
 

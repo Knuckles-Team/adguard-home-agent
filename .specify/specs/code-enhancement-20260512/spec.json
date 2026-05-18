@@ -1,0 +1,187 @@
+{
+  "feature_id": "code-enhancement-20260512",
+  "title": "Code Enhancement: adguard-home-agent",
+  "created": "2026-05-12T14:14:40.966563+00:00",
+  "overview": "Automated code enhancement review for adguard-home-agent. Covers 17 analysis domains.",
+  "user_stories": [
+    {
+      "role": "developer",
+      "action": "address Project Analysis findings (grade: C, score: 74)",
+      "value": "improve project project analysis from C to at least B (80+)"
+    },
+    {
+      "role": "developer",
+      "action": "address Codebase Optimization findings (grade: C, score: 72)",
+      "value": "improve project codebase optimization from C to at least B (80+)"
+    },
+    {
+      "role": "developer",
+      "action": "address Test Coverage findings (grade: C, score: 70)",
+      "value": "improve project test coverage from C to at least B (80+)"
+    },
+    {
+      "role": "developer",
+      "action": "address Architecture & Design Patterns findings (grade: C, score: 75)",
+      "value": "improve project architecture & design patterns from C to at least B (80+)"
+    },
+    {
+      "role": "developer",
+      "action": "address Concept Traceability findings (grade: F, score: 34)",
+      "value": "improve project concept traceability from F to at least B (80+)"
+    },
+    {
+      "role": "developer",
+      "action": "address Linting & Formatting findings (grade: F, score: 0)",
+      "value": "improve project linting & formatting from F to at least B (80+)"
+    },
+    {
+      "role": "developer",
+      "action": "address Changelog Audit findings (grade: C, score: 75)",
+      "value": "improve project changelog audit from C to at least B (80+)"
+    },
+    {
+      "role": "developer",
+      "action": "address Environment Variables findings (grade: C, score: 75)",
+      "value": "improve project environment variables from C to at least B (80+)"
+    }
+  ],
+  "functional_requirements": [
+    {
+      "id": "FR-001",
+      "description": "1 functions exceed 200 lines (actionable refactoring targets): register_dhcp_tools (218L)",
+      "testable": true
+    },
+    {
+      "id": "FR-002",
+      "description": "Monolithic: mcp_server.py (1719L) \u2014 2 functions with high complexity (worst: register_dhcp_tools at 218L, CC=4); Low cohesion: 19 distinct concepts in one file",
+      "testable": true
+    },
+    {
+      "id": "FR-003",
+      "description": "8 functions with nesting depth >4",
+      "testable": true
+    },
+    {
+      "id": "FR-004",
+      "description": "Test suite lacks intent diversity (only one type)",
+      "testable": true
+    },
+    {
+      "id": "FR-005",
+      "description": "40 potential doc-test drift items",
+      "testable": true
+    },
+    {
+      "id": "FR-006",
+      "description": "README.md missing sections: installation",
+      "testable": true
+    },
+    {
+      "id": "FR-007",
+      "description": "README missing: Has a Table of Contents",
+      "testable": true
+    },
+    {
+      "id": "FR-008",
+      "description": "README missing: References /docs directory material",
+      "testable": true
+    },
+    {
+      "id": "FR-009",
+      "description": "SRP: 1 modules exceed 500 lines (god modules)",
+      "testable": true
+    },
+    {
+      "id": "FR-010",
+      "description": "SRP: 1 classes have >15 methods",
+      "testable": true
+    },
+    {
+      "id": "FR-011",
+      "description": "No discernible layer architecture (no domain/service/adapter separation)",
+      "testable": true
+    },
+    {
+      "id": "FR-012",
+      "description": "Low traceability ratio: 0% concepts fully traced",
+      "testable": true
+    },
+    {
+      "id": "FR-013",
+      "description": "8 test functions missing concept markers",
+      "testable": true
+    },
+    {
+      "id": "FR-014",
+      "description": "91 significant functions (>10 lines) missing concept markers in docstrings",
+      "testable": true
+    },
+    {
+      "id": "FR-015",
+      "description": "Total lint findings: 59 (high/error: 59, medium/warning: 0, low: 0)",
+      "testable": true
+    },
+    {
+      "id": "FR-016",
+      "description": "2 hook(s) may be outdated: ruff-pre-commit, uv-pre-commit",
+      "testable": true
+    },
+    {
+      "id": "FR-017",
+      "description": "1 rogue/throwaway scripts detected (fix_*, validate_*, patch_*, etc.): scripts/validate_a2a_agent.py",
+      "testable": true
+    },
+    {
+      "id": "FR-018",
+      "description": "CHANGELOG.md exists but could not be parsed \u2014 check format compliance",
+      "testable": true
+    },
+    {
+      "id": "FR-019",
+      "description": "No changelog entries within the last 30 days",
+      "testable": true
+    },
+    {
+      "id": "FR-020",
+      "description": "keepachangelog not installed \u2014 pip install 'universal-skills[code-enhancer]'",
+      "testable": true
+    },
+    {
+      "id": "FR-021",
+      "description": "4 tests have no assertions",
+      "testable": true
+    },
+    {
+      "id": "FR-022",
+      "description": "Partial env var documentation: 48% coverage",
+      "testable": true
+    },
+    {
+      "id": "FR-023",
+      "description": "Undocumented env vars: ADGUARD_API_KEY, ADGUARD_DEFAULT_ADMIN_PASS, ADGUARD_DEFAULT_ADMIN_USER, ADGUARD_HOST, ALLOWED_CLIENT_REDIRECT_URIS, AUTH_TYPE, EUNOMIA_POLICY_FILE, EUNOMIA_REMOTE_URL, EUNOMIA_TYPE, OAUTH_BASE_URL",
+      "testable": true
+    },
+    {
+      "id": "FR-024",
+      "description": "18 Python env vars not in .env.example: ACCESSTOOL, ADGUARD_PASSWORD, ADGUARD_URL, ADGUARD_USERNAME, BLOCKED_SERVICESTOOL",
+      "testable": true
+    }
+  ],
+  "success_criteria": [
+    {
+      "metric": "Overall GPA",
+      "current": 2.76,
+      "target": 3.0
+    },
+    {
+      "metric": "Domains at B or above",
+      "current": 9,
+      "target": 17
+    },
+    {
+      "metric": "Actionable findings",
+      "current": 24,
+      "target": 0
+    }
+  ]
+}

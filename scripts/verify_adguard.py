@@ -1,15 +1,15 @@
-
 import os
 import sys
 from typing import cast
+
 import requests
 from dotenv import load_dotenv
 
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 
-sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
-
-from adguard_home_agent.api_wrapper import Api
 import adguard_home_agent.api_wrapper
+from adguard_home_agent.api_wrapper import Api
+
 print(f"DEBUG: api_wrapper imported from {adguard_home_agent.api_wrapper.__file__}")
 
 load_dotenv()
@@ -21,12 +21,12 @@ PASSWORD = os.getenv("ADGUARD_PASSWORD", "password")
 print(f"Testing connection to: {BASE_URL}")
 print(f"Username: {USERNAME}")
 
+
 def test_custom_api_class():
     print("\n--- Testing api_wrapper.Api class ---")
 
     api = Api(base_url=BASE_URL, username=USERNAME, password=PASSWORD)
     try:
-
         version = api.get_version()
         print(f"Success! Version/Status: {version}")
     except Exception as e:
@@ -47,12 +47,12 @@ def test_custom_api_class():
         print(f"Clients content: {clients}")
         print(f"Clients response type: {type(clients)}")
         if isinstance(clients, dict):
-             client_list = clients.get('clients') or []
-             print(f"Success! Clients retrieved. Count: {len(client_list)}")
+            client_list = clients.get("clients") or []
+            print(f"Success! Clients retrieved. Count: {len(client_list)}")
         elif isinstance(clients, list):
-             print(f"Success! Clients retrieved. Count: {len(clients)}")
+            print(f"Success! Clients retrieved. Count: {len(clients)}")
         else:
-             print(f"Clients retrieved but unknown format: {clients}")
+            print(f"Clients retrieved but unknown format: {clients}")
     except Exception as e:
         print(f"Failed to list clients via Api class: {e}")
 
@@ -65,6 +65,7 @@ def test_custom_api_class():
         print(f"Failed to get filtering status via Api class: {e}")
 
     return api
+
 
 def test_standard_endpoints(client):
     print("\n--- Testing Expanded APIs (Read-Only) ---")
@@ -98,14 +99,14 @@ def test_standard_endpoints(client):
 
     try:
         print("Attempting get_rewrite_settings()...")
-        rewrites = client.get_rewrite_settings()
+        client.get_rewrite_settings()
         print("Success! Rewrite settings retrieved.")
     except Exception as e:
         print(f"Error in get_rewrite_settings: {e}")
 
     try:
         print("Attempting get_tls_status()...")
-        tls_status = client.get_tls_status()
+        client.get_tls_status()
         print("Success! TLS status retrieved.")
     except Exception as e:
         print(f"Error in get_tls_status: {e}")
@@ -113,15 +114,12 @@ def test_standard_endpoints(client):
     try:
         print("Attempting search_clients()...")
 
-
         search_result = client.search_clients(query="127.0.0.1")
         print(f"Success! Search result type: {type(search_result)}")
     except Exception as e:
         print(f"Error in search_clients: {e}")
 
     print("\n--- Testing Standard AdGuard Home Endpoints (/control/...) ---")
-
-
 
     session = requests.Session()
 
@@ -133,7 +131,7 @@ def test_standard_endpoints(client):
         "/control/stats",
         "/control/dns_config",
         "/control/filtering/status",
-        "/control/access/list"
+        "/control/access/list",
     ]
 
     for endpoint in endpoints:
@@ -145,9 +143,10 @@ def test_standard_endpoints(client):
             if resp.status_code == 200:
                 print(f"Response (truncated): {resp.text[:100]}")
             else:
-                 print(f"Response: {resp.text[:100]}")
+                print(f"Response: {resp.text[:100]}")
         except Exception as e:
             print(f"Error requesting {url}: {e}")
+
 
 def test_login_cookie():
     print("\n--- Testing Cookie-based Login (/control/login) ---")
@@ -162,6 +161,7 @@ def test_login_cookie():
             print(f"Login failed: {resp.text}")
     except Exception as e:
         print(f"Error during login: {e}")
+
 
 if __name__ == "__main__":
     client = test_custom_api_class()

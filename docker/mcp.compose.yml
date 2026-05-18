@@ -3,8 +3,8 @@ services:
   adguard-home-mcp:
     # image: docker.io/knucklessg1/adguard-home-mcp:latest
     build:
-      context: .
-      dockerfile: debug.Dockerfile
+      context: ..
+      dockerfile: docker/debug.Dockerfile
     container_name: adguard-mcp
     hostname: adguard-mcp
     command: [ "adguard-mcp" ]
@@ -38,8 +38,8 @@ services:
   adguard-home-agent:
     # image: docker.io/knucklessg1/adguard-home-mcp:latest
     build:
-      context: .
-      dockerfile: debug.Dockerfile
+      context: ..
+      dockerfile: docker/debug.Dockerfile
     container_name: adguard-agent
     hostname: adguard-agent
     command: [ "adguard-agent" ]
@@ -54,7 +54,7 @@ services:
         max-file: "3"
     restart: always
     env_file:
-      - .env
+      - ../.env
     environment:
       - "HOST=0.0.0.0"
       - "PORT=9012"
