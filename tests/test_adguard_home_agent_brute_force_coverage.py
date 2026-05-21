@@ -149,11 +149,11 @@ def test_adguard_api_errors(mock_session):
 
 
 def test_agent_server_coverage():
-    from adguard_home_agent import agent_server
+    from adguard_home_agent.agent_server import agent_server
 
-    with patch("adguard_home_agent.agent_server.create_graph_agent_server") as mock_s:
+    with patch("agent_utilities.create_agent_server") as mock_s:
         with patch("sys.argv", ["agent_server.py"]):
-            agent_server.agent_server()
+            agent_server()
             assert mock_s.called
 
 
