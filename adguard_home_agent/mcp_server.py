@@ -32,7 +32,7 @@ from starlette.responses import JSONResponse
 
 from adguard_home_agent.auth import get_client
 
-__version__ = "0.14.0"
+__version__ = "0.15.0"
 
 logger = get_logger(name="adguard-home-agent")
 logger.setLevel(logging.INFO)
