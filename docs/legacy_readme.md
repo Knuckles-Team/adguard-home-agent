@@ -102,37 +102,7 @@ Configure your IDE's `mcp.json` to launch the MCP server via `uvx`:
 ```
 
 #### Streamable-HTTP Transport (Recommended for production deployments)
-Configure your client's `mcp.json` to launch the Streamable-HTTP server via `uvx` with explicit host and port definition:
-
-```json
-{
-  "mcpServers": {
-    "adguard-home-agent": {
-      "command": "uvx",
-      "args": [
-        "--from",
-        "adguard-home-agent",
-        "adguard-mcp"
-      ],
-      "env": {
-        "TRANSPORT": "streamable-http",
-        "HOST": "0.0.0.0",
-        "PORT": "8000",
-        "ADGUARD_HOST": "your_adguard_host_here",
-        "ADGUARD_API_KEY": "your_adguard_api_key_here",
-        "ADGUARD_DEFAULT_ADMIN_USER": "your_adguard_default_admin_user_here",
-        "ADGUARD_DEFAULT_ADMIN_PASS": "your_adguard_default_admin_pass_here",
-        "LLM_ROUTER_MODEL": "your_llm_router_model_here",
-        "LLM_AGENT_MODEL": "your_llm_agent_model_here",
-        "GRAPH_ROUTER_TIMEOUT": "your_graph_router_timeout_here",
-        "GRAPH_VERIFIER_TIMEOUT": "your_graph_verifier_timeout_here"
-      }
-    }
-  }
-}
-```
-
-Alternatively, connect to a pre-deployed remote or local Streamable-HTTP instance:
+To run the server as a long-running Streamable-HTTP service:
 
 ```json
 {
