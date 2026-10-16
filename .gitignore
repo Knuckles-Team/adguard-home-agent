@@ -140,3 +140,25 @@ dmypy.json
 knowledge_graph.db*
 .repo_graph/
 .ladybug/
+# Model-generated transient scripts at root level
+/test_*.py
+/fix_*.py
+/debug_*.py
+/scratch_*.py
+/temp_*.py
+
+# Transient logs, traces, patch files, and test outputs
+*.orig
+*.rej
+*.patch
+*.log
+*output*.txt
+*errors*.txt
+failed_tests.txt
+trace.txt
+
+# P0.2/P0.3 (graph-os-completion-program): materialized, dev-machine-only
+# symlink to the real agent-utilities checkout, used so this repo resolves
+# standalone against its own tracked lock instead of the ecosystem workspace.
+# Never tracked.
+.uv-workspace-siblings/

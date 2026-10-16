@@ -8,35 +8,59 @@ version = "0.15.0"
 description = "AdGuard Home MCP Server for Agentic AI!"
 readme = "README.md"
 classifiers = [ "Development Status :: 4 - Beta", "License :: OSI Approved :: MIT License", "Environment :: Console", "Operating System :: POSIX :: Linux", "Programming Language :: Python :: 3",]
-requires-python = ">=3.11, <3.14"
-dependencies = [ "agent-utilities>=0.16.0",]
+requires-python = ">=3.12, <3.15"
+dependencies = [ "agent-connector-sdk>=0.1.0,<1.0.0", "agent-utilities>=2.0.0,<3.0.0", "requests>=2.32.0",]
 [[project.authors]]
-name = "Audel Rouhi"
-email = "knucklessg1@gmail.com"
+name = "Project Maintainers"
+email = "maintainers@knuckles.team"
 
 [project.license]
 text = "MIT"
 
 [project.optional-dependencies]
-mcp = [ "agent-utilities[mcp]>=0.16.0",]
-agent = [ "agent-utilities[agent,logfire]>=0.16.0",]
-all = [ "agent-utilities[mcp,agent,logfire]>=0.16.0",]
+mcp = [ "agent-utilities[mcp]>=2.0.0,<3.0.0",]
+agent = [ "agent-utilities[agent-runtime,logfire]>=2.0.0,<3.0.0",]
+all = [ "agent-utilities[mcp,agent-runtime,logfire]>=2.0.0,<3.0.0",]
 test = [
-    "pytest-xdist>=3.6.0", "pytest", "pytest-asyncio", "pytest-cov",]
+    "pytest-xdist>=3.8.0", "pytest>=9.1.1", "pytest-asyncio>=1.4.0", "pytest-cov>=7.1.0",]
 
 [project.scripts]
 adguard-mcp = "adguard_home_agent.mcp_server:mcp_server"
 adguard-agent = "adguard_home_agent.agent_server:agent_server"
 
+[project.entry-points."agent_utilities.skill_providers"]
+adguard-home-agent = "adguard_home_agent.skills"
+
+[project.entry-points."agent_utilities.ontology_providers"]
+adguard-home-agent = "adguard_home_agent.ontology"
+
+[project.entry-points."agent_utilities.source_connector_providers"]
+adguard-home-agent = "adguard_home_agent.connectors"
+
+[project.entry-points."agent_utilities.prompt_providers"]
+adguard-home-agent = "adguard_home_agent.prompts"
+
+[tool.uv.workspace]
+members = ["."]
+
 [tool.setuptools]
 include-package-data = true
 
+[tool.uv]
+override-dependencies = [
+    "fastmcp-slim[client,server]>=4.0.0b1",
+]
+
+[tool.uv.sources]
+agent-connector-sdk = { path = ".uv-workspace-siblings/agent-connector-sdk", editable = true }
+agent-utilities = { path = ".uv-workspace-siblings/agent-utilities", editable = true }
+
 [tool.ruff]
 line-length = 88
-target-version = "py310"
+target-version = "py312"
 
 [tool.mypy]
-python_version = "3.10"
+python_version = "3.12"
 ignore_missing_imports = true
 check_untyped_defs = true
 
@@ -46,7 +70,7 @@ dev = [
 ]
 
 [tool.setuptools.package-data]
-adguard_home_agent = [ "mcp_config.json", "agent_data/**",]
+adguard_home_agent = [ "mcp_config.json", "agent_data/**", "prompts/**", "skills/**", "ontology/**", "connectors/**",]
 
 [tool.ruff.lint]
 select = [ "E", "F", "I", "UP", "B",]
@@ -57,3 +81,6 @@ where = [ ".",]
 
 [tool.vulture]
 ignore_names = ["request", "config"]
+
+[tool.pipelines_hooks.ste]
+exempt = ["specs/*", "specs/**/*"]

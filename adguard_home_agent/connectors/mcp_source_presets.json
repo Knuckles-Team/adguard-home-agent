@@ -1,0 +1,14 @@
+{
+  "_comment": "Tier-1 mcp_tool source preset for adguard-home-agent. Runs the rewrites list action and ingests each DNS rewrite rule into the KG.",
+  "adguard-home-rewrites": {
+    "server": "adguard-home-agent",
+    "tool": "adguard_home_rewrites",
+    "action": "list_rewrites",
+    "records_path": "",
+    "id_field": "domain",
+    "title_field": "domain",
+    "text_field": "answer",
+    "updated_field": null,
+    "doc_type": "dns_rewrite"
+  }
+}

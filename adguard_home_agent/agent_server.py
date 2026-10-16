@@ -4,7 +4,7 @@ import os
 import sys
 import warnings
 
-__version__ = "0.15.0"
+from adguard_home_agent._version import __version__
 
 logging.basicConfig(
     level=logging.INFO,

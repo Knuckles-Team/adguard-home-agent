@@ -101,7 +101,10 @@ def test_mcp_server_coverage(mock_session):
     async def mock_on_request(self, context, call_next):
         return await call_next(context)
 
-    with patch.object(RateLimitingMiddleware, "on_request", mock_on_request):
+    with (
+        patch.object(RateLimitingMiddleware, "on_request", mock_on_request),
+        patch("sys.argv", ["adguard-mcp"]),
+    ):
         mcp_data = get_mcp_instance()
         mcp = mcp_data[0] if isinstance(mcp_data, tuple) else mcp_data
 

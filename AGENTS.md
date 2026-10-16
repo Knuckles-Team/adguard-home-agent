@@ -1,178 +1,34 @@
 # AGENTS.md
 
 ## Tech Stack & Architecture
-- Language/Version: Python 3.10+
-- Core Libraries: `agent-utilities`, `fastmcp`, `pydantic-ai`
-- Key principles: Functional patterns, Pydantic for data validation, asynchronous tool execution.
-- Architecture:
-    - `mcp_server.py`: Main MCP server entry point and tool registration.
-    - `agent.py`: Pydantic AI agent definition and logic.
-    - `skills/`: Directory containing modular agent skills (if applicable).
-    - `agent/`: Internal agent logic and prompt templates.
+- Language/Version: Python 3.12+
+- Core Libraries: `agent-connector-sdk` (MCP server construction, manifests, content packs), `agent-utilities` (A2A agent runtime), `fastmcp`, `pydantic`
+- Key principles: the MCP layer is a thin shim over a complete API client; one action-routed tool per domain tag; no business logic, HTTP or auth in a tool body.
 
-### Architecture Diagram
-```mermaid
-graph TD
-    User([User/A2A]) --> Server[A2A Server / FastAPI]
-    Server --> Agent[Pydantic AI Agent]
-    Agent --> Skills[Modular Skills]
-    Agent --> MCP[MCP Server / FastMCP]
-    MCP --> Client[API Client / Wrapper]
-    Client --> ExternalAPI([External Service API])
+### Layout
+```
+adguard_home_agent/
+  _version.py          single version source (bumpversion target)
+  api_client.py        complete AdGuard Home API client
+  auth.py              env-driven client factory (ADGUARD_URL, ADGUARD_USERNAME, ADGUARD_PASSWORD, ADGUARD_SSL_VERIFY)
+  mcp_server.py        create_mcp_server + per-suite <DOMAIN>TOOL toggles
+  mcp/mcp_<domain>.py  register_<domain>_tools(mcp): `action` enum + `params_json`
+  agent_server.py      A2A agent entry point
+  connectors/          mcp_source_presets.json, tool_schema_fingerprints.json
+  ontology/ prompts/ skills/   packs discovered via agent_utilities.*_providers entry points
+connector_manifest.yml  machine-generated; never hand-edit
+specs/                  spec-driven delivery (current state only)
 ```
 
-### Workflow Diagram
-```mermaid
-sequenceDiagram
-    participant U as User
-    participant S as Server
-    participant A as Agent
-    participant T as MCP Tool
-    participant API as External API
+### Regenerating generated artifacts
+- Tool fingerprints: `python scripts/compute_tool_fingerprints.py --apply` after any tool signature change.
+- `connector_manifest.yml`: `agent-utilities/scripts/generate_connector_manifests.py --connector-root .` (never edit by hand).
 
-    U->>S: Request
-    S->>A: Process Query
-    A->>T: Invoke Tool
-    T->>API: API Request
-    API-->>T: API Response
-    T-->>A: Tool Result
-    A-->>S: Final Response
-    S-->>U: Output
-```
+## Branching
+Work on a topic branch in a real `git worktree`; never `git stash`, `git add -A` or `git add .`. A merge to `main` publishes to PyPI.
 
-## Commands (run these exactly)
-# Installation
-pip install .[all]
-
-# Quality & Linting (run from project root)
-pre-commit run --all-files
-
-# Execution Commands
-# adguard-mcp
-adguard_home_agent.mcp:mcp_server
-# adguard-agent
-adguard_home_agent.agent:agent_server
-
-## Project Structure Quick Reference
-- MCP Entry Point → `mcp_server.py`
-- Agent Entry Point → `agent.py`
-- Source Code → `adguard_home_agent/`
-- Skills → `skills/` (if exists)
-
-### File Tree
-```text
-├── .bumpversion.cfg
-├── .dockerignore
-├── .env
-├── .gitattributes
-├── .github
-│   └── workflows
-│       └── pipeline.yml
-├── .gitignore
-├── .pre-commit-config.yaml
-├── AGENTS.md
-├── Dockerfile
-├── LICENSE
-├── MANIFEST.in
-├── README.md
-├── adguard_home_agent
-│   ├── __init__.py
-│   ├── __main__.py
-│   ├── api_wrapper.py
-│   ├── agent
-│   │   ├── AGENTS.md
-│   │   ├── CRON.md
-│   │   ├── HEARTBEAT.md
-│   │   ├── IDENTITY.md
-│   │   ├── MEMORY.md
-│   │   ├── USER.md
-│   │   └── templates.py
-│   ├── agent.py
-│   └── mcp_server.py
-├── compose.yml
-├── debug.Dockerfile
-├── mcp.compose.yml
-├── pyproject.toml
-├── pytest.ini
-├── requirements.txt
-└── scripts
-    ├── validate_a2a_agent.py
-    ├── verify_adguard.py
-    └── verify_tools.py
-```
-
-## Code Style & Conventions
-**Always:**
-- Use `agent-utilities` for common patterns (e.g., `create_mcp_server`, `create_agent`).
-- Define input/output models using Pydantic.
-- Include descriptive docstrings for all tools (they are used as tool descriptions for LLMs).
-- Check for optional dependencies using `try/except ImportError`.
-
-**Good example:**
-```python
-from agent_utilities import create_mcp_server
-from mcp.server.fastmcp import FastMCP
-
-mcp = create_mcp_server("my-agent")
-
-@mcp.tool()
-async def my_tool(param: str) -> str:
-    """Description for LLM."""
-    return f"Result: {param}"
-```
-
-## Dos and Don'ts
-**Do:**
-- Run `pre-commit` before pushing changes.
-- Use existing patterns from `agent-utilities`.
-- Keep tools focused and idempotent where possible.
-
-**Don't:**
-- Use `cd` commands in scripts; use absolute paths or relative to project root.
-- Add new dependencies to `dependencies` in `pyproject.toml` without checking `optional-dependencies` first.
-- Hardcode secrets; use environment variables or `.env` files.
-
-## Safety & Boundaries
-**Always do:**
-- Run lint/test via `pre-commit`.
-- Use `agent-utilities` base classes.
-
-**Ask first:**
-- Major refactors of `mcp_server.py` or `agent.py`.
-- Deleting or renaming public tool functions.
-
-**Never do:**
-- Commit `.env` files or secrets.
-- Modify `agent-utilities` or `universal-skills` files from within this package.
-
-## When Stuck
-- Propose a plan first before making large changes.
-- Check `agent-utilities` documentation for existing helpers.
-
-
-## Graph Architecture
-
-This agent uses `pydantic-graph` orchestration for intelligent routing and optimal context management.
-
-```mermaid
----
-title: AdGuard Home Agent Graph Agent
----
-stateDiagram-v2
-  [*] --> RouterNode: User Query
-  RouterNode --> DomainNode: Classified Domain
-  RouterNode --> [*]: Low confidence / Error
-  DomainNode --> [*]: Domain Result
-```
-
-- **RouterNode**: A fast, lightweight LLM (e.g., `nvidia/nemotron-3-super`) that classifies the user's query into one of the specialized domains.
-- **DomainNode**: The executor node. For the selected domain, it dynamically sets environment variables to temporarily enable ONLY the tools relevant to that domain, creating a highly focused sub-agent (e.g., `gpt-4o`) to complete the request. This preserves LLM context and prevents tool hallucination.
-
-
-## Testing with Timeout
-
-To run tests with a timeout to prevent hanging, use the `pytest-timeout` plugin. You can combine it with the `-k` flag to run specific tests:
-
+## Commands
 ```bash
-uv run pytest --timeout=60 -k "test_name_pattern"
+uvx pre-commit run --all-files
+uv run --frozen --no-sync pytest tests
 ```

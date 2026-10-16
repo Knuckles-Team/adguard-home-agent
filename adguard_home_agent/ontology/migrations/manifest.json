@@ -1,0 +1,6 @@
+{
+  "connector": "adguard-home-agent",
+  "current_ontology_source": "adguard-home-agent",
+  "migrations": [],
+  "schema_version": "1"
+}

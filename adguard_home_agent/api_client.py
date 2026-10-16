@@ -8,7 +8,7 @@ from urllib.parse import urljoin
 import requests
 import urllib3
 
-__version__ = "0.15.0"
+from adguard_home_agent._version import __version__  # noqa: F401
 
 
 class Api:
