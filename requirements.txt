@@ -1,3 +1,2 @@
-agent-connector-sdk>=0.1.0,<1.0.0
-agent-utilities>=2.0.0,<3.0.0
+agent-connector-sdk[mcp]>=0.2.1,<1.0.0
 requests>=2.32.0

@@ -13,7 +13,6 @@ adguard_home_agent/
   auth.py              env-driven client factory (ADGUARD_URL, ADGUARD_USERNAME, ADGUARD_PASSWORD, ADGUARD_SSL_VERIFY)
   mcp_server.py        create_mcp_server + per-suite <DOMAIN>TOOL toggles
   mcp/mcp_<domain>.py  register_<domain>_tools(mcp): `action` enum + `params_json`
-  agent_server.py      A2A agent entry point
   connectors/          mcp_source_presets.json, tool_schema_fingerprints.json
   ontology/ prompts/ skills/   packs discovered via agent_utilities.*_providers entry points
 connector_manifest.yml  machine-generated; never hand-edit
