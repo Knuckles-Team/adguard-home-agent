@@ -1,0 +1,26 @@
+@prefix : <http://knuckles.team/kg#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# AdGuard Home ontology: DNS rewrite rules managed on an AdGuard Home instance.
+# Backs the adguard_home_rewrites tool surface.
+
+:DnsRewrite a owl:Class ;
+    rdfs:label "DNS Rewrite" ;
+    rdfs:comment "A DNS rewrite rule on an AdGuard Home instance mapping a domain to an answer." .
+
+:rewriteDomain a owl:DatatypeProperty ;
+    rdfs:label "rewrite domain" ;
+    rdfs:domain :DnsRewrite ;
+    rdfs:range xsd:string .
+
+:rewriteAnswer a owl:DatatypeProperty ;
+    rdfs:label "rewrite answer" ;
+    rdfs:domain :DnsRewrite ;
+    rdfs:range xsd:string .
+
+<http://knuckles.team/kg/adguard-home-agent> a owl:Ontology ;
+    rdfs:label "AdGuard Home Connector Ontology" ;
+    rdfs:comment "DNS rewrite rules of an AdGuard Home instance, federated into the knowledge-graph hub." ;
+    owl:imports <http://knuckles.team/kg> .

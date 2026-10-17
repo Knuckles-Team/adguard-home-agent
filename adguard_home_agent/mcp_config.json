@@ -16,7 +16,6 @@
         "DHCPTOOL": "True",
         "DNSTOOL": "True",
         "FILTERINGTOOL": "True",
-        "MISCTOOL": "True",
         "MOBILETOOL": "True",
         "PROFILETOOL": "True",
         "QUERY_LOGTOOL": "True",
@@ -24,7 +23,9 @@
         "SETTINGSTOOL": "True",
         "STATSTOOL": "True",
         "SYSTEMTOOL": "True",
-        "TLSTOOL": "True"
+        "TLSTOOL": "True",
+        "ADGUARD_SSL_VERIFY": "False",
+        "MCP_TOOL_MODE": "condensed"
       }
     }
   }

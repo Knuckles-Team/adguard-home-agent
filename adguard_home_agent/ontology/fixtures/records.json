@@ -1,0 +1,19 @@
+{
+  "connector": "adguard-home-agent",
+  "fixtures": [
+    {
+      "expected": {
+        "acl_state": "quarantine",
+        "id": "fixture-record",
+        "title": "fixture-record"
+      },
+      "preset": "adguard-home-rewrites",
+      "record": {
+        "acl_public": false,
+        "answer": "192.0.2.1",
+        "domain": "fixture-record"
+      }
+    }
+  ],
+  "schema_version": "1"
+}

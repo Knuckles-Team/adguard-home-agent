@@ -1,5 +1,5 @@
 # Adguard Home Agent
-## CLI or API | MCP | Agent
+## CLI or API | MCP
 
 ![PyPI - Version](https://img.shields.io/pypi/v/adguard-home-agent)
 ![MCP Server](https://badge.mcpx.dev?type=server 'MCP Server')
@@ -20,7 +20,7 @@
 ![PyPI - Wheel](https://img.shields.io/pypi/wheel/adguard-home-agent)
 ![PyPI - Implementation](https://img.shields.io/pypi/implementation/adguard-home-agent)
 
-*Version: 0.15.0*
+*Version: 0.16.0*
 
 ---
 
@@ -162,100 +162,6 @@ docker run -d \
   -e GRAPH_VERIFIER_TIMEOUT="your_value" \
   knucklessg1/adguard-home-agent:latest
 ```
-
----
-
-## Agent
-
-This repository features a fully integrated Pydantic AI Graph Agent. It communicates over the **Agent Control Protocol (ACP)** and interacts seamlessly with the **Agent Web UI (AG-UI)** and Terminal interface.
-
-### Running the Agent CLI
-To start the interactive command-line agent:
-
-```bash
-# Set credentials
-export ADGUARD_HOST="your_value"
-export ADGUARD_API_KEY="your_value"
-export ADGUARD_DEFAULT_ADMIN_USER="your_value"
-export ADGUARD_DEFAULT_ADMIN_PASS="your_value"
-export LLM_ROUTER_MODEL="your_value"
-export LLM_AGENT_MODEL="your_value"
-export GRAPH_ROUTER_TIMEOUT="your_value"
-export GRAPH_VERIFIER_TIMEOUT="your_value"
-
-# Run the agent server
-adguard-agent --provider openai --model-id gpt-4o
-```
-
-### Docker Compose Orchestration
-The following `docker/agent.compose.yml` configures the Agent, Web UI, and Terminal Interface together:
-
-```yaml
-version: '3.8'
-
-services:
-  adguard-home-agent-mcp:
-    image: knucklessg1/adguard-home-agent:latest
-    container_name: adguard-home-agent-mcp
-    hostname: adguard-home-agent-mcp
-    restart: always
-    env_file:
-      - ../.env
-    environment:
-      - PYTHONUNBUFFERED=1
-      - HOST=0.0.0.0
-      - PORT=8000
-      - TRANSPORT=streamable-http
-    ports:
-      - "8000:8000"
-    healthcheck:
-      test: ["CMD", "python3", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8000/health')"]
-      interval: 30s
-      timeout: 10s
-      retries: 3
-      start_period: 10s
-    logging:
-      driver: json-file
-      options:
-        max-size: "10m"
-        max-file: "3"
-
-  adguard-home-agent-agent:
-    image: knucklessg1/adguard-home-agent:latest
-    container_name: adguard-home-agent-agent
-    hostname: adguard-home-agent-agent
-    restart: always
-    depends_on:
-      - adguard-home-agent-mcp
-    env_file:
-      - ../.env
-    command: [ "adguard-agent" ]
-    environment:
-      - PYTHONUNBUFFERED=1
-      - HOST=0.0.0.0
-      - PORT=9012
-      - MCP_URL=http://adguard-home-agent-mcp:8000/mcp
-      - PROVIDER=${PROVIDER:-openai}
-      - MODEL_ID=${MODEL_ID:-gpt-4o}
-      - ENABLE_WEB_UI=True
-      - ENABLE_OTEL=True
-    ports:
-      - "9012:9012"
-    healthcheck:
-      test: ["CMD", "python3", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:9012/health')"]
-      interval: 30s
-      timeout: 10s
-      retries: 3
-      start_period: 10s
-    logging:
-      driver: json-file
-      options:
-        max-size: "10m"
-        max-file: "3"
-
-```
-
-Detailed graph node architecture explanations, custom skill configurations, and agentic trace guides are available in [docs/agent.md](file:///home/apps/workspace/agent-packages/agents/adguard-home-agent/docs/agent.md).
 
 ---
 

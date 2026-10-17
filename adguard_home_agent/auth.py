@@ -1,20 +1,18 @@
-"""Authentication module for adguard-home-agent."""
+"""Authentication and client factory for the AdGuard Home API."""
 
-import os
-
-from agent_utilities.base_utilities import get_logger, to_boolean
+from agent_connector_sdk.config import setting
 
 from adguard_home_agent.api_client import Api
 
-logger = get_logger(__name__)
 
-
-def get_client():
-    """Get authenticated client for adguard-home-agent."""
-    base_url = os.getenv("ADGUARD_BASE_URL")
-    username = os.getenv("ADGUARD_USERNAME")
-    password = os.getenv("ADGUARD_PASSWORD")
-    verify = to_boolean(os.getenv("ADGUARD_SSL_VERIFY", "False"))
+def get_client() -> Api:
+    """Return an authenticated AdGuard Home API client from the environment."""
+    base_url = setting("ADGUARD_URL") or setting("ADGUARD_BASE_URL")
     if not base_url:
-        raise RuntimeError("ADGUARD_BASE_URL not set")
-    return Api(base_url=base_url, username=username, password=password, verify=verify)
+        raise RuntimeError("ADGUARD_URL not set")
+    return Api(
+        base_url=base_url,
+        username=setting("ADGUARD_USERNAME"),
+        password=setting("ADGUARD_PASSWORD"),
+        verify=setting("ADGUARD_SSL_VERIFY", False),
+    )
