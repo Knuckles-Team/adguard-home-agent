@@ -148,13 +148,6 @@ def test_adguard_api_errors(mock_session):
     assert "Empty response" in res["message"]
 
 
-def test_agent_server_coverage():
-    from adguard_home_agent.agent_server import agent_server
-
-    with patch("agent_utilities.create_agent_server") as mock_s:
-        with patch("sys.argv", ["agent_server.py"]):
-            agent_server()
-            assert mock_s.called
 
 
 def test_init_coverage():

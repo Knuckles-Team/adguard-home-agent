@@ -2,7 +2,8 @@
 
 import os
 
-from agent_utilities.base_utilities import get_logger, to_boolean
+from agent_connector_sdk.utilities import get_logger
+from agent_connector_sdk.utilities import to_boolean
 
 from adguard_home_agent.api_client import Api
 

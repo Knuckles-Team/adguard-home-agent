@@ -8,7 +8,7 @@ ci:
 
 repos:
 - repo: https://github.com/pre-commit/pre-commit-hooks
-  rev: v6.0.0
+  rev: 3e8a8703264a2f4a69428a0aa4dcb512790b2c8c  # frozen: v6.0.0
   hooks:
   - id: check-added-large-files
     args: ["--maxkb=2000"]
@@ -27,7 +27,7 @@ repos:
   - id: end-of-file-fixer
   - id: no-commit-to-branch
 - repo: https://github.com/astral-sh/ruff-pre-commit
-  rev: v0.15.12
+  rev: 38bfb07c0c64c304f47eb52090f8288150c77730  # frozen: v0.17.1
   hooks:
   - id: ruff-check
     args: ["--fix", "--ignore=E402,B008,E501"]
@@ -35,38 +35,38 @@ repos:
   - id: ruff-format
     exclude: ^(tests/|test/|scripts/|script/)
 - repo: https://github.com/pre-commit/mirrors-mypy
-  rev: v1.20.2
+  rev: 2834ec6639549dd6796205c8f011dedcd587288b  # frozen: v2.4.0
   hooks:
   - id: mypy
     additional_dependencies: [pydantic, types-PyYAML, types-requests,
         types-setuptools]
     args: ["--ignore-missing-imports"]
 - repo: https://github.com/jendrikseipp/vulture
-  rev: v2.16
+  rev: 258fe6a1974e89a2add9a45519a9e9dd9f46154e  # frozen: v2.16
   hooks:
   - id: vulture
     pass_filenames: false
     args: [".", "--min-confidence", "95", "--exclude", "node_modules,dotnet,.venv,venv,node_modules,.git,build,dist"]
     require_serial: true
 - repo: https://github.com/codespell-project/codespell
-  rev: v2.4.2
+  rev: 57b21406f092110c18776e39b0bda50d37c945c8  # frozen: v2.4.3
   hooks:
   - id: codespell
     args: ["-L", "ans,linar,nam,tread,ot,", "--ignore-words=.codespellignore"]
     exclude: ^(tests/|test/|scripts/|script/|.*lock.*)
 - repo: https://github.com/PyCQA/bandit
-  rev: 1.9.4
+  rev: 92ae8b82fb422a639f0ed8d99e96cea769594e08  # frozen: 1.9.4
   hooks:
   - id: bandit
     args: ["--skip", "B101,B404,B603"]
     exclude: ^(tests/|test/|scripts/|script/|__tests__/)
 - repo: https://github.com/nbQA-dev/nbQA
-  rev: 1.9.1
+  rev: f96ec7f3b26a32619435686eb5813235f7e3327e  # frozen: 1.9.1
   hooks:
   - id: nbqa-ruff
     args: ["--fix"]
 - repo: https://github.com/astral-sh/uv-pre-commit
-  rev: 0.11.8
+  rev: d4acaec07ac3bc6017fba3c3b8e9810af1b615db  # frozen: 0.13.1
   hooks:
   - id: uv-lock
 - repo: local
@@ -109,7 +109,7 @@ repos:
     pass_filenames: false
     always_run: true
 - repo: https://github.com/AleksaC/hadolint-py
-  rev: v2.14.0
+  rev: 6e7504451511eaeb62a3e7f14d63b0296cbf86eb  # frozen: v2.15.1
   hooks:
   - id: hadolint
     args:
@@ -119,7 +119,7 @@ repos:
     - --ignore=DL4006
     - --ignore=SC2102
 - repo: https://github.com/IamTheFij/docker-pre-commit
-  rev: v3.0.1
+  rev: f626253b23de45412865c07fd076ff95d4cd77a7  # frozen: v3.0.1
   hooks:
   - id: docker-compose-check
 
