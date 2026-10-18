@@ -15,9 +15,8 @@ metadata:
 ---
 # AdGuard Home DNS Management
 
-Each domain is one action-routed tool (`adguard_home_<domain>`) taking `action`
-and `params_json`. Call a tool with `action="list_actions"` to discover its
-actions, read before you write, and confirm before changing DNS, DHCP or
+Each API operation is its own typed tool (`adguard_home_<operation>`). Read
+before you write, and confirm before changing DNS, DHCP or
 filtering configuration.
 
 | Variable | Required | Notes |

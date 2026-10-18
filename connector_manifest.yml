@@ -51,8 +51,8 @@ schema_mappings:
 sync:
 - preset: adguard-home-rewrites
   server: adguard-home-agent
-  tool: adguard_home_rewrites
-  action: list_rewrites
+  tool: adguard_home_list_rewrites
+  action: null
   records_path: ''
   id_field: domain
   title_field: domain
@@ -60,11 +60,10 @@ sync:
   updated_field: null
   pagination: null
   doc_type: dns_rewrite
-  tool_schema_sha256: e2dfe0278f24783932293514fcca039db11b9f1f135018f238d0a0a7630df365
+  tool_schema_sha256: 35b0d1af0f9c84a098905d808f84d22eb0d266623cdfc8c9ec8f18713ab9d19c
   raw:
     server: adguard-home-agent
-    tool: adguard_home_rewrites
-    action: list_rewrites
+    tool: adguard_home_list_rewrites
     records_path: ''
     id_field: domain
     title_field: domain

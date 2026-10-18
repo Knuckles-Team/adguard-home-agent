@@ -1,42 +1,50 @@
-"""The MCP surface: action-routed tools, version single-source, dispatch."""
+"""The MCP surface: one typed tool per API operation, version single-source."""
 
 import asyncio
+import importlib
+import sys
+from unittest.mock import patch
 
-import pytest
-from fastmcp import Client, FastMCP
+from fastmcp import Client
 
-from adguard_home_agent import _version, mcp as tools
-from adguard_home_agent.mcp import mcp_dns
+from adguard_home_agent import _version
+from adguard_home_agent.api_client import Api
 
-
-def _server() -> FastMCP:
-    server: FastMCP = FastMCP("test")
-    for name in tools.__all__:
-        getattr(tools, name)(server)
-    return server
+server_module = importlib.import_module("adguard_home_agent.mcp_server")
 
 
-def test_every_domain_registers_one_tool():
-    async def _names():
+def _server():
+    with patch.object(sys, "argv", ["adguard-mcp", "--transport", "stdio"]):
+        return server_module.get_mcp_instance()[0]
+
+
+def _tools():
+    async def _list():
         async with Client(_server()) as client:
-            return {t.name for t in await client.list_tools()}
+            return await client.list_tools()
 
-    names = asyncio.run(_names())
-    assert len(names) == len(tools.__all__) == 14
-    assert "adguard_home_dns" in names
+    return asyncio.run(_list())
 
 
-def test_action_is_an_enum_in_the_schema():
-    async def _schema():
-        async with Client(_server()) as client:
-            return next(
-                t for t in await client.list_tools() if t.name == "adguard_home_dns"
-            )
+def test_every_api_operation_is_a_tool():
+    names = {t.name for t in _tools()}
+    operations = {
+        n
+        for n, f in vars(Api).items()
+        if callable(f) and not n.startswith("_") and n != "request"
+    }
+    assert {f"adguard_home_{op}" for op in operations} <= names
 
-    tool = asyncio.run(_schema())
-    assert set(tool.inputSchema["properties"]["action"]["enum"]) == set(
-        mcp_dns.ACTIONS
-    )
+
+def test_no_action_routed_tools():
+    for tool in _tools():
+        assert "action" not in tool.inputSchema.get("properties", {})
+        assert set(tool.inputSchema.get("properties", {})) != {"params_json"}
+
+
+def test_read_operations_are_annotated_read_only():
+    tool = next(t for t in _tools() if t.name == "adguard_home_get_dns_info")
+    assert tool.annotations.readOnlyHint is True
 
 
 def test_dispatch_calls_the_client(monkeypatch):
@@ -44,25 +52,13 @@ def test_dispatch_calls_the_client(monkeypatch):
         def get_dns_info(self):
             return {"ok": True}
 
-    monkeypatch.setattr(mcp_dns, "get_client", lambda: Fake())
+    monkeypatch.setattr(sys.modules["adguard_home_agent.mcp_server"], "get_client", lambda: Fake())
 
     async def _call():
         async with Client(_server()) as client:
-            return await client.call_tool(
-                "adguard_home_dns", {"action": "get_dns_info"}
-            )
+            return await client.call_tool("adguard_home_get_dns_info", {})
 
-    result = asyncio.run(_call())
-    assert result.data == {"ok": True}
-
-
-def test_unknown_action_is_rejected():
-    async def _call():
-        async with Client(_server()) as client:
-            return await client.call_tool("adguard_home_dns", {"action": "nope"})
-
-    with pytest.raises(Exception):
-        asyncio.run(_call())
+    assert asyncio.run(_call()).data == {"ok": True}
 
 
 def test_version_single_source():
