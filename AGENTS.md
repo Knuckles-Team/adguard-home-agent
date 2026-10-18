@@ -3,7 +3,7 @@
 ## Tech Stack & Architecture
 - Language/Version: Python 3.12+
 - Core Libraries: `agent-connector-sdk` (MCP server construction, manifests, content packs), `agent-utilities` (A2A agent runtime), `fastmcp`, `pydantic`
-- Key principles: the MCP layer is a thin shim over a complete API client; one action-routed tool per domain tag; no business logic, HTTP or auth in a tool body.
+- Key principles: the MCP layer is a thin shim over a complete API client; one typed tool per API client operation (SDK 0.3.0); no business logic, HTTP or auth in a tool body.
 
 ### Layout
 ```
@@ -20,7 +20,7 @@ specs/                  spec-driven delivery (current state only)
 ```
 
 ### Regenerating generated artifacts
-- Tool fingerprints: `python scripts/compute_tool_fingerprints.py --apply` after any tool signature change.
+- Tool pins: `connector-certify . --write -- adguard-mcp` after any tool signature change.
 - `connector_manifest.yml`: `agent-utilities/scripts/generate_connector_manifests.py --connector-root .` (never edit by hand).
 
 ## Branching
