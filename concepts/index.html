@@ -362,7 +362,7 @@
 <p><code>adguard-home-agent</code> is a thin MCP shim over a complete AdGuard Home API client.</p>
 <ul>
 <li><code>adguard_home_agent/api_client.py</code> wraps the AdGuard Home HTTP API.</li>
-<li><code>adguard_home_agent/mcp/mcp_&lt;domain&gt;.py</code> registers one action-routed tool per domain tag (<code>action</code> enum plus <code>params_json</code>).</li>
+<li><code>adguard_home_agent/mcp_server.py</code> registers one typed tool per <code>Api</code> client operation (<code>adguard_home_&lt;operation&gt;</code>).</li>
 <li><code>adguard_home_agent/mcp_server.py</code> builds the server with <code>agent_connector_sdk</code> and gates each suite with a <code>&lt;DOMAIN&gt;TOOL</code> toggle.</li>
 <li><code>connector_manifest.yml</code> is machine-generated from the ontology and source presets; never edit it by hand.</li>
 </ul>
