@@ -68,9 +68,14 @@ def test_verify_switch_is_gone(monkeypatch):
 
 @pytest.mark.spec("CONN-ADGUARD-HOME-AGENT-R001")
 def test_warning_never_silenced():
-    with patch("urllib3.disable_warnings") as silence:
-        Api(base_url="https://dns.test")
-    silence.assert_not_called()
+    try:  # urllib3 is no longer pulled in by the SDK transport; check it only when present
+        import urllib3  # noqa: F401
+    except ImportError:
+        pass
+    else:
+        with patch("urllib3.disable_warnings") as silence:
+            Api(base_url="https://dns.test")
+        silence.assert_not_called()
     with warnings.catch_warnings():
         warnings.simplefilter("error")
         Api(base_url="https://dns.test")

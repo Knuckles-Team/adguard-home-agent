@@ -53,7 +53,7 @@ def test_tls_profile_is_resolved_for_the_adguard_prefix(monkeypatch):
         return real(service, **kw)
 
     monkeypatch.setattr(resolve, "resolve_tls_profile", spy)
-    _api(lambda r: httpx.Response(200, json={})).close()
+    _api(lambda _r: httpx.Response(200, json={})).close()
     assert seen == ["ADGUARD"]
 
 
@@ -73,18 +73,18 @@ def test_request_shapes_are_unchanged():
     assert seen["path"] == "/control/protection"
     assert seen["body"] == {"enabled": True, "duration": 5}
 
-    assert _api(lambda r: httpx.Response(204)).clear_cache() == {"status": "success"}
+    assert _api(lambda _r: httpx.Response(204)).clear_cache() == {"status": "success"}
     assert (
-        _api(lambda r: httpx.Response(200, text=" ")).get_stats()["message"]
+        _api(lambda _r: httpx.Response(200, text=" ")).get_stats()["message"]
         == "Empty response"
     )
     with pytest.raises(Exception, match=r"AdGuard API error: 400 - bad"):
-        _api(lambda r: httpx.Response(400, text="bad")).get_stats()
+        _api(lambda _r: httpx.Response(400, text="bad")).get_stats()
 
 
 @pytest.mark.spec(f"{ID}-R002")
 def test_rate_limit_backoff_comes_from_the_sdk(monkeypatch):
-    monkeypatch.setattr("time.sleep", lambda s: None)
+    monkeypatch.setattr("time.sleep", lambda _s: None)
     calls = []
 
     def handler(request):
@@ -103,5 +103,5 @@ def test_dependencies_come_from_the_sdk():
     deps = project["dependencies"]
     assert not any(d.startswith("requests") for d in deps)
     sdk = next(d for d in deps if d.startswith("agent-connector-sdk"))
-    assert ">=0.3.11" in sdk
+    assert ">=0.3.18" in sdk
     assert adguard_home_agent
