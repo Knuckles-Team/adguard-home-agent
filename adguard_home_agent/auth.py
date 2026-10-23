@@ -14,5 +14,4 @@ def get_client() -> Api:
         base_url=base_url,
         username=setting("ADGUARD_USERNAME"),
         password=setting("ADGUARD_PASSWORD"),
-        verify=setting("ADGUARD_SSL_VERIFY", False),
     )

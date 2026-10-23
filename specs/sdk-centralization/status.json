@@ -1,0 +1,56 @@
+{
+  "schema_version": 2,
+  "spec_id": "CONN-ADGUARD-HOME-AGENT-SDK-CENTRALIZATION",
+  "owner_repo": "adguard-home-agent",
+  "delivery_state": "SPECIFIED",
+  "requirement_ids": [
+    "CONN-ADGUARD-HOME-AGENT-SDK-CENTRALIZATION-R001",
+    "CONN-ADGUARD-HOME-AGENT-SDK-CENTRALIZATION-R001.1",
+    "CONN-ADGUARD-HOME-AGENT-SDK-CENTRALIZATION-R001.2",
+    "CONN-ADGUARD-HOME-AGENT-SDK-CENTRALIZATION-R001.3",
+    "CONN-ADGUARD-HOME-AGENT-SDK-CENTRALIZATION-R001.4"
+  ],
+  "requirements": [
+    {
+      "id": "CONN-ADGUARD-HOME-AGENT-SDK-CENTRALIZATION-R001",
+      "title": "Transport comes from the SDK (rollup)",
+      "delivery_state": "SPECIFIED",
+      "landed_in": [],
+      "verified_by": [],
+      "rollup_of": [
+        "CONN-ADGUARD-HOME-AGENT-SDK-CENTRALIZATION-R001.1",
+        "CONN-ADGUARD-HOME-AGENT-SDK-CENTRALIZATION-R001.2",
+        "CONN-ADGUARD-HOME-AGENT-SDK-CENTRALIZATION-R001.3",
+        "CONN-ADGUARD-HOME-AGENT-SDK-CENTRALIZATION-R001.4"
+      ]
+    },
+    {
+      "id": "CONN-ADGUARD-HOME-AGENT-SDK-CENTRALIZATION-R001.1",
+      "title": "Governed client",
+      "delivery_state": "SPECIFIED",
+      "landed_in": [],
+      "verified_by": []
+    },
+    {
+      "id": "CONN-ADGUARD-HOME-AGENT-SDK-CENTRALIZATION-R001.2",
+      "title": "TLS profile only",
+      "delivery_state": "SPECIFIED",
+      "landed_in": [],
+      "verified_by": []
+    },
+    {
+      "id": "CONN-ADGUARD-HOME-AGENT-SDK-CENTRALIZATION-R001.3",
+      "title": "Same behaviour",
+      "delivery_state": "SPECIFIED",
+      "landed_in": [],
+      "verified_by": []
+    },
+    {
+      "id": "CONN-ADGUARD-HOME-AGENT-SDK-CENTRALIZATION-R001.4",
+      "title": "SDK floor",
+      "delivery_state": "SPECIFIED",
+      "landed_in": [],
+      "verified_by": []
+    }
+  ]
+}

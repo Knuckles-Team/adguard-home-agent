@@ -1,42 +1,40 @@
 #!/usr/bin/env python
 
 
-import json
 from typing import Any
-from urllib.parse import urljoin
 
-import requests
-import urllib3
+import httpx
+from agent_connector_sdk.http.support import BaseApiClient, BasicAuth
 
 from adguard_home_agent._version import __version__  # noqa: F401
 
+#: Settings prefix of the runtime TLS profile (``ADGUARD_TLS_PROFILE``,
+#: ``ADGUARD_CA_BUNDLE_REF``, ...). Verification cannot be disabled.
+TLS_SERVICE = "ADGUARD"
 
-class Api:
+
+class Api(BaseApiClient):
+    """AdGuard Home control API on the SDK governed HTTP client."""
+
     def __init__(
         self,
         base_url: str,
         username: str | None = None,
         password: str | None = None,
-        verify: bool = True,
-        proxies: dict[str, str] | None = None,
+        transport: httpx.BaseTransport | None = None,
     ):
-        self.base_url = base_url
+        auth = BasicAuth(username, password) if username and password else None
+        super().__init__(
+            base_url,
+            auth=auth,
+            headers={"Content-Type": "application/json"},
+            tls_service=TLS_SERVICE,
+            transport=transport,
+        )
         self.username = username
         self.password = password
-        self._session = requests.Session()
-        self._session.verify = verify
-        self.proxies = proxies
 
-        if proxies:
-            self._session.proxies = proxies
-
-        if not verify:
-            urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
-
-        if self.username and self.password:
-            self._session.auth = (self.username, self.password)
-
-    def request(
+    def request(  # type: ignore[override]
         self,
         method: str,
         endpoint: str,
@@ -44,42 +42,18 @@ class Api:
         data: Any | None = None,
     ) -> Any:
         """Make a request to the AdGuard Home API."""
-        if endpoint.startswith("http"):
-            url = endpoint
-        else:
-            url = urljoin(self.base_url, endpoint)
-
-        headers = {"Content-Type": "application/json"}
-
-        response = self._session.request(
-            method=method,
-            url=url,
-            headers=headers,
-            params=params,
-            json=data,
-        )
-
+        response = self._send(method, endpoint, params=params, json=data)
         if response.status_code >= 400:
-            try:
-                error_data = response.text
-                error_message = (
-                    f"AdGuard API error: {response.status_code} - {error_data}"
-                )
-            except Exception:
-                error_message = (
-                    f"AdGuard API error: {response.status_code} - {response.text}"
-                )
-            raise Exception(error_message)
-
+            raise Exception(
+                f"AdGuard API error: {response.status_code} - {response.text}"
+            )
         if response.status_code == 204:
             return {"status": "success"}
-
         if not response.text.strip():
             return {"status": "success", "message": "Empty response"}
-
         try:
             return response.json()
-        except json.JSONDecodeError:
+        except ValueError:
             return {
                 "status": "success",
                 "content_type": response.headers.get("Content-Type", "unknown"),

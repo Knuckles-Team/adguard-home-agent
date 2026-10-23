@@ -23,4 +23,4 @@ filtering configuration.
 |---|---|---|
 | `ADGUARD_URL` | yes | Base URL of the AdGuard Home instance |
 | `ADGUARD_USERNAME` / `ADGUARD_PASSWORD` | if auth enabled | HTTP basic credentials |
-| `ADGUARD_SSL_VERIFY` | no | Verify TLS (default false) |
+| `ADGUARD_TLS_PROFILE` / `ADGUARD_CA_BUNDLE_REF` | no | Runtime TLS profile; verification is always on (add a CA bundle for a private CA) |
