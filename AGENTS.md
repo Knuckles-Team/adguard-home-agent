@@ -22,7 +22,7 @@ Tool-neutral rules for any AI agent or human working in this repository. This bl
 adguard_home_agent/
   _version.py          single version source (bumpversion target)
   api_client.py        complete AdGuard Home API client
-  auth.py              env-driven client factory (ADGUARD_URL, ADGUARD_USERNAME, ADGUARD_PASSWORD, ADGUARD_SSL_VERIFY)
+  auth.py              env-driven client factory (ADGUARD_URL, ADGUARD_USERNAME, ADGUARD_PASSWORD, ADGUARD_CA_BUNDLE; TLS via the SDK resolve_tls_profile)
   mcp_server.py        create_mcp_server + per-suite <DOMAIN>TOOL toggles
   mcp/mcp_<domain>.py  register_<domain>_tools(mcp): `action` enum + `params_json`
   connectors/          mcp_source_presets.json, tool_schema_fingerprints.json

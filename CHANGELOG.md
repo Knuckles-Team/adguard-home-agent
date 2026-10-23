@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.17.1]
+
+### Security
+- TLS now comes from the SDK `resolve_tls_profile`: verification is always on, a per-instance CA is set with `ADGUARD_CA_BUNDLE`, and the insecure-request warning is no longer silenced. `ADGUARD_SSL_VERIFY` is removed.
+
 ### Added
 -
 

@@ -6,7 +6,8 @@ from typing import Any
 from urllib.parse import urljoin
 
 import requests
-import urllib3
+from agent_connector_sdk.tls.profile import ResolvedTLSProfile
+from agent_connector_sdk.tls.resolve import resolve_tls_profile
 
 from adguard_home_agent._version import __version__  # noqa: F401
 
@@ -17,21 +18,19 @@ class Api:
         base_url: str,
         username: str | None = None,
         password: str | None = None,
-        verify: bool = True,
+        tls_profile: ResolvedTLSProfile | None = None,
         proxies: dict[str, str] | None = None,
     ):
         self.base_url = base_url
         self.username = username
         self.password = password
         self._session = requests.Session()
-        self._session.verify = verify
+        self.tls_profile = tls_profile or resolve_tls_profile("adguard")
+        self.tls_profile.configure_requests_session(self._session)
         self.proxies = proxies
 
         if proxies:
             self._session.proxies = proxies
-
-        if not verify:
-            urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
         if self.username and self.password:
             self._session.auth = (self.username, self.password)
