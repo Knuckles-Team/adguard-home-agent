@@ -22,5 +22,7 @@
 
 <http://knuckles.team/kg/adguard-home-agent> a owl:Ontology ;
     rdfs:label "AdGuard Home Connector Ontology" ;
-    rdfs:comment "DNS rewrite rules of an AdGuard Home instance, federated into the knowledge-graph hub." ;
-    owl:imports <http://knuckles.team/kg> .
+    rdfs:comment "DNS rewrite rules of an AdGuard Home instance, federated into the knowledge-graph hub." .
+
+# ontology-codemod R3
+<http://knuckles.team/kg#DnsRewrite> rdfs:subClassOf <http://knuckles.team/kg/infrastructure#DNSRewrite> .
