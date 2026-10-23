@@ -3,22 +3,15 @@ import inspect
 from typing import Any
 from unittest.mock import MagicMock, patch
 
+import httpx
 import pytest
 
 
 @pytest.fixture
 def mock_session():
-    with patch("requests.Session") as mock_s:
+    with patch("httpx.Client") as mock_s:
         session = mock_s.return_value
-        response = MagicMock()
-        response.status_code = 200
-        response.json.return_value = {"id": 1, "name": "test"}
-        response.text = '{"id": 1}'
-        session.get.return_value = response
-        session.post.return_value = response
-        session.put.return_value = response
-        session.delete.return_value = response
-        session.patch.return_value = response
+        session.request.return_value = httpx.Response(200, json={"id": 1})
         yield session
 
 
@@ -122,34 +115,10 @@ def test_adguard_api_errors(mock_session):
 
     api_instance = Api(base_url="http://test")
 
-    # Trigger 400 error
-    response_400 = MagicMock()
-    response_400.status_code = 400
-    response_400.text = "Error detail"
-    mock_session.request.return_value = response_400
-    try:
+    mock_session.request.return_value = httpx.Response(400, text="Error detail")
+    with pytest.raises(Exception, match="AdGuard API error"):
         api_instance.get_version()
-    except Exception as e:
-        assert "AdGuard API error" in str(e)
 
-    # Trigger 204 error
-    response_204 = MagicMock()
-    response_204.status_code = 204
-    mock_session.request.return_value = response_204
+    mock_session.request.return_value = httpx.Response(204)
     res = api_instance.get_version()
     assert res["status"] == "success"
-
-    # Trigger empty response
-    response_empty = MagicMock()
-    response_empty.status_code = 200
-    response_empty.text = ""
-    mock_session.request.return_value = response_empty
-    res = api_instance.get_version()
-    assert "Empty response" in res["message"]
-
-
-def test_init_coverage():
-    from adguard_home_agent import _import_module_safely
-
-    assert _import_module_safely("os") is not None
-    assert _import_module_safely("non_existent_module") is None

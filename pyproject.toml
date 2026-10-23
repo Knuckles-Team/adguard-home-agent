@@ -9,7 +9,7 @@ description = "AdGuard Home MCP Server for Agentic AI!"
 readme = "README.md"
 classifiers = [ "Development Status :: 4 - Beta", "License :: OSI Approved :: MIT License", "Environment :: Console", "Operating System :: POSIX :: Linux", "Programming Language :: Python :: 3",]
 requires-python = ">=3.12, <3.15"
-dependencies = [ "agent-connector-sdk[mcp]>=0.3.11,<1.0.0", "requests>=2.32.0",]
+dependencies = [ "agent-connector-sdk[mcp]>=0.3.11,<1.0.0",]
 [[project.authors]]
 name = "Project Maintainers"
 email = "maintainers@knuckles.team"

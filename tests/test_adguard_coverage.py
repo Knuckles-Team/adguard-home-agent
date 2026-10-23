@@ -3,6 +3,7 @@ import inspect
 from typing import Any
 from unittest.mock import MagicMock, patch
 
+import httpx
 import pytest
 
 from adguard_home_agent.api_client import Api
@@ -10,16 +11,11 @@ from adguard_home_agent.api_client import Api
 
 @pytest.fixture
 def mock_session():
-    with patch("requests.Session") as mock_sess:
+    with patch("httpx.Client") as mock_sess:
         session = mock_sess.return_value
-
-        res = MagicMock()
-        res.status_code = 200
-        res.ok = True
-        res.text = '{"status": "success"}'
-        res.json.return_value = {"status": "success", "data": []}
-        session.request.return_value = res
-
+        session.request.return_value = httpx.Response(
+            200, json={"status": "success", "data": []}
+        )
         yield session
 
 

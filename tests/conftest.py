@@ -4,3 +4,6 @@ def pytest_configure(config):
         "markers",
         "concept(name): Marker to associate a test with a specific codebase concept ID for traceability.",
     )
+    config.addinivalue_line(
+        "markers", "spec(id): Binds a test to a requirement row of a spec."
+    )

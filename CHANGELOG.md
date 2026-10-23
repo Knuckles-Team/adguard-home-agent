@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+- The client is now built on the SDK governed HTTP client (`BaseApiClient`); the own `requests` session and pin are removed. 429 backoff comes from the SDK.
+
 ## [0.17.1]
 
 ### Security
