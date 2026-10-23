@@ -2,16 +2,54 @@
   "schema_version": 2,
   "spec_id": "CONN-ADGUARD-HOME-AGENT",
   "owner_repo": "adguard-home-agent",
-  "delivery_state": "PLANNED",
+  "delivery_state": "LANDED",
   "requirement_ids": [
-    "CONN-ADGUARD-HOME-AGENT-R001"
+    "CONN-ADGUARD-HOME-AGENT-R001",
+    "CONN-ADGUARD-HOME-AGENT-R002",
+    "CONN-ADGUARD-HOME-AGENT-R003",
+    "CONN-ADGUARD-HOME-AGENT-R004"
   ],
   "requirements": [
     {
       "id": "CONN-ADGUARD-HOME-AGENT-R001",
       "title": "Verified transport",
-      "delivery_state": "PLANNED",
-      "landed_in": [],
+      "delivery_state": "VERIFIED",
+      "landed_in": [
+        "ead1a2289509",
+        "f79a815c97d4"
+      ],
+      "verified_by": [
+        "tests/test_tls_profile.py:40",
+        "tests/test_tls_profile.py:48",
+        "tests/test_tls_profile.py:59",
+        "tests/test_tls_profile.py:69"
+      ]
+    },
+    {
+      "id": "CONN-ADGUARD-HOME-AGENT-R002",
+      "title": "Governed client",
+      "delivery_state": "LANDED",
+      "landed_in": [
+        "ead1a2289509"
+      ],
+      "verified_by": []
+    },
+    {
+      "id": "CONN-ADGUARD-HOME-AGENT-R003",
+      "title": "Same behaviour",
+      "delivery_state": "LANDED",
+      "landed_in": [
+        "ead1a2289509"
+      ],
+      "verified_by": []
+    },
+    {
+      "id": "CONN-ADGUARD-HOME-AGENT-R004",
+      "title": "SDK floor",
+      "delivery_state": "LANDED",
+      "landed_in": [
+        "ead1a2289509"
+      ],
       "verified_by": []
     }
   ]
