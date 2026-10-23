@@ -5,7 +5,8 @@ import warnings
 from pathlib import Path
 from unittest.mock import patch
 
-import requests
+import pytest
+from agent_connector_sdk.http.support import BaseApiClient
 
 from adguard_home_agent.api_client import Api
 from adguard_home_agent.auth import get_client
@@ -36,29 +37,36 @@ def _self_signed_ca() -> bytes:
     return cert.public_bytes(serialization.Encoding.PEM)
 
 
+@pytest.mark.spec("CONN-ADGUARD-HOME-AGENT-R001")
 def test_default_verifies(monkeypatch):
     monkeypatch.setenv("ADGUARD_URL", "https://dns.test")
     client = get_client()
-    assert client._session.verify is True
-    assert client.tls_profile.verify_enabled
-    assert client.tls_profile.ssl_context.verify_mode == ssl.CERT_REQUIRED
+    assert client._trust.verify_enabled
+    assert client._trust.ssl_context.verify_mode == ssl.CERT_REQUIRED
 
 
+@pytest.mark.spec("CONN-ADGUARD-HOME-AGENT-R001")
 def test_ca_bundle_is_carried(monkeypatch, tmp_path: Path):
     bundle = tmp_path / "ca.pem"
     bundle.write_bytes(_self_signed_ca())
     monkeypatch.setenv("ADGUARD_URL", "https://dns.test")
     monkeypatch.setenv("ADGUARD_CA_BUNDLE", str(bundle))
     client = get_client()
-    assert client._session.verify == str(bundle)
+    assert client._trust.verify_enabled
+    assert str(bundle) in str(client._trust.requests_kwargs().get("verify"))
 
 
+@pytest.mark.spec("CONN-ADGUARD-HOME-AGENT-R001")
 def test_verify_switch_is_gone(monkeypatch):
     monkeypatch.setenv("ADGUARD_SSL_VERIFY", "false")
-    assert isinstance(Api(base_url="https://dns.test")._session, requests.Session)
-    assert Api(base_url="https://dns.test")._session.verify is True
+    client = Api(base_url="https://dns.test")
+    assert isinstance(client, BaseApiClient)
+    assert client._trust.verify_enabled
+    with pytest.raises(ValueError):
+        BaseApiClient("https://dns.test", verify=False)
 
 
+@pytest.mark.spec("CONN-ADGUARD-HOME-AGENT-R001")
 def test_warning_never_silenced():
     with patch("urllib3.disable_warnings") as silence:
         Api(base_url="https://dns.test")

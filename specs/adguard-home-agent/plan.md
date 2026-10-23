@@ -8,7 +8,7 @@ The connector reuses the SDK TLS profile resolver. The connector owns operation 
 
 ## Architecture
 
-`auth.get_client` resolves the `adguard` TLS profile (`ADGUARD_CA_BUNDLE`, `ADGUARD_CA_BUNDLE_REF`, `ADGUARD_TLS_PROFILE`) and hands it to `Api`, which applies it to its requests session. There is no switch that disables verification.
+`auth.get_client` builds `Api`. TLS trust comes from the `adguard` profile (`ADGUARD_CA_BUNDLE`, `ADGUARD_CA_BUNDLE_REF`, `ADGUARD_TLS_PROFILE`) The SDK `BaseApiClient` resolves the same `ADGUARD` profile and builds the httpx client; `Api` adds the AdGuard result shapes. Retry on 429 comes from the SDK. There is no switch that disables verification.
 
 ## Quality and release gates
 

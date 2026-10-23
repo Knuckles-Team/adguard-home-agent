@@ -22,7 +22,7 @@ The connector must not implement a graph engine, independent policy authority, o
 
 ## Why a new spec
 
-The repository had no local specification. The existing `specs/` tree held only the template. The transport defect (verification off by default, warning silenced) needs an owner, so this is the repository's first capability specification.
+The repository had no local specification. The existing `specs/` tree held only the template. The transport defect (verification off by default, warning silenced) needs an owner, so this is the repository's first capability specification. Rows R002 to R004 move the client onto the SDK governed client.
 
 ## Requirements
 

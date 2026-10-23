@@ -24,7 +24,6 @@
         "STATSTOOL": "True",
         "SYSTEMTOOL": "True",
         "TLSTOOL": "True",
-        "ADGUARD_SSL_VERIFY": "False",
         "MCP_TOOL_MODE": "condensed"
       }
     }

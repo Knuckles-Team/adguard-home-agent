@@ -1,13 +1,16 @@
 """Authentication and client factory for the AdGuard Home API."""
 
 from agent_connector_sdk.config import setting
-from agent_connector_sdk.tls.resolve import resolve_tls_profile
 
 from adguard_home_agent.api_client import Api
 
 
 def get_client() -> Api:
-    """Return an authenticated AdGuard Home API client from the environment."""
+    """Return an authenticated AdGuard Home API client from the environment.
+
+    Transport trust comes from the SDK TLS profile for the ``ADGUARD`` prefix
+    (``ADGUARD_CA_BUNDLE``, ``ADGUARD_CA_BUNDLE_REF``, ``ADGUARD_TLS_PROFILE``).
+    """
     base_url = setting("ADGUARD_URL") or setting("ADGUARD_BASE_URL")
     if not base_url:
         raise RuntimeError("ADGUARD_URL not set")
@@ -15,5 +18,4 @@ def get_client() -> Api:
         base_url=base_url,
         username=setting("ADGUARD_USERNAME"),
         password=setting("ADGUARD_PASSWORD"),
-        tls_profile=resolve_tls_profile("adguard"),
     )
