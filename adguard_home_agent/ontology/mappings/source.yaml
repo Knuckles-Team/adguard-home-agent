@@ -1,0 +1,3 @@
+schema_version: '1'
+connector: adguard-home-agent
+ontology_source: adguard_home
