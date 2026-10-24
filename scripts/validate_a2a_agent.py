@@ -5,14 +5,14 @@ import uuid
 
 import httpx
 
-A2A_URL = "http://adguard-agent.arpa/a2a/"
+A2A_URL = "http://adguard-agent.example/a2a/"
 
 
 async def main():
     print(f"Validating A2A Agent at {A2A_URL}...")
 
     questions = [
-        "Can you add a DNS rewrite for 'genius.arpa' to '10.0.0.13'?",
+        "Can you add a DNS rewrite for 'genius.example' to '192.0.2.13'?",
     ]
 
     async with httpx.AsyncClient(timeout=10000.0) as client:

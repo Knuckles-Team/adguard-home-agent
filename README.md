@@ -41,7 +41,7 @@
 
 This agent wraps the AdGuard Home MCP Server for Agentic AI! API. You can interact with it programmatically or via its integrated execution entrypoints.
 
-Detailed instructions on how to use the underlying API wrappers, extended schema bindings, and developer SDK references are maintained in [docs/index.md](file:///home/apps/workspace/agent-packages/agents/adguard-home-agent/docs/index.md).
+Detailed instructions on how to use the underlying API wrappers, extended schema bindings, and developer SDK references are maintained in [docs/index.md](docs/index.md).
 
 ---
 
@@ -67,7 +67,7 @@ This server utilizes dynamic Action-Routed tools to optimize token overhead and 
 | **Stats** | `STATSTOOL` | `True` | Manage adguard home stats operations. Action-routed methods: `get_stats`, `reset_stats`, `get_stats_config`, `set_stats_config`. |
 | **Dns** | `DNSTOOL` | `True` | Manage adguard home dns operations. Action-routed methods: `get_dns_info`, `set_dns_config`, `test_upstream_dns`. |
 
-Detailed tool schemas, parameter shapes, and validation constraints are preserved in [docs/mcp.md](file:///home/apps/workspace/agent-packages/agents/adguard-home-agent/docs/mcp.md).
+Detailed tool schemas, parameter shapes, and validation constraints are preserved in [docs/mcp.md](docs/mcp.md).
 
 ### MCP Configuration Examples
 
