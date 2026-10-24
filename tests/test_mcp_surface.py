@@ -1,21 +1,19 @@
 """The MCP surface: one typed tool per API operation, version single-source."""
 
 import asyncio
-import importlib
 import sys
 from unittest.mock import patch
 
 from fastmcp import Client
 
-from adguard_home_agent import _version
 from adguard_home_agent.api_client import Api
+from agent_connector_sdk.connector import build_server
 
-server_module = importlib.import_module("adguard_home_agent.mcp_server")
 
 
 def _server():
     with patch.object(sys, "argv", ["adguard-mcp", "--transport", "stdio"]):
-        return server_module.get_mcp_instance()[0]
+        return build_server("adguard_home_agent", command_args=['--transport', 'stdio'])[1]
 
 
 def _tools():
@@ -59,9 +57,3 @@ def test_dispatch_calls_the_client(monkeypatch):
             return await client.call_tool("adguard_home_get_dns_info", {})
 
     assert asyncio.run(_call()).data == {"ok": True}
-
-
-def test_version_single_source():
-    from adguard_home_agent import api_client
-
-    assert api_client.__version__ == _version.__version__

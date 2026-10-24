@@ -1,12 +1,14 @@
 #!/usr/bin/env python
 
 
+from importlib.metadata import version as _v
 from typing import Any
 
 import httpx
 from agent_connector_sdk.http.support import BaseApiClient, BasicAuth
 
-from adguard_home_agent._version import __version__  # noqa: F401
+__version__ = _v("adguard-home-agent")
+
 
 #: Settings prefix of the runtime TLS profile (``ADGUARD_TLS_PROFILE``,
 #: ``ADGUARD_CA_BUNDLE_REF``, ...). Verification cannot be disabled.
