@@ -4,6 +4,7 @@ import asyncio
 import sys
 from unittest.mock import patch
 
+import adguard_home_agent.auth
 from fastmcp import Client
 
 from adguard_home_agent.api_client import Api
@@ -50,7 +51,8 @@ def test_dispatch_calls_the_client(monkeypatch):
         def get_dns_info(self):
             return {"ok": True}
 
-    monkeypatch.setattr(sys.modules["adguard_home_agent.mcp_server"], "get_client", lambda: Fake())
+    monkeypatch.setenv("ADGUARD_URL", "http://adguard.example")
+    monkeypatch.setattr(adguard_home_agent.auth, "Api", lambda *a, **k: Fake())
 
     async def _call():
         async with Client(_server()) as client:
