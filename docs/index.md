@@ -402,7 +402,7 @@ For issues or feature requests, please open an issue on the [GitHub repository](
       "command": "uv",
       "args": [
         "run",
-        "adguard-mcp"
+        "adguard-home-agent"
       ],
       "env": {
         "ACCESSTOOL": "True",
@@ -438,7 +438,7 @@ For issues or feature requests, please open an issue on the [GitHub repository](
       "command": "uv",
       "args": [
         "run",
-        "adguard-mcp",
+        "adguard-home-agent",
         "--transport",
         "http",
         "--host",

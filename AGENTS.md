@@ -32,7 +32,7 @@ specs/                  spec-driven delivery (current state only)
 ```
 
 ### Regenerating generated artifacts
-- Tool pins: `connector-certify . --write -- adguard-mcp` after any tool signature change.
+- Tool pins: `connector-certify . --write -- adguard-home-agent` after any tool signature change.
 - `connector_manifest.yml`: `agent-utilities/scripts/generate_connector_manifests.py --connector-root .` (never edit by hand).
 
 ## Branching

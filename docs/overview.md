@@ -59,7 +59,7 @@ adguard-home-agent/
   "mcpServers": {
     "adguard-home-agent": {
       "command": "uv",
-      "args": ["run", "--with", "adguard-home-agent", "adguard-mcp"],
+      "args": ["run", "--with", "adguard-home-agent", "adguard-home-agent"],
       "env": {}
     }
   }
@@ -68,5 +68,5 @@ adguard-home-agent/
 
 ### Streamable HTTP Mode
 ```bash
-adguard-mcp --transport streamable-http --port 8001
+adguard-home-agent --transport streamable-http --port 8001
 ```
