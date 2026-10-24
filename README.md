@@ -82,7 +82,7 @@ Configure your IDE's `mcp.json` to launch the MCP server via `uvx`:
       "args": [
         "--from",
         "adguard-home-agent",
-        "adguard-mcp"
+        "adguard-home-agent"
       ],
       "env": {
         "ADGUARD_HOST": "your_adguard_host_here",
@@ -110,7 +110,7 @@ Configure your client's `mcp.json` to launch the Streamable-HTTP server via `uvx
       "args": [
         "--from",
         "adguard-home-agent",
-        "adguard-mcp"
+        "adguard-home-agent"
       ],
       "env": {
         "TRANSPORT": "streamable-http",

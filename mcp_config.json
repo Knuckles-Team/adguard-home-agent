@@ -4,7 +4,7 @@
       "command": "uv",
       "args": [
         "run",
-        "adguard-mcp"
+        "adguard-home-agent"
       ],
       "env": {
         "ADGUARD_PASSWORD": "<YOUR_ADGUARD_PASSWORD>",

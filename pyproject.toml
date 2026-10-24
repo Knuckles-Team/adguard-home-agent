@@ -22,7 +22,7 @@ test = [
     "pytest-xdist>=3.8.0", "pytest>=9.1.1", "pytest-asyncio>=1.4.0", "pytest-cov>=7.1.0",]
 
 [project.scripts]
-adguard-mcp = "agent_connector_sdk.cli:serve"
+adguard-home-agent = "agent_connector_sdk.cli:serve"
 
 [project.entry-points."agent_connector_sdk.prompt_providers"]
 adguard-home-agent = "adguard_home_agent.prompts"

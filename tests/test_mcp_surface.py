@@ -13,7 +13,7 @@ from agent_connector_sdk.connector import build_server
 
 
 def _server():
-    with patch.object(sys, "argv", ["adguard-mcp", "--transport", "stdio"]):
+    with patch.object(sys, "argv", ["adguard-home-agent", "--transport", "stdio"]):
         return build_server("adguard_home_agent", command_args=['--transport', 'stdio'])[1]
 
 
