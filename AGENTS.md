@@ -14,7 +14,7 @@ Tool-neutral rules for any AI agent or human working in this repository. This bl
 
 ## Tech Stack & Architecture
 - Language/Version: Python 3.12+
-- Core Libraries: `agent-connector-sdk` (MCP server construction, manifests, content packs), `agent-utilities` (A2A agent runtime), `fastmcp`, `pydantic`
+- Core Libraries: `scion-sdk` (MCP server construction, manifests, content packs), `agent-utilities` (A2A agent runtime), `fastmcp`, `pydantic`
 - Key principles: the MCP layer is a thin shim over a complete API client; one typed tool per API client operation (SDK 0.3.0); no business logic, HTTP or auth in a tool body.
 
 ### Layout

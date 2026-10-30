@@ -10,7 +10,7 @@ description: >-
 license: MIT
 tags: [adguard, dns, filtering, mcp]
 metadata:
-  author: Genius
+  author: Knuckles-Team
   version: '0.1.0'
 ---
 # AdGuard Home DNS Management
