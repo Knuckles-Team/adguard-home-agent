@@ -6,7 +6,7 @@ from pathlib import Path
 from unittest.mock import patch
 
 import pytest
-from agent_connector_sdk.http.support import BaseApiClient
+from scion_sdk.http.support import BaseApiClient
 
 from adguard_home_agent.api_client import Api
 from adguard_home_agent.auth import get_client

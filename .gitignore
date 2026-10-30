@@ -165,3 +165,6 @@ trace.txt
 docker/Dockerfile
 docker/debug.Dockerfile
 docker/*.compose.yml
+
+# Spec status is computed at read time (pipelines-hook spec-status --write), never committed.
+specs/*/status.json

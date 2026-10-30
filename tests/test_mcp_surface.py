@@ -8,7 +8,7 @@ import adguard_home_agent.auth
 from fastmcp import Client
 
 from adguard_home_agent.api_client import Api
-from agent_connector_sdk.connector import build_server
+from scion_sdk.connector import build_server
 
 
 

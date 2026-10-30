@@ -12,7 +12,7 @@ The shared connector SDK owns reusable transport, authentication, TLS, MCP, and 
 The shared pipelines repository owns quality gates and delivery rendering.
 
 Component: Connector integration
-References: [Connector SDK](https://github.com/Knuckles-Team/agent-connector-sdk/blob/main/README.md)
+References: [Connector SDK](https://github.com/Knuckles-Team/scion-sdk/blob/main/README.md)
 Code: ../../adguard_home_agent/auth.py ../../adguard_home_agent/api_client.py ../../tests/test_tls_profile.py
 
 ## Non-goals

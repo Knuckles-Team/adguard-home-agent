@@ -1,6 +1,6 @@
 """Authentication and client factory for the AdGuard Home API."""
 
-from agent_connector_sdk.config import setting
+from scion_sdk.config import setting
 
 from adguard_home_agent.api_client import Api
 

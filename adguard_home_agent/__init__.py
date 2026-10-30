@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-from agent_connector_sdk.connector import Connector
+from scion_sdk.connector import Connector
 
 from adguard_home_agent.api_client import Api
 from adguard_home_agent.auth import get_client

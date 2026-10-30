@@ -12,7 +12,7 @@ async def main():
     print(f"Validating A2A Agent at {A2A_URL}...")
 
     questions = [
-        "Can you add a DNS rewrite for 'genius.example' to '192.0.2.13'?",
+        "Can you add a DNS rewrite for 'host.example' to '192.0.2.13'?",
     ]
 
     async with httpx.AsyncClient(timeout=10000.0) as client:

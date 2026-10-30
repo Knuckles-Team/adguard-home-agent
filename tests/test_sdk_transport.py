@@ -6,7 +6,7 @@ import tomllib
 
 import httpx
 import pytest
-from agent_connector_sdk.http.support import BaseApiClient
+from scion_sdk.http.support import BaseApiClient
 
 import adguard_home_agent
 from adguard_home_agent.api_client import Api
@@ -44,7 +44,7 @@ def test_verification_cannot_be_disabled():
 @pytest.mark.spec(f"{ID}-R001")
 def test_tls_profile_is_resolved_for_the_adguard_prefix(monkeypatch):
     seen = []
-    import agent_connector_sdk.tls.resolve as resolve
+    import scion_sdk.tls.resolve as resolve
 
     real = resolve.resolve_tls_profile
 
@@ -103,5 +103,5 @@ def test_dependencies_come_from_the_sdk():
     deps = project["dependencies"]
     assert not any(d.startswith("requests") for d in deps)
     sdk = next(d for d in deps if d.startswith("scion-sdk"))
-    assert ">=0.5.9" in sdk
+    assert ">=0.6.0" in sdk
     assert adguard_home_agent
