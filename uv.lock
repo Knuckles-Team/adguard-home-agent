@@ -11,7 +11,7 @@ overrides = [{ name = "fastmcp-slim", extras = ["client", "server"], specifier =
 
 [[package]]
 name = "adguard-home-agent"
-version = "0.17.8"
+version = "0.17.9"
 source = { editable = "." }
 dependencies = [
     { name = "scion-sdk", extra = ["mcp"] },
