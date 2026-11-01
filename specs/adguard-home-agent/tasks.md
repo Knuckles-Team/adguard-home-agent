@@ -1,8 +1,10 @@
 # CONN-ADGUARD-HOME-AGENT — Implementation tasks
 
-Governing specification: [spec.md](spec.md). Design: [plan.md](plan.md). Rows: [requirements.md](requirements.md).
+Governing spec: [spec.md](spec.md). Design: [plan.md](plan.md). Rows: [requirements.md](requirements.md).
 
-- [x] Resolve TLS through the SDK profile and remove the disabled-verification path.
-- [x] `CONN-ADGUARD-HOME-AGENT-R002` — Subclass the SDK governed client.
-- [x] `CONN-ADGUARD-HOME-AGENT-R003` — Keep request and result shapes.
-- [x] `CONN-ADGUARD-HOME-AGENT-R004` — Drop the requests pin and raise the SDK floor.
+Each task line reads `- [ ] T001 [P] [US1] <ID>-R012.4 description`. Order is producer first.
+
+- [ ] T001 [US1] CONN-ADGUARD-HOME-AGENT-R001 Verified transport.
+- [x] T002 [US1] CONN-ADGUARD-HOME-AGENT-R002 Governed client.
+- [x] T003 [US1] CONN-ADGUARD-HOME-AGENT-R003 Same behaviour.
+- [x] T004 [US1] CONN-ADGUARD-HOME-AGENT-R004 SDK floor.
