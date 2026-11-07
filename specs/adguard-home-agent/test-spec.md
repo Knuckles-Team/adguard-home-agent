@@ -10,3 +10,9 @@ Governing specification: [spec.md](spec.md).
 | `CONN-ADGUARD-HOME-AGENT-R004` | `tests/test_sdk_transport.py::test_dependencies_come_from_the_sdk` must pass. |
 
 The owner must retain failure evidence and use canonical lifecycle tooling to regenerate `status.json`.
+
+## Adoption of scion-sdk 0.10.0 (`CONN-ADGUARD-HOME-AGENT-R005`)
+
+| Requirement | Test | Observation |
+|---|---|---|
+| `CONN-ADGUARD-HOME-AGENT-R005` | `tests/test_scion_sdk_0_10_imports.py::test_every_scion_sdk_import_resolves_on_the_pinned_release` | Every `scion_sdk` import resolves on the pinned release; a removed path fails the test. |

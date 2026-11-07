@@ -8,3 +8,4 @@ Each task line reads `- [ ] T001 [P] [US1] <ID>-R012.4 description`. Order is pr
 - [x] T002 [US1] CONN-ADGUARD-HOME-AGENT-R002 Governed client.
 - [x] T003 [US1] CONN-ADGUARD-HOME-AGENT-R003 Same behaviour.
 - [x] T004 [US1] CONN-ADGUARD-HOME-AGENT-R004 SDK floor.
+- [ ] T005 [US1] CONN-ADGUARD-HOME-AGENT-R005 Adopt scion-sdk 0.10.0 import paths. Size: S, 1 PR, 30 minutes.
