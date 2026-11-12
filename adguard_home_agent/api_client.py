@@ -5,7 +5,8 @@ from importlib.metadata import version as _v
 from typing import Any
 
 import httpx
-from scion_sdk.http.support import BaseApiClient, BasicAuth
+from scion_sdk.httpsupport.api_client import BaseApiClient
+from scion_sdk.httpsupport.auth import BasicAuth
 
 __version__ = _v("adguard-home-agent")
 

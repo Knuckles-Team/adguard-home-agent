@@ -6,7 +6,7 @@ import tomllib
 
 import httpx
 import pytest
-from scion_sdk.http.support import BaseApiClient
+from scion_sdk.httpsupport.api_client import BaseApiClient
 
 import adguard_home_agent
 from adguard_home_agent.api_client import Api
