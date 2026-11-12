@@ -1,4 +1,4 @@
-"""Run an Agent Utilities gate against this checkout in an isolated worktree."""
+"""Run an Meristem gate against this checkout in an isolated worktree."""
 
 from __future__ import annotations
 
@@ -10,25 +10,25 @@ import sys
 from pathlib import Path
 
 
-def _is_agent_utilities_root(path: Path) -> bool:
+def _is_meristem_root(path: Path) -> bool:
     """Return whether *path* contains the framework and its gate scripts."""
 
     return (
         (path / "pyproject.toml").is_file()
-        and (path / "agent_utilities").is_dir()
+        and (path / "meristem").is_dir()
         and (path / "scripts").is_dir()
     )
 
 
-def _agent_utilities_root(repository_root: Path) -> Path:
+def _meristem_root(repository_root: Path) -> Path:
     """Resolve the framework checkout without assuming this worktree's location."""
 
-    configured = os.environ.get("AGENT_UTILITIES_ROOT")
+    configured = os.environ.get("MERISTEM_ROOT")
     if configured:
         root = Path(configured).expanduser().resolve()
-        if _is_agent_utilities_root(root):
+        if _is_meristem_root(root):
             return root
-        raise RuntimeError("AGENT_UTILITIES_ROOT is not an agent-utilities checkout")
+        raise RuntimeError("MERISTEM_ROOT is not an meristem checkout")
 
     result = subprocess.run(
         ["git", "-C", str(repository_root), "worktree", "list", "--porcelain"],
@@ -42,24 +42,24 @@ def _agent_utilities_root(repository_root: Path) -> Path:
         if line.startswith("worktree ")
     ]
     # A repo checkout -- canonical or a linked worktree -- sits some number of
-    # directory levels below the workspace root that also holds agent-utilities
+    # directory levels below the workspace root that also holds meristem
     # as a sibling (one level for a top-level repo like agent-webui, two for an
     # agents/<name> package). Walk upward from each known worktree instead of
     # assuming a fixed depth, so one script works at every nesting level.
     for worktree in worktrees:
         for ancestor in (worktree, *worktree.parents):
-            candidate = ancestor.parent / "agent-utilities"
-            if _is_agent_utilities_root(candidate):
+            candidate = ancestor.parent / "meristem"
+            if _is_meristem_root(candidate):
                 return candidate
 
     raise RuntimeError(
-        "Cannot locate an agent-utilities checkout. Set AGENT_UTILITIES_ROOT to the "
+        "Cannot locate an meristem checkout. Set MERISTEM_ROOT to the "
         "framework checkout before running pre-commit."
     )
 
 
 def main() -> int:
-    """Execute an Agent Utilities module or script in its locked environment."""
+    """Execute an Meristem module or script in its locked environment."""
 
     parser = argparse.ArgumentParser()
     target = parser.add_mutually_exclusive_group(required=True)
@@ -70,13 +70,13 @@ def main() -> int:
 
     repository_root = Path(__file__).resolve().parents[1]
     try:
-        framework_root = _agent_utilities_root(repository_root)
+        framework_root = _meristem_root(repository_root)
     except (OSError, RuntimeError, subprocess.CalledProcessError) as exc:
         parser.error(str(exc))
 
     uv = shutil.which("uv")
     if uv is None:
-        parser.error("uv is required to run Agent Utilities pre-commit gates")
+        parser.error("uv is required to run Meristem pre-commit gates")
 
     command = [uv, "run", "--project", str(framework_root), "--locked", "python"]
     if options.module:
@@ -85,7 +85,7 @@ def main() -> int:
         assert options.script is not None
         script = framework_root / options.script
         if not script.is_file():
-            parser.error(f"Agent Utilities script was not found: {options.script}")
+            parser.error(f"Meristem script was not found: {options.script}")
         command.append(str(script))
     arguments = options.arguments
     if arguments[:1] == ["--"]:

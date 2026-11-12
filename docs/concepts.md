@@ -9,4 +9,4 @@
 
 ## Ecosystem bridge
 
-**ECO-4.0** - this connector is built on `scion-sdk` (MCP server construction, manifests, content packs) and federates its ontology and skills into the hub through the `agent_utilities.*_providers` entry points. See the [agent-utilities concept registry](https://knuckles-team.github.io/agent-utilities/concepts/).
+**ECO-4.0** - this connector is built on `scion-sdk` (MCP server construction, manifests, content packs) and federates its ontology and skills into the hub through the `meristem.*_providers` entry points. See the [meristem concept registry](https://knuckles-team.github.io/meristem/concepts/).
