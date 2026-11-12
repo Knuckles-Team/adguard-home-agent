@@ -4,9 +4,7 @@ import re
 # Paths
 ROOT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 WORKSPACE_DIR = os.path.dirname(os.path.dirname(ROOT_DIR))
-MASTER_OVERVIEW_PATH = os.path.join(
-    WORKSPACE_DIR, "meristem", "docs", "overview.md"
-)
+MASTER_OVERVIEW_PATH = os.path.join(WORKSPACE_DIR, "meristem", "docs", "overview.md")
 
 
 def extract_concepts_from_overview(filepath):
