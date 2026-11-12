@@ -1,7 +1,7 @@
 """adguard-home-agent ontology contribution (data-only subpackage).
 
 Carries ``adguard_home.ttl`` (the ``owl:Ontology``
-``http://knuckles.team/kg/adguard-home-agent`` module) which the hub federates in
+``https://knuckles-team.github.io/ontology/connector/adguard-home`` module) which the hub federates in
 through the ``meristem.ontology_providers`` entry-point.
 """
 
