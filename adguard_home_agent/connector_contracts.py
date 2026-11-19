@@ -18,9 +18,7 @@ CONTRACTS = (
         steps=(
             ToolStep(
                 tool="adguard_home_access_list",
-                result=(
-                    "result",
-                ),
+                result=("result",),
                 refusals=(
                     Refusal(
                         code="ACCESS_DENIED",
@@ -44,9 +42,7 @@ CONTRACTS = (
                     "name",
                     "params_json",
                 ),
-                result=(
-                    "result",
-                ),
+                result=("result",),
                 refusals=(
                     Refusal(
                         code="ACCESS_DENIED",
@@ -70,9 +66,7 @@ CONTRACTS = (
                     "ip",
                     "mac",
                 ),
-                result=(
-                    "result",
-                ),
+                result=("result",),
                 refusals=(
                     Refusal(
                         code="ACCESS_DENIED",
@@ -96,9 +90,7 @@ CONTRACTS = (
                     "url",
                     "whitelist",
                 ),
-                result=(
-                    "result",
-                ),
+                result=("result",),
                 refusals=(
                     Refusal(
                         code="ACCESS_DENIED",
@@ -121,9 +113,7 @@ CONTRACTS = (
                     "answer",
                     "domain",
                 ),
-                result=(
-                    "result",
-                ),
+                result=("result",),
                 refusals=(
                     Refusal(
                         code="ACCESS_DENIED",
@@ -142,12 +132,8 @@ CONTRACTS = (
         steps=(
             ToolStep(
                 tool="adguard_home_check_host_filtering",
-                params=(
-                    "name",
-                ),
-                result=(
-                    "result",
-                ),
+                params=("name",),
+                result=("result",),
                 refusals=(
                     Refusal(
                         code="ACCESS_DENIED",
@@ -166,9 +152,7 @@ CONTRACTS = (
         steps=(
             ToolStep(
                 tool="adguard_home_clear_cache",
-                result=(
-                    "result",
-                ),
+                result=("result",),
                 refusals=(
                     Refusal(
                         code="ACCESS_DENIED",
@@ -187,9 +171,7 @@ CONTRACTS = (
         steps=(
             ToolStep(
                 tool="adguard_home_clear_query_log",
-                result=(
-                    "result",
-                ),
+                result=("result",),
                 refusals=(
                     Refusal(
                         code="ACCESS_DENIED",
@@ -208,12 +190,8 @@ CONTRACTS = (
         steps=(
             ToolStep(
                 tool="adguard_home_configure_tls",
-                params=(
-                    "config",
-                ),
-                result=(
-                    "result",
-                ),
+                params=("config",),
+                result=("result",),
                 refusals=(
                     Refusal(
                         code="ACCESS_DENIED",
@@ -237,9 +215,7 @@ CONTRACTS = (
                     "endpoint",
                     "params_json",
                 ),
-                result=(
-                    "result",
-                ),
+                result=("result",),
                 refusals=(
                     Refusal(
                         code="ACCESS_DENIED",
@@ -266,9 +242,7 @@ CONTRACTS = (
                     "confirm",
                     "name",
                 ),
-                result=(
-                    "result",
-                ),
+                result=("result",),
                 refusals=(
                     Refusal(
                         code="ACCESS_DENIED",
@@ -296,9 +270,7 @@ CONTRACTS = (
                     "confirm",
                     "domain",
                 ),
-                result=(
-                    "result",
-                ),
+                result=("result",),
                 refusals=(
                     Refusal(
                         code="ACCESS_DENIED",
@@ -321,9 +293,7 @@ CONTRACTS = (
         steps=(
             ToolStep(
                 tool="adguard_home_disable_parental_control",
-                result=(
-                    "result",
-                ),
+                result=("result",),
                 refusals=(
                     Refusal(
                         code="ACCESS_DENIED",
@@ -342,9 +312,7 @@ CONTRACTS = (
         steps=(
             ToolStep(
                 tool="adguard_home_disable_safebrowsing",
-                result=(
-                    "result",
-                ),
+                result=("result",),
                 refusals=(
                     Refusal(
                         code="ACCESS_DENIED",
@@ -363,9 +331,7 @@ CONTRACTS = (
         steps=(
             ToolStep(
                 tool="adguard_home_enable_parental_control",
-                result=(
-                    "result",
-                ),
+                result=("result",),
                 refusals=(
                     Refusal(
                         code="ACCESS_DENIED",
@@ -384,9 +350,7 @@ CONTRACTS = (
         steps=(
             ToolStep(
                 tool="adguard_home_enable_safebrowsing",
-                result=(
-                    "result",
-                ),
+                result=("result",),
                 refusals=(
                     Refusal(
                         code="ACCESS_DENIED",
@@ -405,12 +369,8 @@ CONTRACTS = (
         steps=(
             ToolStep(
                 tool="adguard_home_find_active_dhcp",
-                params=(
-                    "interface",
-                ),
-                result=(
-                    "result",
-                ),
+                params=("interface",),
+                result=("result",),
                 refusals=(
                     Refusal(
                         code="ACCESS_DENIED",
@@ -433,9 +393,7 @@ CONTRACTS = (
                     "endpoint",
                     "params_json",
                 ),
-                result=(
-                    "result",
-                ),
+                result=("result",),
                 refusals=(
                     Refusal(
                         code="ACCESS_DENIED",
@@ -454,9 +412,7 @@ CONTRACTS = (
         steps=(
             ToolStep(
                 tool="adguard_home_get_all_blocked_services",
-                result=(
-                    "result",
-                ),
+                result=("result",),
                 refusals=(
                     Refusal(
                         code="ACCESS_DENIED",
@@ -475,9 +431,7 @@ CONTRACTS = (
         steps=(
             ToolStep(
                 tool="adguard_home_get_blocked_services_list",
-                result=(
-                    "result",
-                ),
+                result=("result",),
                 refusals=(
                     Refusal(
                         code="ACCESS_DENIED",
@@ -496,9 +450,7 @@ CONTRACTS = (
         steps=(
             ToolStep(
                 tool="adguard_home_get_dhcp_interfaces",
-                result=(
-                    "result",
-                ),
+                result=("result",),
                 refusals=(
                     Refusal(
                         code="ACCESS_DENIED",
@@ -517,9 +469,7 @@ CONTRACTS = (
         steps=(
             ToolStep(
                 tool="adguard_home_get_dhcp_status",
-                result=(
-                    "result",
-                ),
+                result=("result",),
                 refusals=(
                     Refusal(
                         code="ACCESS_DENIED",
@@ -538,9 +488,7 @@ CONTRACTS = (
         steps=(
             ToolStep(
                 tool="adguard_home_get_dns_info",
-                result=(
-                    "result",
-                ),
+                result=("result",),
                 refusals=(
                     Refusal(
                         code="ACCESS_DENIED",
@@ -563,9 +511,7 @@ CONTRACTS = (
                     "client_id",
                     "host",
                 ),
-                result=(
-                    "result",
-                ),
+                result=("result",),
                 refusals=(
                     Refusal(
                         code="ACCESS_DENIED",
@@ -588,9 +534,7 @@ CONTRACTS = (
                     "client_id",
                     "host",
                 ),
-                result=(
-                    "result",
-                ),
+                result=("result",),
                 refusals=(
                     Refusal(
                         code="ACCESS_DENIED",
@@ -609,9 +553,7 @@ CONTRACTS = (
         steps=(
             ToolStep(
                 tool="adguard_home_get_filtering_status",
-                result=(
-                    "result",
-                ),
+                result=("result",),
                 refusals=(
                     Refusal(
                         code="ACCESS_DENIED",
@@ -630,9 +572,7 @@ CONTRACTS = (
         steps=(
             ToolStep(
                 tool="adguard_home_get_parental_status",
-                result=(
-                    "result",
-                ),
+                result=("result",),
                 refusals=(
                     Refusal(
                         code="ACCESS_DENIED",
@@ -651,9 +591,7 @@ CONTRACTS = (
         steps=(
             ToolStep(
                 tool="adguard_home_get_profile",
-                result=(
-                    "result",
-                ),
+                result=("result",),
                 refusals=(
                     Refusal(
                         code="ACCESS_DENIED",
@@ -679,9 +617,7 @@ CONTRACTS = (
                     "response_status",
                     "search",
                 ),
-                result=(
-                    "result",
-                ),
+                result=("result",),
                 refusals=(
                     Refusal(
                         code="ACCESS_DENIED",
@@ -700,9 +636,7 @@ CONTRACTS = (
         steps=(
             ToolStep(
                 tool="adguard_home_get_query_log_config",
-                result=(
-                    "result",
-                ),
+                result=("result",),
                 refusals=(
                     Refusal(
                         code="ACCESS_DENIED",
@@ -721,9 +655,7 @@ CONTRACTS = (
         steps=(
             ToolStep(
                 tool="adguard_home_get_rewrite_settings",
-                result=(
-                    "result",
-                ),
+                result=("result",),
                 refusals=(
                     Refusal(
                         code="ACCESS_DENIED",
@@ -742,9 +674,7 @@ CONTRACTS = (
         steps=(
             ToolStep(
                 tool="adguard_home_get_safebrowsing_status",
-                result=(
-                    "result",
-                ),
+                result=("result",),
                 refusals=(
                     Refusal(
                         code="ACCESS_DENIED",
@@ -763,9 +693,7 @@ CONTRACTS = (
         steps=(
             ToolStep(
                 tool="adguard_home_get_safesearch_status",
-                result=(
-                    "result",
-                ),
+                result=("result",),
                 refusals=(
                     Refusal(
                         code="ACCESS_DENIED",
@@ -784,9 +712,7 @@ CONTRACTS = (
         steps=(
             ToolStep(
                 tool="adguard_home_get_stats",
-                result=(
-                    "result",
-                ),
+                result=("result",),
                 refusals=(
                     Refusal(
                         code="ACCESS_DENIED",
@@ -805,9 +731,7 @@ CONTRACTS = (
         steps=(
             ToolStep(
                 tool="adguard_home_get_stats_config",
-                result=(
-                    "result",
-                ),
+                result=("result",),
                 refusals=(
                     Refusal(
                         code="ACCESS_DENIED",
@@ -826,9 +750,7 @@ CONTRACTS = (
         steps=(
             ToolStep(
                 tool="adguard_home_get_tls_status",
-                result=(
-                    "result",
-                ),
+                result=("result",),
                 refusals=(
                     Refusal(
                         code="ACCESS_DENIED",
@@ -847,9 +769,7 @@ CONTRACTS = (
         steps=(
             ToolStep(
                 tool="adguard_home_get_version",
-                result=(
-                    "result",
-                ),
+                result=("result",),
                 refusals=(
                     Refusal(
                         code="ACCESS_DENIED",
@@ -872,9 +792,7 @@ CONTRACTS = (
                     "endpoint",
                     "params_json",
                 ),
-                result=(
-                    "result",
-                ),
+                result=("result",),
                 refusals=(
                     Refusal(
                         code="ACCESS_DENIED",
@@ -893,9 +811,7 @@ CONTRACTS = (
         steps=(
             ToolStep(
                 tool="adguard_home_list_clients",
-                result=(
-                    "result",
-                ),
+                result=("result",),
                 refusals=(
                     Refusal(
                         code="ACCESS_DENIED",
@@ -914,9 +830,7 @@ CONTRACTS = (
         steps=(
             ToolStep(
                 tool="adguard_home_list_rewrites",
-                result=(
-                    "result",
-                ),
+                result=("result",),
                 refusals=(
                     Refusal(
                         code="ACCESS_DENIED",
@@ -939,9 +853,7 @@ CONTRACTS = (
                     "password",
                     "user",
                 ),
-                result=(
-                    "result",
-                ),
+                result=("result",),
                 refusals=(
                     Refusal(
                         code="ACCESS_DENIED",
@@ -960,9 +872,7 @@ CONTRACTS = (
         steps=(
             ToolStep(
                 tool="adguard_home_logout",
-                result=(
-                    "result",
-                ),
+                result=("result",),
                 refusals=(
                     Refusal(
                         code="ACCESS_DENIED",
@@ -985,9 +895,7 @@ CONTRACTS = (
                     "endpoint",
                     "params_json",
                 ),
-                result=(
-                    "result",
-                ),
+                result=("result",),
                 refusals=(
                     Refusal(
                         code="ACCESS_DENIED",
@@ -1010,9 +918,7 @@ CONTRACTS = (
                     "endpoint",
                     "params_json",
                 ),
-                result=(
-                    "result",
-                ),
+                result=("result",),
                 refusals=(
                     Refusal(
                         code="ACCESS_DENIED",
@@ -1035,9 +941,7 @@ CONTRACTS = (
                     "endpoint",
                     "params_json",
                 ),
-                result=(
-                    "result",
-                ),
+                result=("result",),
                 refusals=(
                     Refusal(
                         code="ACCESS_DENIED",
@@ -1056,12 +960,8 @@ CONTRACTS = (
         steps=(
             ToolStep(
                 tool="adguard_home_refresh_filters",
-                params=(
-                    "whitelist",
-                ),
-                result=(
-                    "result",
-                ),
+                params=("whitelist",),
+                result=("result",),
                 refusals=(
                     Refusal(
                         code="ACCESS_DENIED",
@@ -1086,9 +986,7 @@ CONTRACTS = (
                     "ip",
                     "mac",
                 ),
-                result=(
-                    "result",
-                ),
+                result=("result",),
                 refusals=(
                     Refusal(
                         code="ACCESS_DENIED",
@@ -1116,9 +1014,7 @@ CONTRACTS = (
                     "url",
                     "whitelist",
                 ),
-                result=(
-                    "result",
-                ),
+                result=("result",),
                 refusals=(
                     Refusal(
                         code="ACCESS_DENIED",
@@ -1147,9 +1043,7 @@ CONTRACTS = (
                     "method",
                     "params",
                 ),
-                result=(
-                    "result",
-                ),
+                result=("result",),
                 refusals=(
                     Refusal(
                         code="ACCESS_DENIED",
@@ -1168,9 +1062,7 @@ CONTRACTS = (
         steps=(
             ToolStep(
                 tool="adguard_home_reset_dhcp",
-                result=(
-                    "result",
-                ),
+                result=("result",),
                 refusals=(
                     Refusal(
                         code="ACCESS_DENIED",
@@ -1189,9 +1081,7 @@ CONTRACTS = (
         steps=(
             ToolStep(
                 tool="adguard_home_reset_dhcp_leases",
-                result=(
-                    "result",
-                ),
+                result=("result",),
                 refusals=(
                     Refusal(
                         code="ACCESS_DENIED",
@@ -1210,9 +1100,7 @@ CONTRACTS = (
         steps=(
             ToolStep(
                 tool="adguard_home_reset_stats",
-                result=(
-                    "result",
-                ),
+                result=("result",),
                 refusals=(
                     Refusal(
                         code="ACCESS_DENIED",
@@ -1231,12 +1119,8 @@ CONTRACTS = (
         steps=(
             ToolStep(
                 tool="adguard_home_search_clients",
-                params=(
-                    "query",
-                ),
-                result=(
-                    "result",
-                ),
+                params=("query",),
+                result=("result",),
                 refusals=(
                     Refusal(
                         code="ACCESS_DENIED",
@@ -1260,9 +1144,7 @@ CONTRACTS = (
                     "blocked_hosts",
                     "disallowed_clients",
                 ),
-                result=(
-                    "result",
-                ),
+                result=("result",),
                 refusals=(
                     Refusal(
                         code="ACCESS_DENIED",
@@ -1281,12 +1163,8 @@ CONTRACTS = (
         steps=(
             ToolStep(
                 tool="adguard_home_set_dhcp_config",
-                params=(
-                    "config",
-                ),
-                result=(
-                    "result",
-                ),
+                params=("config",),
+                result=("result",),
                 refusals=(
                     Refusal(
                         code="ACCESS_DENIED",
@@ -1305,12 +1183,8 @@ CONTRACTS = (
         steps=(
             ToolStep(
                 tool="adguard_home_set_dns_config",
-                params=(
-                    "config",
-                ),
-                result=(
-                    "result",
-                ),
+                params=("config",),
+                result=("result",),
                 refusals=(
                     Refusal(
                         code="ACCESS_DENIED",
@@ -1334,9 +1208,7 @@ CONTRACTS = (
                     "url",
                     "whitelist",
                 ),
-                result=(
-                    "result",
-                ),
+                result=("result",),
                 refusals=(
                     Refusal(
                         code="ACCESS_DENIED",
@@ -1359,9 +1231,7 @@ CONTRACTS = (
                     "enabled",
                     "interval",
                 ),
-                result=(
-                    "result",
-                ),
+                result=("result",),
                 refusals=(
                     Refusal(
                         code="ACCESS_DENIED",
@@ -1380,12 +1250,8 @@ CONTRACTS = (
         steps=(
             ToolStep(
                 tool="adguard_home_set_filtering_rules",
-                params=(
-                    "rules",
-                ),
-                result=(
-                    "result",
-                ),
+                params=("rules",),
+                result=("result",),
                 refusals=(
                     Refusal(
                         code="ACCESS_DENIED",
@@ -1408,9 +1274,7 @@ CONTRACTS = (
                     "duration",
                     "enabled",
                 ),
-                result=(
-                    "result",
-                ),
+                result=("result",),
                 refusals=(
                     Refusal(
                         code="ACCESS_DENIED",
@@ -1434,9 +1298,7 @@ CONTRACTS = (
                     "enabled",
                     "interval",
                 ),
-                result=(
-                    "result",
-                ),
+                result=("result",),
                 refusals=(
                     Refusal(
                         code="ACCESS_DENIED",
@@ -1455,12 +1317,8 @@ CONTRACTS = (
         steps=(
             ToolStep(
                 tool="adguard_home_set_stats_config",
-                params=(
-                    "interval",
-                ),
-                result=(
-                    "result",
-                ),
+                params=("interval",),
+                result=("result",),
                 refusals=(
                     Refusal(
                         code="ACCESS_DENIED",
@@ -1479,12 +1337,8 @@ CONTRACTS = (
         steps=(
             ToolStep(
                 tool="adguard_home_test_upstream_dns",
-                params=(
-                    "upstreams",
-                ),
-                result=(
-                    "result",
-                ),
+                params=("upstreams",),
+                result=("result",),
                 refusals=(
                     Refusal(
                         code="ACCESS_DENIED",
@@ -1503,12 +1357,8 @@ CONTRACTS = (
         steps=(
             ToolStep(
                 tool="adguard_home_update_blocked_services",
-                params=(
-                    "services",
-                ),
-                result=(
-                    "result",
-                ),
+                params=("services",),
+                result=("result",),
                 refusals=(
                     Refusal(
                         code="ACCESS_DENIED",
@@ -1531,9 +1381,7 @@ CONTRACTS = (
                     "data",
                     "name",
                 ),
-                result=(
-                    "result",
-                ),
+                result=("result",),
                 refusals=(
                     Refusal(
                         code="ACCESS_DENIED",
@@ -1557,9 +1405,7 @@ CONTRACTS = (
                     "ip",
                     "mac",
                 ),
-                result=(
-                    "result",
-                ),
+                result=("result",),
                 refusals=(
                     Refusal(
                         code="ACCESS_DENIED",
@@ -1578,12 +1424,8 @@ CONTRACTS = (
         steps=(
             ToolStep(
                 tool="adguard_home_update_profile",
-                params=(
-                    "profile_data",
-                ),
-                result=(
-                    "result",
-                ),
+                params=("profile_data",),
+                result=("result",),
                 refusals=(
                     Refusal(
                         code="ACCESS_DENIED",
@@ -1606,9 +1448,7 @@ CONTRACTS = (
                     "target",
                     "update",
                 ),
-                result=(
-                    "result",
-                ),
+                result=("result",),
                 refusals=(
                     Refusal(
                         code="ACCESS_DENIED",
@@ -1627,12 +1467,8 @@ CONTRACTS = (
         steps=(
             ToolStep(
                 tool="adguard_home_update_rewrite_settings",
-                params=(
-                    "enabled",
-                ),
-                result=(
-                    "result",
-                ),
+                params=("enabled",),
+                result=("result",),
                 refusals=(
                     Refusal(
                         code="ACCESS_DENIED",
@@ -1660,9 +1496,7 @@ CONTRACTS = (
                     "yandex",
                     "youtube",
                 ),
-                result=(
-                    "result",
-                ),
+                result=("result",),
                 refusals=(
                     Refusal(
                         code="ACCESS_DENIED",
@@ -1681,12 +1515,8 @@ CONTRACTS = (
         steps=(
             ToolStep(
                 tool="adguard_home_validate_tls",
-                params=(
-                    "config",
-                ),
-                result=(
-                    "result",
-                ),
+                params=("config",),
+                result=("result",),
                 refusals=(
                     Refusal(
                         code="ACCESS_DENIED",
@@ -1778,9 +1608,7 @@ LINKS = (
             "adguard_home_update_safesearch_settings",
             "adguard_home_validate_tls",
         ),
-        prompts=(
-            "adguard-home-agent-adguard-home-administrator",
-        ),
+        prompts=("adguard-home-agent-adguard-home-administrator",),
     ),
     SurfaceLink(
         task="adguard-home-agent-operator",
@@ -1857,9 +1685,7 @@ LINKS = (
             "adguard_home_update_safesearch_settings",
             "adguard_home_validate_tls",
         ),
-        prompts=(
-            "adguard-home-agent-operator",
-        ),
+        prompts=("adguard-home-agent-operator",),
     ),
     SurfaceLink(
         task="adguard_home_specialist",
@@ -1936,9 +1762,7 @@ LINKS = (
             "adguard_home_update_safesearch_settings",
             "adguard_home_validate_tls",
         ),
-        prompts=(
-            "adguard_home_specialist",
-        ),
+        prompts=("adguard_home_specialist",),
     ),
     SurfaceLink(
         task="main_agent",
@@ -2015,9 +1839,7 @@ LINKS = (
             "adguard_home_update_safesearch_settings",
             "adguard_home_validate_tls",
         ),
-        prompts=(
-            "main_agent",
-        ),
+        prompts=("main_agent",),
     ),
     SurfaceLink(
         task="adguard-home-dns-management",
@@ -2094,18 +1916,14 @@ LINKS = (
             "adguard_home_update_safesearch_settings",
             "adguard_home_validate_tls",
         ),
-        skills=(
-            "adguard-home-dns-management",
-        ),
+        skills=("adguard-home-dns-management",),
     ),
 )
 
 LOCATIONS = (
     DataLocation(
         name="adguard-home-rewrites",
-        holds=(
-            "DnsRewrite",
-        ),
+        holds=("DnsRewrite",),
         instance="adguard-home-agent-default",
         read_tool="adguard_home_list_rewrites",
     ),
