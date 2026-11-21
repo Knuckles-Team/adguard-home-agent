@@ -1923,7 +1923,7 @@ LINKS = (
 LOCATIONS = (
     DataLocation(
         name="adguard-home-rewrites",
-        holds=("DnsRewrite",),
+        holds=("AdGuardRewrite",),
         instance="adguard-home-agent-default",
         read_tool="adguard_home_list_rewrites",
     ),
