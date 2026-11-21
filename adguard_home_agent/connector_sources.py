@@ -14,7 +14,7 @@ SOURCES: tuple[Any, ...] = (
     source_meta(
         tool="adguard_home_list_rewrites",
         source_id="adguard-home-rewrites",
-        record_type="DnsRewrite",
+        record_type="AdGuardRewrite",
         id_field="domain",
         preset={
             "doc_type": "dns_rewrite",
@@ -28,7 +28,7 @@ SOURCES: tuple[Any, ...] = (
 )
 
 SCHEMA_MAPPINGS: dict[str, Any] = {
-    "DnsRewrite": {
+    "AdGuardRewrite": {
         "fields": {
             "rewriteAnswer": "xsd:string",
             "rewriteDomain": "xsd:string",
@@ -41,6 +41,6 @@ RESOURCES: tuple[dict[str, str], ...] = (
     {
         "id_prefix": "dnsrewrite",
         "label": "DNS Rewrite",
-        "name": "DnsRewrite",
+        "name": "AdGuardRewrite",
     },
 )
