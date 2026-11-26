@@ -20,6 +20,10 @@
 ![PyPI - Wheel](https://img.shields.io/pypi/wheel/adguard-home-agent)
 ![PyPI - Implementation](https://img.shields.io/pypi/implementation/adguard-home-agent)
 
+> **Documentation** — Installation, deployment, and usage across the API, CLI, MCP,
+> and A2A agent interfaces are maintained in the
+> [official documentation](https://knuckles-team.github.io/adguard-home-agent/).
+
 ---
 
 ## Overview
@@ -192,6 +196,14 @@ uv pip install adguard-home-agent[all]
 # Using standard pip
 python -m pip install adguard-home-agent[all]
 ```
+
+---
+
+## Documentation
+
+The complete documentation is published as the
+[official documentation site](https://knuckles-team.github.io/adguard-home-agent/) and is
+the recommended reference for installation, deployment, and day-to-day operation.
 
 ---
 
